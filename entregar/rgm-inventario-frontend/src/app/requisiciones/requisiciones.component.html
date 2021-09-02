@@ -1,0 +1,183 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="section"></div>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Creación de requisiciones</span>
+          <div class="row right-align" *ngIf="urlRequisicionPdf">
+            <a href="{{urlRequisicionPdf}}" class="btn btn-primary" target="_blank">Descargar PDF</a>
+          </div>
+          <div class="row">
+            <form materialize class="col s12" (ngSubmit)="onSubmit()" [formGroup]="requisicionForm">
+              <div class="row">
+                <!-- <div class="col s6">
+                  <div class="input-field">
+                    <input
+                      type="text"
+                      class="validate"
+                      id="correlativo"
+                      formControlName="correlativo">
+                    <label for="correlativo">Código requisición</label>
+                  </div>
+                </div> -->
+                <div class="col s6">
+                  <div class="input-field" (click)="stopPropagation($event)">
+                    <input
+                      type="text"
+                      class="validate datepicker"
+                      id="fecha"
+                      formControlName="fecha"
+                      materialize="pickadate"
+                      [materializeParams]="[{format: 'dd/mm/yyyy'}]">
+                    <label for="fecha">Fecha</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea
+                    class="materialize-textarea"
+                    id="observaciones"
+                    formControlName="observaciones"></textarea>
+                  <label for="observaciones">Motivo</label>
+                </div>
+              </div>
+              <div class="row">
+                <a class="waves-effect waves-light btn-large" (click)="onAddArticleClicked()">Agregar artículo</a>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Código</th>
+                      <th>Descripción</th>
+                      <th>Cantidad</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngIf="detalleRequisicion">
+                    <tr *ngFor="let detalle of detalleRequisicion; let i = index">
+                      <td>{{ detalle.codigoArticulo }}</td>
+                      <td>{{ detalle.articulo.descripcion }}</td>
+                      <td>{{ detalle.cantidad }}</td>
+                      <td>
+                        <a
+                          class="waves-effect waves-light btn red darken-4"
+                          [swal]="{title: 'Quitar articulo', text: '¿Está seguro de quitar el articulo?', type: 'warning', showCancelButton: true}"
+                          (confirm)="onRemoveArticleClicked(i)"><i class="material-icons">clear</i></a>
+                      </td>
+                    </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+              <div class="row">
+                <div class="col s12 right-align">
+                  <button
+                    class="waves-effect waves-light btn"
+                    type="submit">Guardar</button>
+                  <a class="waves-effect waves-light btn red darken-4" (click)="onClearClicked()">Limpiar</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="section"></div>
+<div id="modDetalle" class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <h4>Detalle de requisición</h4>
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <form materialize #f="ngForm" class="col s12">
+            <div class="row">
+              <div class="input-field col s1">
+                <input
+                  type="text"
+                  class="validate"
+                  betterAutocomplete [data]="articles" [init]="autocompleteCodigoInit"
+                  [(ngModel)]="codigoArticulo"
+                  name="codigoArticulo"
+                  placeholder="Codigo">
+              </div>
+              <div class="input-field col s4">
+                <input
+                  type="text"
+                  class="validate"
+                  betterAutocomplete [data]="articles" [init]="autocompleteInit"
+                  [(ngModel)]="descripcionArticulo"
+                  name="descripcionArticulo"
+                  placeholder="Articulo">
+              </div>
+              <div class="input-field col s3">
+                <label *ngIf="modalDetalle && !modalDetalle.articulo">Existencia actual:</label>
+                <label *ngIf="modalDetalle && modalDetalle.articulo" for="precio">Existencia actual: {{modalDetalle.articulo.existencia}}</label>
+              </div>
+              <div class="input-field col s3">
+                <input
+                  type="text"
+                  class="validate"
+                  id="cantidad"
+                  ngModel
+                  name="cantidad"
+                  required
+                  #cantidad="ngModel">
+                <label for="cantidad">Cantidad</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col s12 right-align">
+            <button
+              class="waves-effect waves-light btn"
+              type="button"
+              (click)="onAddDetalleClicked()">Agregar</button>
+            <a class="waves-effect waves-light btn red darken-4" (click)="onCancelClicked()">Cancelar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<swal
+  #swalArticuloAgregado
+  title="Artículo ya agregado"
+  text="El artículo ya fue agregado previamente."
+  type="error">
+</swal>
+<swal
+  #swalDetalleObligatorios
+  title="Campos obligatorios"
+  text="Debe ingresar todos los campos del articulo."
+  type="error">
+</swal>
+<swal
+  #swalMaximoRequisicion
+  title="Maximo de requisicion"
+  text="No puede solicitar mas de la cantidad en existencia."
+  type="error">
+</swal>
+<swal
+  #swalCero
+  title="Minimo de requisicion"
+  text="No puede colocar 0 (cero) como cantidad solicitada."
+  type="error">
+</swal>
+<swal
+  #swalRequisicionObligatorios
+  title="Campos obligatorios"
+  text="Debe ingresar todos los campos de la requisicion."
+  type="error">
+</swal>
+<swal
+  #swalNoDetalle
+  title="Detalle obligatorio"
+  text="Debe ingresar al menos un articulo."
+  type="error">
+</swal>

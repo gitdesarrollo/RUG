@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC
+    "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN"
+    "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+    <jdbc-connection-pool 
+        name="rug_ds_pool" 
+        datasource-classname="oracle.jdbc.pool.OracleDataSource"
+        res-type="javax.sql.DataSource">
+         <property name="URL" value="jdbc:oracle:thin:@ninja_code.mineco.gob.gt:1521:orcl"/>
+    	 <property name="User" value="c##inventario"/>
+         <property name="Password" value="inventario"/>
+    </jdbc-connection-pool>
+
+    <jdbc-resource 
+        enabled="true" 
+        jndi-name="jdbc/invDS" 
+        object-type="user" 
+        pool-name="rug_ds_pool"/>
+</resources>

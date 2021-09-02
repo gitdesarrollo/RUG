@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	
+	<display-name>Aplicacion Web del Inventario</display-name>
+	<servlet> 
+      <servlet-name>Jersey RESTful Application</servlet-name> 
+      <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class> 
+      <init-param> 
+         <param-name>jersey.config.server.provider.packages</param-name> 
+         <param-value>gt.gob.rgm.inv.rs</param-value> 
+      </init-param> 
+   </servlet> 
+   <servlet-mapping> 
+      <servlet-name>Jersey RESTful Application</servlet-name> 
+      <url-pattern>/rs/*</url-pattern> 
+   </servlet-mapping>
+   <servlet>
+   	<servlet-name>Requisiciones Servlet</servlet-name>
+   	<servlet-class>gt.gob.rgm.inv.service.RequisicionServlet</servlet-class>
+   </servlet> 
+   <servlet-mapping>
+   	<servlet-name>Requisiciones Servlet</servlet-name>
+   	<url-pattern>/reporte-requisiciones</url-pattern>
+   </servlet-mapping>
+   <servlet>
+   	<servlet-name>Inventario Servlet</servlet-name>
+   	<servlet-class>gt.gob.rgm.inv.service.ArticuloServlet</servlet-class>
+   </servlet> 
+   <servlet-mapping>
+   	<servlet-name>Inventario Servlet</servlet-name>
+   	<url-pattern>/reporte-inventario</url-pattern>
+   </servlet-mapping>
+   <servlet>
+   	<servlet-name>Despacho Servlet</servlet-name>
+   	<servlet-class>gt.gob.rgm.inv.service.DespachoServlet</servlet-class>
+   </servlet> 
+   <servlet-mapping>
+   	<servlet-name>Despacho Servlet</servlet-name>
+   	<url-pattern>/reporte-despacho</url-pattern>
+   </servlet-mapping>
+   <servlet>
+   	<servlet-name>Ingreso Servlet</servlet-name>
+   	<servlet-class>gt.gob.rgm.inv.service.IngresoServlet</servlet-class>
+   </servlet> 
+   <servlet-mapping>
+   	<servlet-name>Ingreso Servlet</servlet-name>
+   	<url-pattern>/reporte-ingreso</url-pattern>
+   </servlet-mapping>
+   <servlet>
+   	<servlet-name>Kardex Servlet</servlet-name>
+   	<servlet-class>gt.gob.rgm.inv.service.KardexServlet</servlet-class>
+   </servlet> 
+   <servlet-mapping>
+   	<servlet-name>Kardex Servlet</servlet-name>
+   	<url-pattern>/reporte-kardex</url-pattern>
+   </servlet-mapping>
+   <servlet>
+   	<servlet-name>Proveedor Servlet</servlet-name>
+   	<servlet-class>gt.gob.rgm.inv.service.ProveedorServlet</servlet-class>
+   </servlet> 
+   <servlet-mapping>
+   	<servlet-name>Proveedor Servlet</servlet-name>
+   	<url-pattern>/reporte-proveedor</url-pattern>
+   </servlet-mapping>
+   <servlet>
+   	<servlet-name>Salida Servlet</servlet-name>
+   	<servlet-class>gt.gob.rgm.inv.service.SalidaServlet</servlet-class>
+   </servlet> 
+   <servlet-mapping>
+   	<servlet-name>Salida Servlet</servlet-name>
+   	<url-pattern>/reporte-salida</url-pattern>
+   </servlet-mapping>
+   <servlet>
+   	<servlet-name>Usuario Servlet</servlet-name>
+   	<servlet-class>gt.gob.rgm.inv.service.UsuarioServlet</servlet-class>
+   </servlet> 
+   <servlet-mapping>
+   	<servlet-name>Usuario Servlet</servlet-name>
+   	<url-pattern>/reporte-usuario</url-pattern>
+   </servlet-mapping>
+</web-app>

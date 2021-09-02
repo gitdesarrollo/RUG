@@ -1,0 +1,115 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="section"></div>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Aprobación de ingresos</span>
+          <div class="row right-align" *ngIf="urlIngresoPdf">
+            <a href="{{urlIngresoPdf}}" class="btn btn-primary" target="_blank">Descargar PDF</a>
+          </div>
+          <div class="row">
+            <table>
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Solicitante</th>
+                  <th>Fecha</th>
+                  <th>Observaciones</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ingreso of ingresos | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: currentPage, totalItems: total }; let i = index">
+                  <td>{{ ingreso.correlativo }}</td>
+                  <td>{{ ingreso.solicitante ? ingreso.solicitante.nombre : '' }}</td>
+                  <td>{{ ingreso.fecha }}</td>
+                  <td>{{ ingreso.observaciones }}</td>
+                  <td>
+                    <a
+                      class="waves-effect waves-light btn-floating"
+                      (click)="onViewIngresoClicked(i)"><i class="material-icons">visibility</i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-template #p="paginationApi"
+              id="server"
+              (pageChange)="onPageChange($event)">
+              <ul class="pagination custom-pagination">
+                <li class="pagination-previous" [class.disabled]="p.isFirstPage()">
+                  <a *ngIf="!p.isFirstPage()" (click)="p.previous()"><i class="material-icons">chevron_left</i></a>
+                </li>
+                <li *ngFor="let page of p.pages" [class.active]="p.getCurrent() === page.value" [class.waves-effect]="p.getCurrent() !== page.value">
+                  <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                    {{ page.label }}
+                  </a>
+                  <a *ngIf="p.getCurrent() === page.value">
+                    {{ page.label }}
+                  </a>
+                </li>
+                <li class="pagination-next" [class.disabled]="p.isLastPage()">
+                  <a *ngIf="!p.isLastPage()" (click)="p.next()"><i class="material-icons">chevron_right</i></a>
+                </li>
+              </ul>
+            </pagination-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="section"></div>
+<div id="modDetalle" class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <h4>Detalle de ingreso</h4>
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <table *ngIf="modalIngreso">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Cantidad a ingresar</th>
+                <th>Modificar cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detalle of modalIngreso.detalle; let i = index">
+                <td>{{ detalle.codigoArticulo }}</td>
+                <td>{{ detalle.articulo.descripcion }}</td>
+                <td>{{ detalle.cantidad }}</td>
+                <td>
+                  <input type="text" [(ngModel)]="cantidadAprobada[i]">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col s12 right-align">
+            <button
+              class="waves-effect waves-light btn-floating indigo"
+              type="button"
+              (click)="onApprovedClicked()"><i class="material-icons">check_circle</i></button>
+            <a class="waves-effect waves-light btn-floating red darken-4" (click)="onRejectedClicked()"><i class="material-icons">cancel</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<swal
+  #swalMotivoRechazo
+  title="Motivo rechazo"
+  text="Debe ingresar el motivo por el que se rechaza la ingreso."
+  type="error">
+</swal>
+<swal
+  #swalDetalleObligatorios
+  title="Campos obligatorios"
+  text="Debe ingresar la cantidad aprobada para todos los articulos."
+  type="error">
+</swal>

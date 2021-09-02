@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="rug-adm:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7465f823-526b-4609-820c-5da2b5eed5f8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/artifacts/rug_ear_ear.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/artifacts/rug_ear_ear_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/artifacts/rug_web_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/artifacts/rug_web_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_barcodes_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_font_asian_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_forms_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_hyph_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_io_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_itextpdf_5_5_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_kernel_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_layout_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_pdfa_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_sign_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_styled_xml_parser_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_itextpdf_svg_7_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__commons_codec_commons_codec_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__javaee_javaee_api_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__javax_javaee_api_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__junit_junit_3_8_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__mx_gob_rug_cert_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__mx_gob_rug_curp_client_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__mx_gob_rug_fh_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__mx_gob_rug_firmacentral_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__mx_gob_rug_rug_web_war_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_bouncycastle_bcmail_jdk14_1_46.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_bouncycastle_bcpkix_jdk15on_1_64.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_bouncycastle_bcprov_jdk14_1_63.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_64.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_bouncycastle_bctsp_jdk14_1_46.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rgm-captcha/rgm-captcha.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rgm-files/rgm-files.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rgm-firma/rgm-firma.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rgm-mail/rgm-mail.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rug-ejb/rug-ejb.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rug-parent.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rug-web/src/main/webapp/resources/css/sweetalert2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rug-web/src/main/webapp/resources/js/sweetalert.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/resources/css/sweetalert2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/resources/js/sweetalert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-captcha/target/classes/gt/gob/rgm/captcha/service/CaptchaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-captcha/target/classes/gt/gob/rgm/captcha/service/CaptchaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-captcha/target/classes/gt/gob/rgm/captcha/service/CaptchaServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-captcha/target/classes/gt/gob/rgm/captcha/service/CaptchaServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-captcha/target/classes/gt/gob/rgm/captcha/utils/Random.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-captcha/target/classes/gt/gob/rgm/captcha/utils/Random.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-captcha/target/rgm-captcha-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-captcha/target/rgm-captcha-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-files/target/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-files/target/classes/gt/gob/rgm/files/service/FilesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-files/target/classes/gt/gob/rgm/files/service/FilesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-files/target/classes/gt/gob/rgm/files/service/FilesServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-files/target/classes/gt/gob/rgm/files/service/FilesServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-files/target/classes/gt/gob/rgm/files/utils/HashUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-files/target/classes/gt/gob/rgm/files/utils/HashUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-files/target/rgm-files-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-files/target/rgm-files-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-files/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-firma/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-firma/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-firma/target/rgm-firma-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-firma/target/rgm-firma-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/dao/ConexionDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/dao/ConexionDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/dao/MailBitacoraDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/dao/MailBitacoraDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/domain/AccountMailTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/domain/AccountMailTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/domain/MailTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/domain/MailTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/domain/MessageTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/domain/MessageTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/exception/InfrastructureException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/exception/InfrastructureException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/exception/NoDestinationAddressException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/exception/NoDestinationAddressException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/security/SMTPAuthenticator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/security/SMTPAuthenticator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/service/MailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/service/MailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/service/MailServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/classes/gt/gob/rgm/mail/service/MailServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rgm-mail/target/rgm-mail-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rgm-mail/target/rgm-mail-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gt/gob/rgm/adm/service/RugBoletaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gt/gob/rgm/adm/service/RugBoletaServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/service/BoletaPdfServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/service/BoletaPdfServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/service/PdfBoletaSignature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/service/PdfBoletaSignature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/service/RugBoletaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/service/RugBoletaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/service/TransactionsServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/service/TransactionsServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/util/CharSetUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gt/gob/rgm/adm/util/CharSetUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rug-adm/WEB-INF/classes/gt/gob/rgm/adm/service/RugBoletaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rug-adm/WEB-INF/classes/gt/gob/rgm/adm/service/RugBoletaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rug-adm/WEB-INF/classes/gt/gob/rgm/adm/util/CharSetUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/rug-adm/WEB-INF/classes/gt/gob/rgm/adm/util/CharSetUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/rug-adm/WEB-INF/lib/rgm-mail-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/rug-adm/WEB-INF/lib/rgm-mail-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-ear/rug-ear.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-ear/rug-ear.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-ear/target/Rug.ear" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-ear/target/Rug.ear" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-ear/target/Rug/rug-web-1.0.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-ear/target/Rug/rug-web-1.0.0.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-ear/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-ear/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/rug-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/rug-web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/java/gt/gob/rgm/rs/UsuariosRs.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/java/gt/gob/rgm/rs/UsuariosRs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/java/mx/gob/se/rug/boleta/action/BoletaAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/java/mx/gob/se/rug/boleta/action/BoletaAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/java/mx/gob/se/rug/boleta/serviceImpl/BoletaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/java/mx/gob/se/rug/boleta/serviceImpl/BoletaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/java/mx/gob/se/rug/util/pdf/PdfServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/java/mx/gob/se/rug/util/pdf/PdfServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/java/mx/gob/se/rug/util/pdf/to/PdfTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/java/mx/gob/se/rug/util/pdf/to/PdfTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/Layout/portalBase.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/Layout/portalBase.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/content/Firma/scripts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/content/Firma/scripts.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/content/busqueda/scripts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/content/busqueda/scripts.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/content/certificacion/scripts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/content/certificacion/scripts.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/content/tramites/Certificacion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/src/main/webapp/WEB-INF/jsp/content/tramites/Certificacion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/gt/gob/rgm/rs/UsuariosRs.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/gt/gob/rgm/rs/UsuariosRs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/gt/gob/rgm/service/UsuariosServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/gt/gob/rgm/service/UsuariosServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/gt/gob/rgm/util/ExcelCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/gt/gob/rgm/util/ExcelCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/acreedores/action/AcreedorAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/acreedores/action/AcreedorAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/acreedores/dao/impl/AcreedoresCatalogosDaoJdbcImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/acreedores/dao/impl/AcreedoresCatalogosDaoJdbcImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/acreedores/dao/impl/AcreedoresDaoJdbcImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/acreedores/dao/impl/AcreedoresDaoJdbcImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/action/AnotacionGarantiaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/action/AnotacionGarantiaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/action/ProrrogaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/action/ProrrogaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/action/RectificacionAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/action/RectificacionAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/administracion/action/PerfilAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/administracion/action/PerfilAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/administracion/action/UsuarioAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/administracion/action/UsuarioAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/administracion/action/UsuarioDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/administracion/action/UsuarioDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/boleta/action/BoletaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/boleta/action/BoletaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/boleta/dao/BoletaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/boleta/dao/BoletaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/boleta/serviceImpl/BoletaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/boleta/serviceImpl/BoletaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/busqueda/dwr/action/BusquedaDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/busqueda/dwr/action/BusquedaDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/busquedaCert/action/BusquedaCertAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/busquedaCert/action/BusquedaCertAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/busquedaOp/dwr/action/BusquedaOpDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/busquedaOp/dwr/action/BusquedaOpDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/certificacion/utils/FileUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/certificacion/utils/FileUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/constants/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/constants/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/detallegarantia/action/DetalleAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/detallegarantia/action/DetalleAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/dto/DomicilioNacional.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/dto/DomicilioNacional.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/firma/action/FirmaElectronicaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/firma/action/FirmaElectronicaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/fwk/listener/RugSessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/fwk/listener/RugSessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/grupos/dwr/action/GruposDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/grupos/dwr/action/GruposDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/action/AutoridadMasivaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/action/AutoridadMasivaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/service/ModificacionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/service/ModificacionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/service/impl/MasivaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/service/impl/MasivaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/service/impl/PartesMasivaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/service/impl/PartesMasivaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/thread/AutoridadMasivaThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/thread/AutoridadMasivaThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/thread/CargaMasivaThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/masiva/thread/CargaMasivaThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/modificacion/to/AutoridadInstruye.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/modificacion/to/AutoridadInstruye.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/operaciones/dao/OperacionesDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/operaciones/dao/OperacionesDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/operaciones/dwr/action/OperacionesDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/operaciones/dwr/action/OperacionesDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/partes/dwr/action/ParteDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/partes/dwr/action/ParteDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/transmision/dwr/action/OtorganteDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/transmision/dwr/action/OtorganteDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/util/ExpresionesRegularesUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/util/ExpresionesRegularesUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/util/pdf/PdfServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/util/pdf/PdfServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/util/pdf/to/PdfTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/classes/mx/gob/se/rug/util/pdf/to/PdfTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/gt/gob/rgm/rs/UsuariosRs.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/gt/gob/rgm/rs/UsuariosRs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/gt/gob/rgm/service/UsuariosServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/gt/gob/rgm/service/UsuariosServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/gt/gob/rgm/util/ExcelCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/gt/gob/rgm/util/ExcelCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/acreedores/action/AcreedorAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/acreedores/action/AcreedorAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/acreedores/dao/impl/AcreedoresCatalogosDaoJdbcImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/acreedores/dao/impl/AcreedoresCatalogosDaoJdbcImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/acreedores/dao/impl/AcreedoresDaoJdbcImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/acreedores/dao/impl/AcreedoresDaoJdbcImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/action/AnotacionGarantiaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/action/AnotacionGarantiaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/action/ProrrogaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/action/ProrrogaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/action/RectificacionAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/action/RectificacionAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/administracion/action/PerfilAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/administracion/action/PerfilAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/administracion/action/UsuarioAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/administracion/action/UsuarioAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/administracion/action/UsuarioDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/administracion/action/UsuarioDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/boleta/action/BoletaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/boleta/action/BoletaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/boleta/dao/BoletaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/boleta/dao/BoletaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/boleta/serviceImpl/BoletaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/boleta/serviceImpl/BoletaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/busqueda/dwr/action/BusquedaDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/busqueda/dwr/action/BusquedaDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/busquedaCert/action/BusquedaCertAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/busquedaCert/action/BusquedaCertAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/busquedaOp/dwr/action/BusquedaOpDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/busquedaOp/dwr/action/BusquedaOpDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/certificacion/utils/FileUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/certificacion/utils/FileUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/constants/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/constants/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/detallegarantia/action/DetalleAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/detallegarantia/action/DetalleAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/dto/DomicilioNacional.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/dto/DomicilioNacional.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/firma/action/FirmaElectronicaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/firma/action/FirmaElectronicaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/fwk/listener/RugSessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/fwk/listener/RugSessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/grupos/dwr/action/GruposDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/grupos/dwr/action/GruposDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/action/AutoridadMasivaAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/action/AutoridadMasivaAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/service/ModificacionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/service/ModificacionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/service/impl/MasivaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/service/impl/MasivaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/service/impl/PartesMasivaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/service/impl/PartesMasivaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/thread/AutoridadMasivaThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/thread/AutoridadMasivaThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/thread/CargaMasivaThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/masiva/thread/CargaMasivaThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/modificacion/to/AutoridadInstruye.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/modificacion/to/AutoridadInstruye.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/operaciones/dao/OperacionesDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/operaciones/dao/OperacionesDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/operaciones/dwr/action/OperacionesDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/operaciones/dwr/action/OperacionesDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/partes/dwr/action/ParteDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/partes/dwr/action/ParteDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/transmision/dwr/action/OtorganteDwrAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/transmision/dwr/action/OtorganteDwrAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/util/ExpresionesRegularesUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/util/ExpresionesRegularesUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/util/pdf/PdfServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/util/pdf/PdfServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/util/pdf/to/PdfTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/classes/mx/gob/se/rug/util/pdf/to/PdfTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/Layout/portalBase.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/Layout/portalBase.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/content/Firma/scripts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/content/Firma/scripts.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/content/busqueda/scripts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/content/busqueda/scripts.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/content/certificacion/scripts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/content/certificacion/scripts.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/content/tramites/Certificacion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/jsp/content/tramites/Certificacion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/lib/rgm-captcha-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/lib/rgm-captcha-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/lib/rgm-files-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/lib/rgm-files-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/lib/rgm-firma-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/lib/rgm-firma-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/lib/rgm-mail-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rug-web/target/rug-web-1.0.0/WEB-INF/lib/rgm-mail-1.0.0.jar" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1pFXgTxSOaLySExnEDGDDJT4UA4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rug-web" />
+  </component>
+  <component name="RunManager">
+    <configuration name="RUG" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="RUG" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="rug-adm:war exploded">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="DOMAIN" value="domain1" />
+        <option name="PRESERVE" value="false" />
+        <option name="COMPATIBILITY" value="false" />
+        <option name="VIRTUAL_SERVER" />
+        <option name="USERNAME" value="admin" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="GlassFish" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9009" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="rug-adm:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7465f823-526b-4609-820c-5da2b5eed5f8" name="Default Changelist" comment="" />
+      <created>1614779924077</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614779924077</updated>
+      <workItem from="1614779925266" duration="1095000" />
+      <workItem from="1615215221554" duration="1906000" />
+      <workItem from="1616521713319" duration="1182000" />
+      <workItem from="1616523637887" duration="1613000" />
+      <workItem from="1618242347457" duration="525000" />
+      <workItem from="1618243424676" duration="2020000" />
+      <workItem from="1618247546727" duration="8521000" />
+      <workItem from="1618331900327" duration="954000" />
+      <workItem from="1618503998135" duration="596000" />
+      <workItem from="1622225533717" duration="3432000" />
+      <workItem from="1623263748496" duration="295000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

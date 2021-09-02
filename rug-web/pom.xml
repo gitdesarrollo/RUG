@@ -12,6 +12,7 @@
 		<spring.version>5.2.7.RELEASE</spring.version>
 		<sonar.dynamicAnalysis>false</sonar.dynamicAnalysis>
 		<itext.version>7.1.0</itext.version>
+	 <project.build.sourceEncoding>windows-1252</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 	  	<dependency>
@@ -334,8 +335,17 @@
 					<target>1.8</target>
 				 <showDeprecation>false</showDeprecation>
 				 <debug>true</debug>
+				 <encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
+		 <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-resources-plugin</artifactId>
+		  <version>2.4.3</version>
+		  <configuration>
+		   <encoding>${project.build.sourceEncoding}</encoding>
+		  </configuration>
+		 </plugin>
 		</plugins>
 	</build>
 </project>

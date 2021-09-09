@@ -45,8 +45,8 @@ var idTramite = <s:property value="idInscripcion"/>;
 var idPersona = <s:property value="idPersona"/>;
 
 //cargaParteOtorgante('divParteDWR', idTramite, idPersona, '0', '1');
-cargaParteDeudor('divParteDWR2', idTramite, idPersona, '0', '1');
-cargaParteAcreedor('divParteDWR3', idTramite, idPersona, '0', '1');
-activaBtn1_d_paso1();
+// cargaParteDeudor('divParteDWR2', idTramite, idPersona, '0', '1');
+// cargaParteAcreedor('divParteDWR3', idTramite, idPersona, '0', '1');
+// activaBtn1_d_paso1();
 	
 </script>

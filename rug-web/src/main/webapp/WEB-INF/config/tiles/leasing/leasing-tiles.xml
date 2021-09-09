@@ -4,7 +4,7 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd" >
 
 <tiles-definitions>
-	<definition name="leasing.selecciona.acreedor" extends=".base">
+	<definition name="leasing.selecciona.acreedor" extends=".leasing">
 		<put-attribute name=".showNav" value="false" />
 		<put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/menu/lateral.jsp" />						
 		<put-attribute name=".avance" value="/WEB-INF/jsp/Layout/empty.jsp" />
@@ -12,7 +12,7 @@
 		<put-attribute name=".include-scripts" value="/WEB-INF/jsp/content/leasing/scripts.jsp" />
 		<put-attribute name="working.region" value="/WEB-INF/jsp/content/leasing/seleccionaAcredor.jsp" />
 	</definition>
-	<definition name="leasing.partes" extends=".base">		
+	<definition name="leasing.partes" extends=".leasing">		
 		<put-attribute name=".showNav" value="false" />
 		<put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/menu/lateral.jsp" />		
 		<put-attribute name=".avance" value="/WEB-INF/jsp/Layout/empty.jsp" />
@@ -22,7 +22,7 @@
 		<put-attribute name="working.region" value="/WEB-INF/jsp/content/leasing/paso1.jsp" />
 	</definition>
 
-	<definition name="leasing.garantia" extends=".base">		
+	<definition name="leasing.garantia" extends=".leasing">		
 		<put-attribute name=".showNav" value="false" />
 		<put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/menu/lateral.jsp" />
 		<put-attribute name=".avance" value="/WEB-INF/jsp/Layout/empty.jsp" />
@@ -32,7 +32,7 @@
 		<put-attribute name="working.region" value="/WEB-INF/jsp/content/leasing/paso2.jsp" />
 	</definition>
 	
-	<definition name="leasing.vigencia" extends=".base">
+	<definition name="leasing.vigencia" extends=".leasing">
 		<put-attribute name=".showNav" value="false" />
 		<put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/menu/lateral.jsp" />
 		<put-attribute name=".avance" value="/WEB-INF/jsp/Layout/empty.jsp" />

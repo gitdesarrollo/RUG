@@ -8,28 +8,41 @@
 	<definition name=".base" template="/WEB-INF/jsp/Layout/portalBase.jsp">
 		<put-attribute name=".include-styles" value="/WEB-INF/jsp/Layout/empty.jsp" />
 		<put-attribute name=".include-scripts" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name=".header" value="/WEB-INF/jsp/Layout/header.jsp" />
-        <put-attribute name=".header-scripts" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name=".showNav" value="true" />
-        <put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name=".sideMenu" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name="working.region" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name=".showBottomNavText" value="true" />
-        <put-attribute name=".footer" value="/WEB-INF/jsp/Layout/footer.jsp" />
+                <put-attribute name=".header" value="/WEB-INF/jsp/Layout/header.jsp" />
+                <put-attribute name=".header-scripts" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".showNav" value="true" />
+                <put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".sideMenu" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name="working.region" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".showBottomNavText" value="true" />
+                <put-attribute name=".footer" value="/WEB-INF/jsp/Layout/footer.jsp" />
+	</definition>
+	
+	<definition name=".leasing" template="/WEB-INF/jsp/Layout/portalBase.jsp">
+		<put-attribute name=".include-styles" value="/WEB-INF/jsp/Layout/empty.jsp" />
+		<put-attribute name=".include-scripts" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".header" value="/WEB-INF/jsp/Layout/header.jsp" />
+                <put-attribute name=".header-scripts" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".showNav" value="true" />
+                <put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".sideMenu" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name="working.region" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".showBottomNavText" value="true" />
+                <put-attribute name=".footer" value="/WEB-INF/jsp/Layout/footer.jsp" />
 	</definition>
 	
 	<definition name=".baseI" template="/WEB-INF/jsp/content/usuario/baseGrupo.jsp">
 	 	 <put-attribute name=".htmlHeader" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name=".header" value="/WEB-INF/jsp/Layout/empty.jsp" />        
-        <put-attribute name=".showNav" value="true" />
-        <put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name=".avance" value="/WEB-INF/jsp/Layout/avance.jsp" />
-        <put-attribute name=".sideMenu" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name=".topNav" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name="working.region" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name=".bottomNav" value="/WEB-INF/jsp/Layout/empty.jsp" />
-        <put-attribute name=".showBottomNavText" value="true" />
-        <put-attribute name=".footer" value="/WEB-INF/jsp/Layout/footer.jsp" />
+                <put-attribute name=".header" value="/WEB-INF/jsp/Layout/empty.jsp" />        
+                <put-attribute name=".showNav" value="true" />
+                <put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".avance" value="/WEB-INF/jsp/Layout/avance.jsp" />
+                <put-attribute name=".sideMenu" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".topNav" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name="working.region" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".bottomNav" value="/WEB-INF/jsp/Layout/empty.jsp" />
+                <put-attribute name=".showBottomNavText" value="true" />
+                <put-attribute name=".footer" value="/WEB-INF/jsp/Layout/footer.jsp" />
 	</definition>
 	
 	<!-- Ayudas Modales -->

@@ -5,7 +5,36 @@
     
 <struts>
 	<package name="leasing-action" namespace="/leasing" extends="base-action">	
+
+		<action name="creaInscripcion" method="creaInscripcion" class="inscripcionAction">
+			<result type="tiles">leasing.partes</result>
+			<result name="success" type="redirectAction">
+            	<param name="actionName">paso1</param>
+            	<param name="namespace">/leasing</param>
+            </result>
+			<result name="failed" type="tiles">busqueda.home</result>
+		</action>
+
+		<!-- pasos de leasing -->
+		<action name="paso1" method="paso1" class="inscripcionAction">
+			<result type="tiles">leasing.partes</result>
+			<result name="success" type="tiles">inscripcion.partes</result>
+			<result name="failed" type="tiles">busqueda.home</result>
+		</action>	
 				
+		<action name="paso2" method="paso2" class="inscripcionAction">
+			<result type="tiles">leasing.garantia</result>
+			<result name="success" type="tiles">leasing.garantia</result>
+			<result name="failed" type="tiles">busqueda.home</result>
+		</action>
+		
+		<action name="paso3" method="paso3" class="inscripcionAction">
+			<result type="tiles">leasing.vigencia</result>
+			<result name="success" type="tiles">leasing.vigencia</result>
+			<result name="failed" type="tiles">busqueda.home</result>
+		</action>
+		
+		
 		<!-- Inicia el proceso de inscripcion escojiendo el acreedor al que se va a representar  -->
 		<action name="seleccionaInscripcion" method="iniciaInscripcion" class="inscripcionAction">
 			<result type="tiles">leasing.selecciona.acreedor</result>
@@ -33,24 +62,7 @@
             </result>
 		</action>
 		 
-		<action name="paso1" method="paso1" class="inscripcionAction">
-			<result type="tiles">leasing.partes</result>
-			<result name="success" type="tiles">inscripcion.partes</result>
-			<result name="failed" type="tiles">busqueda.home</result>
-		</action>		
-		
-		<action name="paso2" method="paso2" class="inscripcionAction">
-			<result type="tiles">leasing.garantia</result>
-			<result name="success" type="tiles">leasing.garantia</result>
-			<result name="failed" type="tiles">busqueda.home</result>
-		</action>
-		
-		<action name="paso3" method="paso3" class="inscripcionAction">
-			<result type="tiles">leasing.vigencia</result>
-			<result name="success" type="tiles">leasing.vigencia</result>
-			<result name="failed" type="tiles">busqueda.home</result>
-		</action>
-		
+	
 		<!-- INICIA Agregar Garantia -->
 		<action name="agregarGarantia" method="agregarGarantia" class="inscripcionAction">
 			<result type="tiles">leasing.vigencia</result>
@@ -70,14 +82,7 @@
 			<result name="failed" type="tiles">busqueda.home</result>
 		</action>		
 				
-		<action name="creaInscripcion" method="creaInscripcion" class="inscripcionAction">
-			<result type="tiles">leasing.partes</result>
-			<result name="success" type="redirectAction">
-            	<param name="actionName">paso1</param>
-            	<param name="namespace">/leasing</param>
-            </result>
-			<result name="failed" type="tiles">busqueda.home</result>
-		</action>
+
 		
 		
 		

@@ -6,12 +6,12 @@
         http://www.directwebremoting.org/schema/spring-dwr
         http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
         
-	<bean id="inscripcionAction" class="mx.gob.se.rug.inscripcion.action.InscripcionAction" scope="prototype">
+	<bean id="leasingAction" class="mx.gob.se.rug.inscripcion.action.InscripcionAction" scope="prototype">
 		<property name="inscripcionService" ref="inscripcionService" />
 		<property name="acreedoresService" ref="acreedoresService" />
 	</bean>	
 	
-	<!-- servicios -->
+	<!-- servicios  leasing-action-->
 	
 	<bean id="acreedoresService" class=" mx.gob.se.rug.acreedores.service.impl.AcreedoresServiceImpl" />
 	<bean id="inscripcionService" class="mx.gob.se.rug.inscripcion.service.impl.InscripcionServiceImpl" />

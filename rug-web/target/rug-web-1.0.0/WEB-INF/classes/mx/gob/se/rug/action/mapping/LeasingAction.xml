@@ -18,7 +18,7 @@
 		<!-- pasos de leasing -->
 		<action name="paso1" method="paso1" class="inscripcionAction">
 			<result type="tiles">leasing.partes</result>
-			<result name="success" type="tiles">inscripcion.partes</result>
+			<result name="success" type="tiles">leasing.partes</result>
 			<result name="failed" type="tiles">busqueda.home</result>
 		</action>	
 				

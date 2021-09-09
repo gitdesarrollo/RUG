@@ -119,4 +119,5 @@
 	<include file="/mx/gob/se/rug/action/mapping/AnotacionSnGarantiaTramitesAction.xml"/>
 	<include file="/mx/gob/se/rug/action/mapping/AdmAction.xml"/>
 	<include file="/mx/gob/se/rug/action/mapping/EncuestaAction.xml" />
+        <include file="/mx/gob/se/rug/action/mapping/LeasingAction.xml" />	
 </struts>

@@ -4,12 +4,12 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd" >
     
 <struts>
-	<package name="inscripcion-action" namespace="/inscripcion" extends="base-action">	
+	<package name="leasing-action" namespace="/leasing" extends="base-action">	
 				
 		<!-- Inicia el proceso de inscripcion escojiendo el acreedor al que se va a representar  -->
 		<action name="seleccionaInscripcion" method="iniciaInscripcion" class="inscripcionAction">
-			<result type="tiles">inscripcion.selecciona.acreedor</result>
-			<result name="success" type="tiles">inscripcion.selecciona.acreedor</result>
+			<result type="tiles">leasing.selecciona.acreedor</result>
+			<result name="success" type="tiles">leasing.selecciona.acreedor</result>
 		    <result name="failed" type="redirectAction">
             	<param name="actionName">inicia</param>
             	<param name="namespace">/acreedor</param>
@@ -19,7 +19,7 @@
 		<action name="cambioEstatus" method="cambiaEstatusGarantia" class="inscripcionAction">			
 			<result name="success" type="redirectAction">inscripcion3.home
 				<param name="actionName">paso3</param>
-            	<param name="namespace">/inscripcion</param>
+            	<param name="namespace">/leasing</param>
             	<param name="idInscripcion">${idInscripcion}</param>
             </result>
 			<result name="failed" type="tiles">busqueda.home</result>
@@ -29,34 +29,34 @@
 		 <action name="load" class="inscripcionAction" method="load">
 			<result name="success" type="redirectAction">
             	<param name="actionName">paso2</param>
-            	<param name="namespace">/inscripcion</param>
+            	<param name="namespace">/leasing</param>
             </result>
 		</action>
 		 
 		<action name="paso1" method="paso1" class="inscripcionAction">
-			<result type="tiles">inscripcion.partes</result>
+			<result type="tiles">leasing.partes</result>
 			<result name="success" type="tiles">inscripcion.partes</result>
 			<result name="failed" type="tiles">busqueda.home</result>
 		</action>		
 		
 		<action name="paso2" method="paso2" class="inscripcionAction">
-			<result type="tiles">inscripcion.garantia</result>
-			<result name="success" type="tiles">inscripcion.garantia</result>
+			<result type="tiles">leasing.garantia</result>
+			<result name="success" type="tiles">leasing.garantia</result>
 			<result name="failed" type="tiles">busqueda.home</result>
 		</action>
 		
 		<action name="paso3" method="paso3" class="inscripcionAction">
-			<result type="tiles">inscripcion.vigencia</result>
-			<result name="success" type="tiles">inscripcion.vigencia</result>
+			<result type="tiles">leasing.vigencia</result>
+			<result name="success" type="tiles">leasing.vigencia</result>
 			<result name="failed" type="tiles">busqueda.home</result>
 		</action>
 		
 		<!-- INICIA Agregar Garantia -->
 		<action name="agregarGarantia" method="agregarGarantia" class="inscripcionAction">
-			<result type="tiles">inscripcion.vigencia</result>
-			<result name="success" type="redirectAction">inscripcion.vigencia
+			<result type="tiles">leasing.vigencia</result>
+			<result name="success" type="redirectAction">leasing.vigencia
 				<param name="actionName">paso3</param>
-            	<param name="namespace">/inscripcion</param>
+            	<param name="namespace">/leasing</param>
             </result>
 			<result name="failed" type="tiles">busqueda.home</result>
 		</action>
@@ -71,10 +71,10 @@
 		</action>		
 				
 		<action name="creaInscripcion" method="creaInscripcion" class="inscripcionAction">
-			<result type="tiles">inscripcion.partes</result>
+			<result type="tiles">leasing.partes</result>
 			<result name="success" type="redirectAction">
             	<param name="actionName">paso1</param>
-            	<param name="namespace">/inscripcion</param>
+            	<param name="namespace">/leasing</param>
             </result>
 			<result name="failed" type="tiles">busqueda.home</result>
 		</action>

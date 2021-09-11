@@ -20,7 +20,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 				<div class="card">
 					<div class="col s1"></div>
 					<div class="col s10">	
-						<span class="card-title">Inscripci&oacute;n Garant&iacute;a Mobiliaria</span>
+						<span class="card-title">Inscripci&oacute;n Garant&iacute;a Mobiliaria leasing</span>
 						<input type="hidden" name="refInscripcion" id="refInscripcion" value="<s:property value='idInscripcion'/>" />												
 					    <div class="row note">
 							<span>Verifique que la informaci&oacute;n ingresada este correcta.

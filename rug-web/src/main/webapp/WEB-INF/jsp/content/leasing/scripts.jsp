@@ -78,7 +78,7 @@ function paso2_d_paso1() {
 	    	document.getElementById("buttonID").value = "Enviando";
 	    	document.getElementById("buttonID").disabled = true;
 	        statSend = true;
-	        window.location.href = "<%=request.getContextPath()%>/inscripcion/paso2.do";
+	        window.location.href = "<%=request.getContextPath()%>/leasing/paso2.do";
 				return true;
 
 			//} else {
@@ -91,6 +91,7 @@ function paso2_d_paso1() {
 		}*/
 
 }
+
 
 function fechasCorrectas(){
 	 //var strFI = getObject('datepicker4').value;
@@ -177,7 +178,7 @@ function activaBtn2(){
       document.getElementById("buttonID").disabled = true;
       var idIns = document.getElementById("refInscripcion").value;
       statSend = true;
-      window.location.href = '<%= request.getContextPath() %>/inscripcion/paso1.do?idInscripcion=' + idIns;
+      window.location.href = '<%= request.getContextPath() %>/leasing/paso1.do?idInscripcion=' + idIns;
       return true;
 	   
 }
@@ -308,7 +309,7 @@ function continuar(id){
 			  break;
 			case 2:
 		  		//alert("redireccion a AD");
-		  		window.location.href = '<%= request.getContextPath() %>/inscripcion/paso1.do?idInscripcion=<s:property value="idInscripcion"/>';
+		  		window.location.href = '<%= request.getContextPath() %>/leasing/paso1.do?idInscripcion=<s:property value="idInscripcion"/>';
 			  break;
 			case 3:
 		  		//alert("redireccion a ARyAD");

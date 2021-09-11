@@ -84,6 +84,7 @@
 				<value>/WEB-INF/config/tiles/administracion/perfil-tiles.xml</value>
 				<value>/WEB-INF/config/tiles/common/publico-tiles.xml</value>
 				<value>/WEB-INF/config/tiles/inscripcion/inscripcion-tiles.xml</value>
+                                <value>/WEB-INF/config/tiles/leasing/leasing-tiles.xml</value>
 				<value>/WEB-INF/config/tiles/masiva/masiva-tiles.xml</value>
 				<value>/WEB-INF/config/tiles/tramites/anotacion-sn-garantia.xml</value>
 			</list>

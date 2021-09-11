@@ -9,7 +9,7 @@
 				<div class="card">
 					<div class="col s1"></div>
 					<div class="col s10">
-						<span class="card-title">Inscripci&oacute;n Garant&iacute;a Mobiliaria</span>																		
+						<span class="card-title">Inscripci&oacute;n Garant&iacute;a Mobiliaria...... INS</span>																		
 						<div class="section">
 							<h5>Deudor (es) Garante</h5>
 							<p>

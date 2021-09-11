@@ -144,6 +144,9 @@ public class PdfServlet extends HttpServlet {
                         }
                         String signEnabled = Constants.getParamValue(Constants.SIGN_ENABLED);
                         String signDev = Constants.getParamValue(Constants.SIGN_LOCAL);
+                        
+                        
+                        /* corellana, comente esto por la firma
                         if (Boolean.valueOf(signEnabled)) {
                             if (Boolean.valueOf(signDev)) {
                                 signText = Constants.getParamValue(Constants.SIGN_TEXT);
@@ -172,6 +175,7 @@ public class PdfServlet extends HttpServlet {
                             }
 
                         }
+*/
                         String filePathToBeServed = Constants.getParamValue(Constants.SIGN_ZIP_URL);
                         Date date = new Date();
                         DateFormat datePDF = new SimpleDateFormat("dd-MM-yyyy");

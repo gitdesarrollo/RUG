@@ -9,7 +9,7 @@
 				<div class="card">
 					<div class="col s1"></div>
 					<div class="col s10">
-						<span class="card-title">Inscripci&oacute;n Garant&iacute;a Mobiliaria. leasing</span>																		
+						<span class="card-title">Inscripci&oacute;n Garant&iacute;a Mobiliaria... leasing</span>																		
 						<div class="section">
 							<h5>Arrendatario</h5>
 							<p>
@@ -45,8 +45,8 @@ var idTramite = <s:property value="idInscripcion"/>;
 var idPersona = <s:property value="idPersona"/>;
 
 //cargaParteOtorgante('divParteDWR', idTramite, idPersona, '0', '1');
-// cargaParteDeudor('divParteDWR2', idTramite, idPersona, '0', '1');
-// cargaParteAcreedor('divParteDWR3', idTramite, idPersona, '0', '1');
-// activaBtn1_d_paso1();
+ cargaParteDeudor('divParteDWR2', idTramite, idPersona, '0', '1');
+ cargaParteAcreedor('divParteDWR3', idTramite, idPersona, '0', '1');
+ activaBtn1_d_paso1();
 	
 </script>

@@ -29,7 +29,7 @@ function paso2() {
     	document.getElementById("buttonID").disabled = true;
     	var idIns = document.getElementById("refInscripcion").value;
        	statSend = true;
-       	window.location.href = '<%= request.getContextPath() %>/inscripcion/paso2.do?idInscripcion=' + idIns;       	
+       	window.location.href = '<%= request.getContextPath() %>/leasing/paso2.do?idInscripcion=' + idIns;       	
        	return true;
     } else {		
         return false;

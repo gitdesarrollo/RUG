@@ -227,6 +227,7 @@ public class LeasingAction extends RugBaseAction {
 			if (getAcreedorTO() != null) {
 				inscripcionTO.setIdTipoTramite(1);
 				inscripcionTO.setIdPersona(usuario.getPersona().getIdPersona());
+                                //inscripcionTO.getGarantiaTO().setIdTipoGarantia(16);
 				Integer idTramite = inscripcionService.iniciaInscripcion(
 						inscripcionTO, acreedorTO);
 				if (idTramite.intValue() != 0) {
@@ -352,13 +353,16 @@ public class LeasingAction extends RugBaseAction {
 	public void cargarBienesEspeciales() {
 		TipoTo tipo0 = new TipoTo();
 		tipo0.setIdTipo("0");
-		tipo0.setDesTipo("Seleccione");
+		tipo0.setDesTipo("Seleccione...");
 		TipoTo tipo1 = new TipoTo();
 		tipo1.setIdTipo("1");
 		tipo1.setDesTipo("Veh\u00edculos");
-		TipoTo tipo2 = new TipoTo();
-		tipo2.setIdTipo("2");
-		tipo2.setDesTipo("Facturas");
+		
+                
+                TipoTo tipo2 = new TipoTo();
+		tipo2.setIdTipo("4");
+		tipo2.setDesTipo("Maquinaria"); 
+                
 		TipoTo tipo3 = new TipoTo();
 		tipo3.setIdTipo("3");
 		tipo3.setDesTipo("Otros");
@@ -564,6 +568,7 @@ public class LeasingAction extends RugBaseAction {
 				
 				actoContratoTO.setTipoGarantia(idTipoGarantia);
 				garantiaTO = new GarantiaTO();
+                                garantiaTO.setIdTipoGarantia(16);
 				garantiaTO.setActoContratoTO(actoContratoTO);
 				
 				if(obligacionTO==null) {

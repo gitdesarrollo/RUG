@@ -41,7 +41,7 @@
 									<div class="card">
 										<div class="card-content">
 											<div class="row">
-												<span>Bienes en garant&iacute;a si estos no tienen n&uacute;mero de serie:</span>
+												<span>Bienes en garant&iacute;a si estos no tienen n&uacute;mero de identificaci&oacute;n:</span>
 											</div>
 											<div class="row">
 												<div class="input-field col s12">
@@ -51,7 +51,7 @@
 												</div>
 											</div>
 											<div class="row">
-												<span>Bienes en garant&iacute;a si estos tienen n&uacute;mero de serie:</span>
+                                                                                            <span>Bienes en garant&iacute;a si estos tienen n&uacute;mero de identificaci&oacute;n:</span>
 											</div>
 											<div class="row">
 												<div class="col s12 right-align">
@@ -75,9 +75,7 @@
 												<p>
 													<input type="checkbox" name="actoContratoTO.noGarantiaPreviaOt"
 														id="actoContratoTO.noGarantiaPreviaOt" value="true" />
-													<label for="actoContratoTO.noGarantiaPreviaOt">Declaro que de conformidad con el contrato de
-														garant&iacute;a, el deudor declar&oacute; que sobre los bienes en garant&iacute;a no existen
-														otro gravamen, anotaci&oacute;n o limitaci&oacute;n previa.</label>
+													<label for="actoContratoTO.noGarantiaPreviaOt">Declaro que de conformidad con el contrato de arrendamiento con opci&oacute;n a compra(Leasing) el arrendador declar&oacute; que sobre los bienes en garant&iacute;a no existe otro gravamen, anotaci&oacute;n o limitaci&oacute;n previa. </label>
 												</p>
 											</div>
 											<div class="row">
@@ -117,14 +115,12 @@
 								<div class="row">
 									<div class="card">
 										<div class="card-content">
-											<span class="card-title">Datos Generales del Contrato de la Garant&iacute;a</span>
+                                                                                    <span class="card-title">Datos Generales del Contrato de arrendamiento con opci&oacute;n de compra (Leasing)</span>
 											<div class="row">
 												<div class="input-field col s12">
 													<s:textarea rows="10" cols="80" name="actoContratoTO.instrumentoPub" maxlength="3500"
 														id="actoContratoTO.instrumentoPub" />
-													<label for="actoContratoTO.instrumentoPub">Informaci&oacute;n general del contrato de la
-														Garant&iacute;a(Lugar y Fecha, tipo de documento, monto inicial garantizado, plazo,
-														etc.)</label>
+													<label for="actoContratoTO.instrumentoPub">Informaci&oacute;n general del contrato de arrendamiento con opci&oacute;n de compra (Leasing)(Lugar y Fecha, tipo de documento, monto inicial garantizado, plazo, etc.)</label>
 												</div>
 											</div>
 										</div>
@@ -198,7 +194,7 @@
 	<div class="modal-content">
 		<div class="card">
 			<div id="frmBienContent" class="card-content">
-				<span class="card-title">Bien Especial</span>
+				<span class="card-title">Bien Especial.</span>
 				<div class="row">
 					<div class="col s1"></div>
 					<div class="col s10">
@@ -384,7 +380,7 @@
 
 			document.getElementById("lblMdDescripcion").innerHTML = 'Descripci&oacute;n del veh&iacute;culo';
 			document.getElementById("lblMdIdentificador2").innerHTML = 'VIN';
-		} else if (x == '2') {
+		} else if (x == '21') {
 			document.getElementById("mdDescripcion").disabled = false;
 			document.getElementById("secId1").style.display = 'none';
 			document.getElementById("secId2").style.display = 'none';
@@ -393,7 +389,7 @@
 
 			document.getElementById("lblMdIdentificador2").innerHTML = 'No. Factura';
 			document.getElementById("lblMdDescripcion").innerHTML = 'Observaciones Generales';
-		} else if (x == '3') {
+		} else if (x == '3' || x == '4' ) {  //otros y vehiculos pedire lo mismo, cuando hector ya diga que capturar
 			document.getElementById("mdDescripcion").disabled = false;
 			document.getElementById("secId1").style.display = 'none';
 			document.getElementById("secId2").style.display = 'none';

@@ -284,6 +284,19 @@
 		<put-attribute name="working.region"
 			value="/WEB-INF/jsp/content/operaciones/MisOperaciones.jsp" />
 	</definition>
+        
+        
+        
+        <definition name="misOperaciones_leasing.home" extends=".base">
+		<put-attribute name=".showNav" value="false" />
+		<put-attribute name=".tabs" value="/WEB-INF/jsp/Layout/menu/lateral.jsp" />
+		<put-attribute name=".avance" value="/WEB-INF/jsp/Layout/empty.jsp" />
+		<put-attribute name=".sideMenu" value="/WEB-INF/jsp/Layout/empty.jsp" />
+		<put-attribute name=".include-scripts" value="/WEB-INF/jsp/content/operaciones_leasing/scripts.jsp" />
+		<put-attribute name="working.region"
+			value="/WEB-INF/jsp/content/operaciones_leasing/MisOperaciones.jsp" />
+	</definition>
+        
 	
 	<definition name="misBoletas.home" extends=".base">
 		<put-attribute name=".showNav" value="false" />

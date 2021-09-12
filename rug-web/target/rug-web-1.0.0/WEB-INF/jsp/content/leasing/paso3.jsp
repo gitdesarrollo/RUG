@@ -35,7 +35,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 						    		<table id="mytable" class="bordered striped centered responsive-table" >
 										<thead>	
 											<tr>
-												<th colspan="2">Deudores Garantes</th>
+												<th colspan="2">Arrendatario(s)</th>
 											</tr>
 											<tr>
 												<th>Nombre, Denominaci&oacute;n o Raz&oacute;n Social</th>
@@ -65,7 +65,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 						    		<table id="mytable" class="bordered striped centered responsive-table" >
 										<thead>	
 											<tr>
-												<th colspan="2">Acreedores Garantizados</th>
+												<th colspan="2">Arrendador(es)</th>
 											</tr>
 											<tr>
 												<th>Nombre, Denominaci&oacute;n o Raz&oacute;n Social</th>
@@ -131,14 +131,14 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 						 <s:if test="actoContratoTO.noGarantiaPreviaOt">
 						    <div class="row">
 						    	<div class="input-field col s12">
-						    		<span class="blue-text text-darken-2">Declaro que de conformidad con el contrato de garant&iacute;a, el deudor declar&oacute; que sobre los bienes en garant&iacute;a no existen otro gravamen, anotaci&oacute;n o limitaci&oacute;n previa.</span>						    		
+						    		<span class="blue-text text-darken-2">Declaro que de conformidad con el contrato de arrendamiento con opci&oacute;n a compra (Leasing) el arrendador declar&oacute; que sobre los bienes en garant&iacute; a no existe otro gravamen, anotaci&oacute;n o limitaci&oacute;n previa.</span>						    		
 						    	</div>
 						    </div>
 						</s:if>
 						<s:if test="actoContratoTO.cambiosBienesMonto">
 						    <div class="row">
 						    	<div class="input-field col s12">
-						    		<span class="blue-text text-darken-2">Los atribuibles y derivados no esta afectos a la Garant&iacute;a Mobiliaria.</span>						    		
+                                                            <span class="blue-text text-darken-2">Los atribuibles y derivados no est&aacute;n afectos a la Garant&iacute;a Mobiliaria.</span>						    		
 						    	</div>
 						    </div>
 						</s:if>
@@ -159,7 +159,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 						<s:if test="insPublico">
 						    <div class="row">
 						    	<div class="input-field col s12">
-						    		<span class="blue-text text-darken-2">Informaci&oacute;n General del Contrato de la Garant&iacute;a:</span>
+						    		<span class="blue-text text-darken-2">Datos Generales del contrato de arrendamiento con opci&oacute;n de compra (Leasing):</span>
 						    		<p><s:property value="actoContratoTO.instrumentoPub"/></p>						    		
 						    	</div>
 						    </div>

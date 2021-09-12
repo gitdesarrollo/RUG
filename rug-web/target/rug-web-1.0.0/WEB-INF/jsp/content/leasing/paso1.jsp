@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <div class="section"></div>
 <main>
+    <input type="hidden" id="idTipoGarantia" name="idTipoGarantia" value="16">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col s12">

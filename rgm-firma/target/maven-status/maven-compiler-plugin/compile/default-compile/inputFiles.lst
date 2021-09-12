@@ -1,3 +1,3 @@
-/home/corellana/Documents/RUG/RUG/rgm-firma/src/main/java/gt/gob/rgm/security/service/DigitalMassiveSignatureImp.java
-/home/corellana/Documents/RUG/RUG/rgm-firma/src/main/java/gt/gob/rgm/security/service/DigitalSignatureServiceImp.java
-/home/corellana/Documents/RUG/RUG/rgm-firma/src/main/java/gt/gob/rgm/security/domain/SignatureInfo.java
+/home/corellana/Projects/Java/RUG/rgm-firma/src/main/java/gt/gob/rgm/security/service/DigitalSignatureServiceImp.java
+/home/corellana/Projects/Java/RUG/rgm-firma/src/main/java/gt/gob/rgm/security/service/DigitalMassiveSignatureImp.java
+/home/corellana/Projects/Java/RUG/rgm-firma/src/main/java/gt/gob/rgm/security/domain/SignatureInfo.java

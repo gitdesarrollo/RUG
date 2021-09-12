@@ -146,7 +146,7 @@ public class PdfServlet extends HttpServlet {
                         String signDev = Constants.getParamValue(Constants.SIGN_LOCAL);
                         
                         
-                        /* corellana, comente esto por la firma
+                        
                         if (Boolean.valueOf(signEnabled)) {
                             if (Boolean.valueOf(signDev)) {
                                 signText = Constants.getParamValue(Constants.SIGN_TEXT);
@@ -175,7 +175,7 @@ public class PdfServlet extends HttpServlet {
                             }
 
                         }
-*/
+ 
                         String filePathToBeServed = Constants.getParamValue(Constants.SIGN_ZIP_URL);
                         Date date = new Date();
                         DateFormat datePDF = new SimpleDateFormat("dd-MM-yyyy");
@@ -322,6 +322,8 @@ public class PdfServlet extends HttpServlet {
                             info.setReason("Tramite #");
                             info.setDocument(file);
 
+                            
+                            /* corellana activar
                             try {
                                 ByteArrayOutputStream signedOs = digitalSignatureSvc.signDocument(info);
                                 file = signedOs.toByteArray();
@@ -329,7 +331,7 @@ public class PdfServlet extends HttpServlet {
                                 MyLogger.Logger.log(Level.INFO, " no tiene parametros....." + e);
                                 e.printStackTrace();
                             }
-
+*/
                             pdfTO.setFile(file);
                             BoletaDAO boleta = new BoletaDAO();
                             boleta.insertBoletaPdf(pdfTO, usuario);

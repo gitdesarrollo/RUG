@@ -147,7 +147,7 @@
 										<th colspan="2"><s:property value="%{textosFormulario.get(2)}"/></th>
 									</tr>
 									<tr>
-										<th>Nombre, Denominaci&oacute;n o Raz&oacute;n Social</th>
+										<th>Nombre, Denominaci&oacute;n o Raz&oacute;n Social.....</th>
 										<th>No. Identificaci&oacute;n \ No. Identificaci&oacute;n Tributaria</th>										
 									</tr>
 								</thead>

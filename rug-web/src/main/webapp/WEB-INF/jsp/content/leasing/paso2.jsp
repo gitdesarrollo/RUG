@@ -635,6 +635,28 @@
 						correcto = 1;
 					}
 				}
+                                else if (idTipo == '4') {
+					if (colIndex == 0) {
+						if (cellValue.length > 25) {
+							cellValue = 'Valor invalido';
+							correcto = 1;
+						} else {
+							mdIdentificador2 = cellValue;
+						}
+					}
+					if (colIndex == 1) {
+						if (cellValue.length > 100) {
+							cellValue = 'Valor invalido';
+							correcto = 1;
+						} else {
+							mdDescripcion = cellValue;
+						}
+					}
+					if (colIndex > 1) {
+						correcto = 1;
+					}
+				}
+                                
 				row$.append($('<td/>').html(cellValue));
 			}
 			if (correcto == 0) {
@@ -744,6 +766,10 @@
 				'<p><b>Numero Factura</b>, maximo 25 caracteres</p>' +
 				'<p><b>Descripcion</b>, maximo 100 caracteres</p>';
 		} else if (x == '3') {
+			document.getElementById("txtspan").innerHTML = 'Los campos del excel son: ' +
+				'<p><b>Identificador</b>, maximo 25 caracteres</p>' +
+				'<p><b>Descripcion</b>, maximo 100 caracteres</p>';
+		}else if (x == '4') {
 			document.getElementById("txtspan").innerHTML = 'Los campos del excel son: ' +
 				'<p><b>Identificador</b>, maximo 25 caracteres</p>' +
 				'<p><b>Descripcion</b>, maximo 100 caracteres</p>';

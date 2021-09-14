@@ -289,7 +289,21 @@
 							<s:property value="detalleTO.otrosgarantia" />
 						</p>
 					</div>
-				</div>					
+				</div>	
+                                                
+                                <s:if test="esLeasing">
+                                     <div class="row">
+					<div class="input-field col s12">
+						<span class="blue-text text-darken-2"><s:property value="%{textosFormulario.get(10)}"/></span>
+						<p>
+							<s:property value="detalleTO.monto" />
+						</p>
+					</div>
+				</div>           
+                                                
+                                </s:if>                
+                                                
+                                                
 				<div class="row">
 					<div class="input-field col s12">
 						<span class="blue-text text-darken-2">Anotaci&oacute;n de la operaci&oacute;n</span>

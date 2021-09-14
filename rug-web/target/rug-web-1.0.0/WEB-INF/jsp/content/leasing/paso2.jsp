@@ -129,6 +129,20 @@
 								<div class="row">
 									<div class="card">
 										<div class="card-content">
+                                                                                    <span class="card-title">Monto estimado de la garant&iacute;a (Leasing)</span>
+											<div class="row">
+												<div class="input-field col s12">
+													<s:textfield  name="actoContratoTO.montoMaximo" type="number" min="0" 
+														id="actoContratoTO.instrumentoPub" />
+													<label for="actoContratoTO.instrumentoPub">Monto estimado de la grarantia</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>                                                                                                        
+								<div class="row">
+									<div class="card">
+										<div class="card-content">
 											<span class="card-title">Datos Adicionales</span>
 											<div class="row">
 												<div class="input-field col s12">

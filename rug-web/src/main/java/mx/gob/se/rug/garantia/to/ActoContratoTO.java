@@ -39,7 +39,18 @@ public class ActoContratoTO implements Serializable{
 	private Boolean garantiaPrioritaria;	
 	private Boolean cpRegistro;
 	private String txtRegistro;
-	
+        
+        /**corellana: leasing campo nuevo, monto_estimado**/
+	private double monto_estimado;
+        
+        public double getMontoEstimado() {
+		return monto_estimado;
+	}
+	public void setMontoEstimado(double montoEstimado) {
+		this.monto_estimado = montoEstimado;
+	}
+        
+        
 	public String getInstrumentoPub() {
 		return instrumentoPub;
 	}

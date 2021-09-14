@@ -414,6 +414,22 @@ public class BoletaServiceImpl {
 				+ "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(8)+"</span><p>"
 				+ NullsFree.getNotNullValue(detalleTO.getGarantiaTO().getOtrosTerminosCondiciones()) + "</p></div>");
 		
+                /*corellana: unicamente para leasing*/                
+                if(detalleTO.getGarantiaTO().getIdTipoGarantia().equals(16))
+                {
+                    String monto_maximo  = detalleTO.getGarantiaTO().getMontoMaximo();
+                    monto_maximo = monto_maximo.replace("$", "");
+                    monto_maximo = monto_maximo.replace("Bolivar", "");
+                    
+                    pdfTO.setHtml("[*montoEstimado*]", "<div class=\"input-field col s12\">"
+				+ "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(10)+"</span><p>"
+				+ NullsFree.getNotNullValue(monto_maximo) + "</p></div>");
+                }
+                else
+                {
+                    pdfTO.setHtml("[*montoEstimado*]", "");
+                }
+                
 		if(detalleTO.getIdTipoTramite()==1) {// solo aplica a inscripciones
 			pdfTO.setHtml("[*operacion*]", "[*cert*]Inscripci\u00f3n " + (getTextosFormulario().get(9)==null?"":getTextosFormulario().get(9)));
                         pdfTO.setTypeValue("Inscripci\u00f3n " + (getTextosFormulario().get(9)==null?"":getTextosFormulario().get(9)));

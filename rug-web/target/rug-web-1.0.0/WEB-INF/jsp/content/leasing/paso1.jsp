@@ -10,7 +10,7 @@
 				<div class="card">
 					<div class="col s1"></div>
 					<div class="col s10">
-						<span class="card-title">Inscripci&oacute;n Garant&iacute;a Mobiliaria... leasing</span>																		
+						<span class="card-title">Inscripci&oacute;n Garant&iacute;a Mobiliaria Leasing</span>																		
 						<div class="section">
 							<h5>Arrendatario</h5>
 							<p>

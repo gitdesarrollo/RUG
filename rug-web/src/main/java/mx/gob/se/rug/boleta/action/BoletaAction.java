@@ -711,6 +711,7 @@ public class BoletaAction extends RugBaseAction {
                     pdfTO.setValue("[*GMTExplica*]", "");
 
                 }
+                
                 sessionMap.put("pdfTO", pdfTO);
                 if (!regresa.equals("firmaMasiva")) {
                     regresa = SUCCESS;

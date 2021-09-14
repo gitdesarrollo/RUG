@@ -28,6 +28,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 			<div class="col s2"></div>
 			<div class="col s8">
 				<!-- row note teal -->
+				<h1>AQUI HAY QUE ARREGLAR TODO</h1>
 				<form id="fafactoraje" name="fafactoraje" action="saveFactoraje.do" method="post">
 					<span class="card-title"><s:property value="%{textosFormulario.get(0)}"/></span>
 					<input type="hidden" name="refInscripcion" id="refInscripcion" value="<s:property value='idTramite'/>" />
@@ -96,7 +97,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 				    <hr />
 				 	<center>
 			            <div class='row'>
-			            	<input type="button" id="bFirmar" name="button" class="btn btn-large waves-effect indigo" value="Aceptar" onclick="inscripcionFactoraje();"/>
+			            	 <input type="button" id="bFirmar" name="button" class="btn btn-large waves-effect indigo" value="Aceptar" onclick="mi_funcion222222();"/>
 			            </div>
 		          	</center>
 				</form>
@@ -126,6 +127,15 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 		</div></div>
 	</div>
 </div>
+                                                
+<script type="text/javascript"> 	
+function mi_funcion222222()
+{
+    console.log('Mi funcion.........................');
+    inscripcionFactoraje();
+}
+</script> 
+
 <script type="text/javascript"> 	
 					var idPersona = <s:property value="idPersona"/>;
 					var idTramite= <s:property value="idTramite"/>;
@@ -298,7 +308,7 @@ function add_bien() {
 	  var mdIdentificador = document.getElementById("mdIdentificador").value;
 	  var mdIdentificador1 = document.getElementById("mdIdentificador1").value;
 	  var mdIdentificador2 = document.getElementById("mdIdentificador2").value;
-	  var mdIdentificador3 = document.getElementById("mdIdentificador3").value;
+	  var mdIdentificador3 = "sin serie";//document.getElementById("mdIdentificador3").value;
 
 	  if(!noVacio(mdDescripcion)){
 		  alertMaterialize('Debe ingresar la descripcion del bien especial');
@@ -315,9 +325,14 @@ function add_bien() {
 			  return false;
 		  }
 	  } 
-	  
-	  ParteDwrAction.registrarBien('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador,
-			  mdIdentificador1, mdIdentificador2, mdIdentificador3,showParteBienes);
+	  console.log("antes del registra bien ");
+          //corellana: original 
+	  //ParteDwrAction.registrarBien('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador,
+		//	  mdIdentificador1, mdIdentificador2, mdIdentificador3,showParteBienes);
+                          
+          //corellana: se cambio a este ya que el registrar bien acepta menos parametros
+          ParteDwrAction.registrarBien('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador,
+			  mdIdentificador1, mdIdentificador2,showParteBienes);
           
 
 	  
@@ -381,7 +396,7 @@ function limpiaCampos() {
 	  document.getElementById("mdIdentificador").value = '0';
 	  document.getElementById("mdIdentificador1").value = '';
 	  document.getElementById("mdIdentificador2").value = '';
-	  document.getElementById("mdIdentificador3").value = '';
+	  //document.getElementById("mdIdentificador3").value = '';
 
 	  document.getElementById("mdFactura1").value = '';
 	  document.getElementById("mdFactura2").value = '';
@@ -407,7 +422,8 @@ function otroRegistro() {
 	  }
   }
  
-function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/  
+function BindTable(jsondata, tableid) {
+    /*Function used to convert the JSON array to Html Table*/  
      var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/  
 	 var idTramite = document.getElementById("refInscripcion").value;
 	 var mdDescripcion = '';
@@ -559,7 +575,8 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
      }  
  }
  
-function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/  
+function BindTableHeader(jsondata, tableid) {
+    /*Function used to get all column names from JSON and bind the html table header*/  
      var columnSet = [];  
      var headerTr$ = $('<tr/>');  
      for (var i = 0; i < jsondata.length; i++) {  

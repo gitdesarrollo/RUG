@@ -323,7 +323,7 @@ public class PdfServlet extends HttpServlet {
                             info.setDocument(file);
 
                             
-                            /* corellana activar
+                             //corellana desactivar para el ambiente local, ya que no tengo el p12 
                             try {
                                 ByteArrayOutputStream signedOs = digitalSignatureSvc.signDocument(info);
                                 file = signedOs.toByteArray();
@@ -331,7 +331,7 @@ public class PdfServlet extends HttpServlet {
                                 MyLogger.Logger.log(Level.INFO, " no tiene parametros....." + e);
                                 e.printStackTrace();
                             }
-*/
+
                             pdfTO.setFile(file);
                             BoletaDAO boleta = new BoletaDAO();
                             boleta.insertBoletaPdf(pdfTO, usuario);

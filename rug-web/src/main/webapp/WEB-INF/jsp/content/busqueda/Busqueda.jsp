@@ -75,11 +75,15 @@
 					<div class="row">
 						<s:form	 namespace="usuario" action="busquedaFac.do" theme="simple" cssClass="col s12">
 							<div class="row">
-								<div class="input-field col s6">
+                                                                <div class="input-field col s2">
+									<s:textfield id="nit" name="nit" class="validate" />
+									<label for="nit">Nit:</label>
+								</div>
+								<div class="input-field col s5">
 									<s:textfield id="invoice" name="invoice" class="validate" />
 									<label for="invoice">No. Factura:</label>
 								</div>
-								<div class="input-field col s6">
+								<div class="input-field col s5">
 									<s:textfield type="text" id="set" name="set" class="validate" />
 									<label for="set">Serie:</label>
 								</div>

@@ -19,6 +19,7 @@ public class BusquedaTO implements Serializable{
 	// search invoice and set
 	private String invoice;
 	private String set;
+        
 
 	public String getInvoice() {
 		return invoice;

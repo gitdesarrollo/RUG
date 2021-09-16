@@ -42,7 +42,7 @@ public class MenuDAO {
 			bd.close(connection, rs, ps);
 		}
 		}else{
-			MyLogger.Logger.log(Level.WARNING, "MENU DAO ID PERSONA NULLLLLLLLLL--------------------");
+			MyLogger.Logger.log(Level.WARNING, "MENU DAO ID PERSONA NULL ------ -- ----- -- -----");
 		}
 		return usuarioTO;
 	}

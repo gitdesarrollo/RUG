@@ -114,6 +114,7 @@
                                         text: "aceptar",
                                         modalClose: true,
                                         callback: function () {
+                                            console.log('A punto de hacer una busqueda por factura y numero serie');
                                             searchInvoiceform(ruta, idPersona, tipoBusqueda, 11);
                                         }
                                     }

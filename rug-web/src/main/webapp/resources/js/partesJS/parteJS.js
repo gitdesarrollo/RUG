@@ -650,7 +650,9 @@ function guardaParteOtorgante(elementID, idTramite, idPersona, idPersonaModifica
 	
 	elementID = elementID;
 	
-	if (valor == 'PM') {
+	console.log("el valor de valor es :" + valor);
+
+	if (valor == 'PM') {  //persona juridica
 		//validaciones
 		if (!noVacio(nit)) {
 			alertMaterialize('El campo NIT es obligatorio');
@@ -661,12 +663,18 @@ function guardaParteOtorgante(elementID, idTramite, idPersona, idPersonaModifica
 			return false;
 		}
 		if (!noVacio(inscrita)) {
-			alertMaterialize('El campo Inscrito bajo el número es obligatorio');
-			return false;
+			if (elementID!='divParteDWRxx4') //corellana: este campo no es obligatorio.(hector 15/09/2021)
+			{
+				alertMaterialize('El campo Inscrito bajo el número es obligatorio');
+				return false;
+			}
 		}
 		if (isInscripcion != '2' && !noVacio(direccion)) {
-			alertMaterialize('El campo Datos del Representante es obligatorio');
-			return false;
+			if (elementID!='divParteDWRxx4') //corellana: este campo no es obligatorio.(hector 15/09/2021)
+			{
+				alertMaterialize('El campo Datos del Representante es obligatorio');			
+				return false;
+			}
 		}
 		
 		displayLoader(true);
@@ -682,8 +690,11 @@ function guardaParteOtorgante(elementID, idTramite, idPersona, idPersonaModifica
 			return false;
 		}
 		if (!noVacio(rfc)) {
-			alertMaterialize('El campo Documento de identificación es obligatorio');
-			return false;
+                    if (elementID!='divParteDWRxx4') //corellana: este campo no es obligatorio.(hector 15/09/2021)
+			{
+                            alertMaterialize('El campo Documento de identificación es obligatorio');
+                            return false;
+                        }
 		}		
 				
 		displayLoader(true);

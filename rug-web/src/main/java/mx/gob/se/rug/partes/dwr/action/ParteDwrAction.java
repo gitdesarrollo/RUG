@@ -89,6 +89,8 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 			} else if(idTipo.equalsIgnoreCase("2")) {//facturas
 				bienEspecialTO.setIdentificador(mdIdentificador2);
 				bienEspecialTO.setTipoIdentificador(3); // no factura
+                                
+                                
 			} else {
 				bienEspecialTO.setIdentificador(mdIdentificador2);
 				bienEspecialTO.setTipoIdentificador(4); // no serie
@@ -105,6 +107,48 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 		return dwr;
 	}
 
+        //corellana: se agrego para RUG, hector solicita se grabe el numero de serie)
+	public MessageDwr registrarBien_v2(String elementId, String idTramite, String mdDescripcion, String idTipo, String mdIdentificador,
+			String mdIdentificador1, String mdIdentificador2, String mdIdentificador3) {
+		MessageDwr dwr = new MessageDwr();
+		
+		MyLogger.Logger.log(Level.INFO, "Entre a registar bien");
+		
+		try {		
+			BienEspecialTO bienEspecialTO = new BienEspecialTO();
+			bienEspecialTO.setIdTramite(new Integer(idTramite));
+			bienEspecialTO.setDescripcion(mdDescripcion);
+			bienEspecialTO.setTipoBien(new Integer(idTipo));
+			if(idTipo.equalsIgnoreCase("1")) {//vehiculos		
+				if(!mdIdentificador2.equalsIgnoreCase("")) {
+					bienEspecialTO.setIdentificador(mdIdentificador2);
+					bienEspecialTO.setTipoIdentificador(2); //VIN
+				} else if(!mdIdentificador.equalsIgnoreCase("")&&!mdIdentificador1.equalsIgnoreCase("")) {					
+					bienEspecialTO.setIdentificador(mdIdentificador+"-"+mdIdentificador1);
+					bienEspecialTO.setTipoIdentificador(1); //por placa y uso
+				}
+			} else if(idTipo.equalsIgnoreCase("2")) {//facturas
+				bienEspecialTO.setIdentificador(mdIdentificador2);
+				bienEspecialTO.setTipoIdentificador(3); // no factura
+                                
+                                bienEspecialTO.setSerie(mdIdentificador3); //corellana se tiene que poner el numero de serie
+			} else {
+				bienEspecialTO.setIdentificador(mdIdentificador2);
+				bienEspecialTO.setTipoIdentificador(4); // no serie
+			}
+//			bienEspecialTO.setSerie(mdIdentificador3);
+//                        System.out.println("Identificador: " + mdIdentificador3);
+			inscripcionService.registrarBien(bienEspecialTO);
+			
+			dwr = getParteBienes(elementId, idTramite);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+			
+		return dwr;
+	}
+        
+        
 	public MessageDwr cambiaUsuarioGrupo(String idUsuario, String idSubUsuario,
 			String idAcreedor, String idGrupoNuevo) {
 		MessageDwr dwr = new MessageDwr();
@@ -555,6 +599,9 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 				
 				altaParte.setIdNacionalidad(deudorTO.getIdNacionalidad());
 				altaParte.setIdPersona(0);
+                                
+                                //orellana:nuevo para Hector que se pueda cambiar el tipo de persona
+                                //altaParte.setTipoPersona(deudorTO.getTipoPersona());
 				
 				altaParte.setRazonSocial(notNull(deudorTO.getRazon()));
 				altaParte.setInscrita(notNull(deudorTO.getInscrita()));
@@ -2196,8 +2243,11 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 			AltaParteDAO altaParteDAO = new AltaParteDAO();
 			altaParteDAO.actualizaParte(altaParteTO);
 
-			dwr = getParteDeudor(elementId, idTramite, idPersona, "0",
-					isInscripcion);
+                        //ORELLANA:ORIGINAL 
+			dwr = getParteDeudor(elementId, idTramite, idPersona, "0",isInscripcion);
+                        //dwr = getParteDeudor(elementId, idTramite, idPersona, idPersonaModificar,isInscripcion);
+                        
+                        
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

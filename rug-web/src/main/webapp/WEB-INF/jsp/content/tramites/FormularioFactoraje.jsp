@@ -28,7 +28,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 			<div class="col s2"></div>
 			<div class="col s8">
 				<!-- row note teal -->
-				<h1>AQUI HAY QUE ARREGLAR TODO</h1>
+
 				<form id="fafactoraje" name="fafactoraje" action="saveFactoraje.do" method="post">
 					<span class="card-title"><s:property value="%{textosFormulario.get(0)}"/></span>
 					<input type="hidden" name="refInscripcion" id="refInscripcion" value="<s:property value='idTramite'/>" />
@@ -98,6 +98,8 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 				 	<center>
 			            <div class='row'>
 			            	 <input type="button" id="bFirmar" name="button" class="btn btn-large waves-effect indigo" value="Aceptar" onclick="mi_funcion222222();"/>
+
+
 			            </div>
 		          	</center>
 				</form>
@@ -129,6 +131,30 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 </div>
                                                 
 <script type="text/javascript"> 	
+    
+    
+function habilitar_todo()
+{
+    //alert('Revise todos los datos ingresados antes de continuar');
+    document.getElementById("bFirmar").disabled = true;
+    document.getElementById("divParteDWRxx2").disabled = false;
+    document.getElementById("divParteDWRxx3").disabled = false;
+    document.getElementById("divParteDWRxx4").disabled = false;
+    document.getElementById("divParteDWRBienes").disabled = false;
+    document.getElementById("modotrosgarantia").disabled = false;
+    console.log('Mi funcion.........................');
+}
+    
+function confirmar()
+{
+    alert('Revise todos los datos ingresados antes de continuar');
+    
+    $('.tituloHeader2').hide();
+    $('.btn').hide();
+    $('.btn').hide();
+    $('.btn').hide();
+}
+    
 function mi_funcion222222()
 {
     console.log('Mi funcion.........................');
@@ -183,11 +209,12 @@ function mi_funcion222222()
 								</div>
 							</div>
 							<div id="secId3" class="row" style="display: none;">
-<%--								<div class="input-field col s6">--%>
-<%--									<s:textfield name="mdIdentificador3" id="mdIdentificador3"--%>
-<%--												 cssClass="validate" maxlength="150" onkeypress="return characterNotAllowed(event);"/>--%>
-<%--									<label id="lblMdIdentificador3" for="mdIdentificador3">VIN</label>--%>
-<%--								</div>--%>
+								<div class="input-field col s6" >
+									<s:textfield name="mdIdentificador3" id="mdIdentificador3"
+												 cssClass="validate" maxlength="150" />
+									<label id="lblMdIdentificador3" for="mdIdentificador3">VIN</label> 
+                                                                        <p><small>Ingrese el numero de serie en caso de ser factura de papel, para el caso de FEL el numero de serie no es obligatorio.</small></p>
+								</div>
 								<div class="input-field col s6">
 									<s:textfield name="mdIdentificador2" id="mdIdentificador2"
 										cssClass="validate" maxlength="150" />
@@ -308,7 +335,7 @@ function add_bien() {
 	  var mdIdentificador = document.getElementById("mdIdentificador").value;
 	  var mdIdentificador1 = document.getElementById("mdIdentificador1").value;
 	  var mdIdentificador2 = document.getElementById("mdIdentificador2").value;
-	  var mdIdentificador3 = "sin serie";//document.getElementById("mdIdentificador3").value;
+	  var mdIdentificador3 = document.getElementById("mdIdentificador3").value;
 
 	  if(!noVacio(mdDescripcion)){
 		  alertMaterialize('Debe ingresar la descripcion del bien especial');
@@ -331,8 +358,8 @@ function add_bien() {
 		//	  mdIdentificador1, mdIdentificador2, mdIdentificador3,showParteBienes);
                           
           //corellana: se cambio a este ya que el registrar bien acepta menos parametros
-          ParteDwrAction.registrarBien('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador,
-			  mdIdentificador1, mdIdentificador2,showParteBienes);
+          ParteDwrAction.registrarBien_v2('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador,
+			  mdIdentificador1, mdIdentificador2,mdIdentificador3,showParteBienes);
           
 
 	  
@@ -364,7 +391,7 @@ function cambiaBienesEspeciales() {
 		  document.getElementById("secId4").style.display = 'block';
 		  
 		  document.getElementById("lblMdIdentificador2").innerHTML = 'No. Factura';
-		  // document.getElementById("lblMdIdentificador3").innerHTML = 'Serie'
+		  document.getElementById("lblMdIdentificador3").innerHTML = 'Serie'
 		  document.getElementById("lblMdDescripcion").innerHTML = 'Observaciones Generales';
 	  } else if (x=='3'){
 		  document.getElementById("mdDescripcion").disabled = false;	  
@@ -396,7 +423,7 @@ function limpiaCampos() {
 	  document.getElementById("mdIdentificador").value = '0';
 	  document.getElementById("mdIdentificador1").value = '';
 	  document.getElementById("mdIdentificador2").value = '';
-	  //document.getElementById("mdIdentificador3").value = '';
+	  document.getElementById("mdIdentificador3").value = '';
 
 	  document.getElementById("mdFactura1").value = '';
 	  document.getElementById("mdFactura2").value = '';

@@ -398,8 +398,19 @@ public class BoletaServiceImpl {
 		//pdfTO.setHtml("[*1*]",getParteTramite(idBoleta, detalleTO.getIdTramite(), detalleTO.getGarantiaTO().getIdTipoGarantia(), 1));
 		setTextosFormulario(inscripcionService.getTextosFormularioByIdGarantia(detalleTO.getGarantiaTO().getIdTipoGarantia()));
 		pdfTO.setIdTipoGarantia(detalleTO.getGarantiaTO().getIdTipoGarantia());
+				
+                /*corellana: Hector pidio que para los de leasing el titulo sea otro */
+                if(detalleTO.getGarantiaTO().getIdTipoGarantia().equals(16))
+                {
+                    pdfTO.setHtml("[*titulo_garantia*]", "          <span class=\"card-title center-align\">INSCRIPCI&Oacute;N DE LA GARANT&Iacute;A MOBILIARIA (LEASING)</span>" );
+                }
+                 else
+                {
+                    pdfTO.setHtml("[*titulo_garantia*]", "          <span class=\"card-title center-align\">INSCRIPCI&Oacute;N DE LA GARANT&Iacute;A MOBILIARIA</span>" );
+                }
 		
-		pdfTO.setHtml("[*deudoresTable*]", "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(1)+"</span>" + getPersonaParte(detalleTO.getIdTramite(),2));
+                
+                pdfTO.setHtml("[*deudoresTable*]", "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(1)+"</span>" + getPersonaParte(detalleTO.getIdTramite(),2));
 		pdfTO.setHtml("[*acreedoresTable*]", "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(2)+"</span>" + getPersonaParte(detalleTO.getIdTramite(),3));
 		pdfTO.setHtml("[*otorgantesTable*]", getTextosFormulario().get(3)==null||getTextosFormulario().get(3).equalsIgnoreCase("")?"":"<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(3)+"</span>" + getPersonaParte(detalleTO.getIdTramite(),1));
 		pdfTO.setHtml("[*bienes*]",

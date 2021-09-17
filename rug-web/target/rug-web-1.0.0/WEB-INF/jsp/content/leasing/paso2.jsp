@@ -131,10 +131,15 @@
 										<div class="card-content">
                                                                                     <span class="card-title">Monto estimado de la garant&iacute;a (Leasing)</span>
 											<div class="row">
+                                                                                                <div class="input-field col s12">
+                                                                                                    <s:select  name="idTipoMoneda" list="listaMonedas" listKey="idMoneda" listValue="descMoneda"
+														id="idTipoMoneda" />
+													<label for="idTipoMoneda">Seleccione la moneda:</label>
+												</div>
 												<div class="input-field col s12">
 													<s:textfield  name="actoContratoTO.montoMaximo" type="number" min="0" 
-														id="actoContratoTO.instrumentoPub" />
-													<label for="actoContratoTO.instrumentoPub">Monto estimado de la grarantia</label>
+														id="actoContratoTO.montoMaximo"  />
+													<label for="actoContratoTO.montoMaximo">Monto estimado de la garantia</label>
 												</div>
 											</div>
 										</div>
@@ -777,6 +782,8 @@
 
 
 	}
+        
+       
 
 	function limpiaCamposFile() {
 		document.getElementById("mdBienEspecial2").value = '0';
@@ -790,4 +797,7 @@
 
 		Materialize.updateTextFields();
 	}
+        
+        
+        
 </script>

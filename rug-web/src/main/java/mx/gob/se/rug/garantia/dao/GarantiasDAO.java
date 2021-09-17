@@ -644,7 +644,10 @@ public class GarantiasDAO extends BaseRugDao {
 			
 			//MyLogger.Logger.log(Level.INFO,"Representante......+++ "+ garantiaTO.getObligacionTO().getOtrosTerminos());
 			setStringCS(cs, garantiaTO.getObligacionTO().getOtrosTerminos(), 15);
-			setIntCS(cs, 1, 16); //no se usa, se inicializa a 1
+                        if (garantiaTO.getIdTipoGarantia()==16)
+                            setIntCS(cs, garantiaTO.getIdMoneda(), 16); //no se usa, se inicializa a 1
+                        else
+                            setIntCS(cs, 1, 16); //no se usa, se inicializa a 1
 			
 			//campos nuevos
 			//Nuevos Campos

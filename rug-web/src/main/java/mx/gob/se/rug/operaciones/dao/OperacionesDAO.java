@@ -281,7 +281,7 @@ public class OperacionesDAO {
 		PreparedStatement ps =null;
 		List <OperacionesTO> listaPendientes = new ArrayList<OperacionesTO>();
 		
-		String sql = "select ID_TRAMITE_TEMP, ID_TIPO_TRAMITE, TIPO_TRAMITE, FECHA_STATUS, ID_GARANTIA_PEND, DESCRIP_STATUS, URL from (select rownum rn, ID_TRAMITE_TEMP, ID_TIPO_TRAMITE, TIPO_TRAMITE, FECHA_STATUS, ID_GARANTIA_PEND, DESCRIP_STATUS, URL from RUG.V_TRAMITES_PENDIENTES where ID_PERSONA_LOGIN=? AND ID_STATUS=1 AND ID_TIPO_TRAMITE = 1 AND TRAMITE_REASIGNADO = 'F') where rn BETWEEN ? AND ?";
+		String sql = "select ID_TRAMITE_TEMP, ID_TIPO_TRAMITE, TIPO_TRAMITE, FECHA_STATUS, ID_GARANTIA_PEND, DESCRIP_STATUS, URL,ID_TIPO_GARANTIA from (select rownum rn, ID_TRAMITE_TEMP, ID_TIPO_TRAMITE, TIPO_TRAMITE, FECHA_STATUS, ID_GARANTIA_PEND, DESCRIP_STATUS, URL,ID_TIPO_GARANTIA from RUG.V_TRAMITES_PENDIENTES where ID_PERSONA_LOGIN=? AND ID_STATUS=1 AND ID_TIPO_TRAMITE = 1 AND TRAMITE_REASIGNADO = 'F') where rn BETWEEN ? AND ?";
 		try {
 			connection = bd.getConnection();
 			ps = connection.prepareStatement(sql);
@@ -308,7 +308,7 @@ public class OperacionesDAO {
 				
 				operacionesTO.setEstatus(rs.getString("DESCRIP_STATUS"));			
 				operacionesTO.setPaso(rs.getString("URL"));
-				
+				operacionesTO.setIdTipoGarantia(rs.getInt("ID_TIPO_GARANTIA"));
 				listaPendientes.add(operacionesTO);
 			}
 			

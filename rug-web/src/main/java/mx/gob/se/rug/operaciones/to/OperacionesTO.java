@@ -22,6 +22,18 @@ public class OperacionesTO {
 	private Integer idTramiteTemporal;
 	private List<OtorganteTO> otorgantes;
 	private String usuario;
+        
+        private Integer idTipoGarantia;
+        
+        
+        public Integer getIdTipoGarantia() {
+		return idTipoGarantia;
+	}
+        
+	public void setIdTipoGarantia(Integer idTipoGarantia) {
+		this.idTipoGarantia = idTipoGarantia;
+	}
+        
 	
 	public String getDescripcionGeneral() {
 		return descripcionGeneral;

@@ -139,7 +139,7 @@
 												<div class="input-field col s12">
 													<s:textfield  name="actoContratoTO.montoMaximo" type="number" min="0" 
 														id="actoContratoTO.montoMaximo"  />
-													<label for="actoContratoTO.montoMaximo">Monto estimado de la grarantia</label>
+													<label for="actoContratoTO.montoMaximo">Monto estimado de la garantia</label>
 												</div>
 											</div>
 										</div>

@@ -36,7 +36,9 @@
 		menuTO = menuService.cargaMenuPrincipal(menuTO, (UsuarioTO) session.getAttribute("usuario"));
 		Iterator<String> iterator = menuTO.getHtml().iterator();
 		while (iterator.hasNext()) {
+                    
 			String menuItem = iterator.next();
+                        System.out.println("Menu principal jj" + menuItem);
 	%><%=menuItem%>
 	<%
 		}

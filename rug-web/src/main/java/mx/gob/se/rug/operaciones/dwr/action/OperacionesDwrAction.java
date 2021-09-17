@@ -1421,8 +1421,21 @@ public class OperacionesDwrAction extends AbstractBaseDwrAction {
 					sb.append("					<table width=\"100%\">");
 					sb.append(" 					<tr> ");
 					sb.append(" 						<td align=\"center\"> ");
-					sb.append(" 							<a class=\"btn waves-effect indigo darken-4\" onclick=\"window.location.href='"+Constants.getContextPath()).append(tramite.getPaso()).append("?idInscripcion=").append(tramite.getIdInscripcion()).append("'\"><i class=\"material-icons\">edit</i></a> ");
-					sb.append("							</td>");
+                                        
+                                        //sb.append(" 							<a class=\"btn waves-effect indigo darken-4\" onclick=\"window.location.href='"+Constants.getContextPath()).append(tramite.getPaso()).append("?idInscripcion=").append(tramite.getIdInscripcion()).append("'\"><i class=\"material-icons\">edit</i></a> ");
+                                        
+                                        String paso = tramite.getPaso();
+
+
+                                        if(tramite.getIdTipoGarantia() != null && tramite.getIdTipoGarantia() == 16  )
+                                            paso = paso.replaceAll("inscripcion", "leasing");
+                                            
+                                        
+                                            
+                                        sb.append(" 							<a class=\"btn waves-effect indigo darken-4\" onclick=\"window.location.href='"+Constants.getContextPath()).append(paso).append("?idInscripcion=").append(tramite.getIdInscripcion()).append("'\"><i class=\"material-icons\">edit</i></a> ");                                            
+					
+                                        
+                                        sb.append("							</td>");
 					sb.append(" 						<td align=\"center\"> ");
 					sb.append(" 							<a class=\"btn waves-effect red darken-4\" onclick=\"window.location.href='"+Constants.getContextPath()+"/home/eliminarTP.do?idTramitePendiente=").append(tramite.getIdInscripcion()).append("'\" ><i class=\"material-icons\">delete</i></a> ");
 					sb.append(" 						</td>");

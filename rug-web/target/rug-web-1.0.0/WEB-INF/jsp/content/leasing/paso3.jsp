@@ -177,7 +177,13 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 					    	</div>
 					    </div>					    					    					    					    
                                             <div class="row">
-					    	<div class="input-field col s12">
+                                                
+                                                <div class="input-field col s2">
+					    		<span class="blue-text text-darken-2">Moneda: </span>
+					    		<p><s:property value="descripcionMoneda"/></p>						    		
+					    	</div>
+
+					    	<div class="input-field col s10">
 					    		<span class="blue-text text-darken-2">Monto estimado de la Garant&iacute;a: </span>
 					    		<p><s:property value="actoContratoTO.montoMaximo"/></p>						    		
 					    	</div>

@@ -3,6 +3,7 @@ package mx.gob.se.rug.boleta.serviceImpl;
 import java.math.BigInteger;
 import java.sql.Connection;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -429,8 +430,19 @@ public class BoletaServiceImpl {
                 if(detalleTO.getGarantiaTO().getIdTipoGarantia().equals(16))
                 {
                     String monto_maximo  = detalleTO.getGarantiaTO().getMontoMaximo();
-                    monto_maximo = monto_maximo.replace("$", "");
-                    monto_maximo = monto_maximo.replace("Bolivar", "");
+                    String monto_original = monto_maximo;
+                    try{
+                        monto_maximo = monto_maximo.replace("$", "");
+                        monto_maximo = monto_maximo.replace("Bolivar", "");
+
+                        DecimalFormat formatter = new DecimalFormat("#,###.00");
+                        double amount = Double.parseDouble(monto_maximo);
+                        monto_maximo = formatter.format(amount);
+                    }
+                    catch (Exception e) {
+                         monto_maximo = monto_original;
+                    }
+                    
                     
                     pdfTO.setHtml("[*montoEstimado*]", "<div class=\"input-field col s12\">"
 				+ "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(10)+"</span><p>"
@@ -443,7 +455,12 @@ public class BoletaServiceImpl {
                 
 		if(detalleTO.getIdTipoTramite()==1) {// solo aplica a inscripciones
 			pdfTO.setHtml("[*operacion*]", "[*cert*]Inscripci\u00f3n " + (getTextosFormulario().get(9)==null?"":getTextosFormulario().get(9)));
-                        pdfTO.setTypeValue("Inscripci\u00f3n " + (getTextosFormulario().get(9)==null?"":getTextosFormulario().get(9)));
+                        
+                        if(detalleTO.getGarantiaTO().getIdTipoGarantia().equals(2))
+                            pdfTO.setTypeValue("Factoraje");
+                        else
+                            pdfTO.setTypeValue("Inscripci\u00f3n " + (getTextosFormulario().get(9)==null?"":getTextosFormulario().get(9)));
+                        
 		}
 		//pdfTO.setHtml("[*2*]",getParteTramite(idBoleta, detalleTO.getIdTramite(), detalleTO.getGarantiaTO().getIdTipoGarantia(), 2));
 	

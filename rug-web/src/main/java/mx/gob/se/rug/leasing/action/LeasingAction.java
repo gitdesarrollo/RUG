@@ -1271,6 +1271,18 @@ public class LeasingAction extends RugBaseAction {
 	public void setHayBienes(boolean hayBienes) {
 		this.hayBienes = hayBienes;
 	}
+        
+        public String getDescripcionMoneda(){
+            
+
+            for (MonedaTO moneda : inscripcionService.getMonedas())
+            {
+                if (moneda.getIdMoneda().equals(getGarantiaTO().getIdMoneda()))
+                    return moneda.getDescMoneda();
+                //return moneda.getMoneda();
+            }
+            return "";
+        }
 
 
 }

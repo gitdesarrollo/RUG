@@ -1,5 +1,6 @@
 package mx.gob.se.rug.leasing.action;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -140,6 +141,10 @@ public class LeasingAction extends RugBaseAction {
 	 * Este metodo se utiliza para cambiar el estatus de un tramite al paso 3
 	 */
 	
+        public String carlos(){
+            return "descripcion de la moneda";
+            
+        }
 	
 	public String load() {
 		return SUCCESS;
@@ -1282,6 +1287,14 @@ public class LeasingAction extends RugBaseAction {
                 //return moneda.getMoneda();
             }
             return "";
+        }
+        
+        public String getMontoComa(){
+            
+            String number = actoContratoTO.getMontoMaximo();
+            double amount = Double.parseDouble(number);
+            DecimalFormat formatter = new DecimalFormat("#,###.00");
+            return(formatter.format(amount));
         }
 
 

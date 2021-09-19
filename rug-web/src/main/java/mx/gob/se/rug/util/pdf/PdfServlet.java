@@ -324,13 +324,13 @@ public class PdfServlet extends HttpServlet {
 
                             
                              //corellana desactivar para el ambiente local, ya que no tengo el p12 
-//                            try {
-//                                ByteArrayOutputStream signedOs = digitalSignatureSvc.signDocument(info);
-//                                file = signedOs.toByteArray();
-//                            } catch (GeneralSecurityException | com.itextpdf.text.DocumentException e) {
-//                                MyLogger.Logger.log(Level.INFO, " no tiene parametros....." + e);
-//                                e.printStackTrace();
-//                            }
+                            try {
+                                ByteArrayOutputStream signedOs = digitalSignatureSvc.signDocument(info);
+                                file = signedOs.toByteArray();
+                            } catch (GeneralSecurityException | com.itextpdf.text.DocumentException e) {
+                                MyLogger.Logger.log(Level.INFO, " no tiene parametros....." + e);
+                                e.printStackTrace();
+                            }
 
                             pdfTO.setFile(file);
                             BoletaDAO boleta = new BoletaDAO();

@@ -96,7 +96,7 @@ public class BusquedaDAO {
 		return busquedaTOs;
 	}
 
-	public List<BusquedaTO> searchIvoice(BusquedaTO busquedaTO, Integer start, Integer finish){
+	public List<BusquedaTO> searchInvoice(BusquedaTO busquedaTO, Integer start, Integer finish){
         List<BusquedaTO> busquedaTOs= new ArrayList<BusquedaTO>();
         ConexionBD bd = new ConexionBD();
 
@@ -118,7 +118,7 @@ public class BusquedaDAO {
 		System.out.println("12" + Types.INTEGER);
 		System.out.println("13" + oracle.jdbc.OracleTypes.CURSOR);
 
-        String sql = "{ call RUG.SP_CONSULTA_GARANTIAS_REG("+"?,?,?,?,?,"+"?,?,?,?,?,?,"+"?,?)}";
+        String sql = "{ call RUG.SP_CONSULTA_GARANTIAS_FACT("+"?,?,?,?,?,"+"?,?,?,?)}";
         Connection connection = bd.getConnection();
         ResultSet rs = null;
         CallableStatement cs = null;
@@ -126,27 +126,27 @@ public class BusquedaDAO {
             cs = connection.prepareCall(sql);
 
 
-            cs.setString(1, busquedaTO.getDescGarantia());
-            cs.setString(2, busquedaTO.getNombre());
-            if (busquedaTO.getIdGarantia() != null && !busquedaTO.getIdGarantia().equals("") ){
-                cs.setInt(3, Integer.valueOf(busquedaTO.getIdGarantia()));
-            }else{
-                cs.setNull(3, Types.NULL);
-            }
-            cs.setString(4, busquedaTO.getFolioMercantil());
-            cs.setString(5, busquedaTO.getCurpOtorgante());
-            cs.setString(6, busquedaTO.getRfcOtorgante());
-            cs.setInt(7, start);
-            cs.setInt(8, finish);
-            cs.setString(9, busquedaTO.getNoSerial());
-            cs.setInt(10, new Integer(busquedaTO.getIdPersona()));
-            cs.setInt(11, new Integer(busquedaTO.getIdTipoTramite()));
-            cs.registerOutParameter(12, Types.INTEGER);
-            cs.registerOutParameter(13, oracle.jdbc.OracleTypes.CURSOR);
+            cs.setString(1, busquedaTO.getNit());
+            cs.setString(2, busquedaTO.getSet());
+            
+             
+            cs.setString(3, busquedaTO.getInvoice());
+            
+            
+            cs.setInt(4, start);
+            cs.setInt(5, finish);            
+            cs.setInt(6, new Integer(busquedaTO.getIdPersona()));
+            cs.setInt(7, new Integer(busquedaTO.getIdTipoTramite()));
+            cs.registerOutParameter(8, Types.INTEGER);
+            cs.registerOutParameter(9, oracle.jdbc.OracleTypes.CURSOR);
             cs.execute();
-            rs = (ResultSet)cs.getObject(13);
-            int numReg = (Integer) cs.getObject(12);
+            
+            
+            rs = (ResultSet)cs.getObject(9);
+            int numReg = (Integer) cs.getObject(8);
+            
             BusquedaTO busquedaTO2;
+            
             if (numReg == 0) {
                 busquedaTO2= new BusquedaTO();
                 busquedaTO.setNumReg(numReg);

@@ -2241,6 +2241,11 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 			altaParteTO.setDomicilioUno(domicilio);
 			
 			AltaParteDAO altaParteDAO = new AltaParteDAO();
+                        
+                        //PREGUNTAR SI YA EXISTE LA PERSONA CON OTRO TIPO DE PERSONA ID
+                        
+                        
+                        
 			altaParteDAO.actualizaParte(altaParteTO);
 
                         //ORELLANA:ORIGINAL 

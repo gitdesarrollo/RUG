@@ -23,7 +23,17 @@ public class BusquedaAction extends RugBaseAction {
 	// serie - factura
 	private String set;
 	private String invoice;
+        private String nit;
+        
 	
+        public String getNit() { /*orellana: busqueda por factura nit serie*/
+		return nit;
+	}
+
+	public void setNit(String nit) {
+		this.nit = nit;
+	}
+
 	
 	public String getIdPersona() {
 		return idPersona;

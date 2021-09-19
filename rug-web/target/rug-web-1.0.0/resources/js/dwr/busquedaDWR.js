@@ -37,7 +37,7 @@ function searchInvoiceform(ruta, idPersona, tipoBusqueda, tipoTramite) {
 	var set = trim(getObject('set').value);
         var nit = trim(getObject('nit').value);
 
-	if (!isBlank(invoice) || !isBlank(set)) {
+	if (!isBlank(invoice) || !isBlank(set) || !isBlank(nit) ) {
 		BusquedaDwrAction.searchInvoice(invoice, set, idPersona, tipoTramite, ruta,nit,escribeTablaBusqueda);
 	}
 }

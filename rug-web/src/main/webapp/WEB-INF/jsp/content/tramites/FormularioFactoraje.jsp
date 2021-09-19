@@ -69,10 +69,10 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 					</div>
 					<div class="row">
 						<div class="col s12 right-align">
-							<a class="btn-floating btn-large waves-effect indigo modal-trigger" onclick="limpiaCampos()"
+							<a class="btn-floating btn-large waves-effect indigo modal-trigger state1" onclick="limpiaCampos()"
 								href="#frmBien" id="btnAgregar"><i
 								class="material-icons left">add</i></a>
-							<a class="btn-floating btn-large waves-effect indigo modal-trigger" onclick="limpiaCamposFile()"
+							<a class="btn-floating btn-large waves-effect indigo modal-trigger state1" onclick="limpiaCamposFile()"
 									href="#frmFile" id="btnFile"><i
 									class="material-icons left">attach_file</i></a>
 						</div>
@@ -97,7 +97,10 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 				    <hr />
 				 	<center>
 			            <div class='row'>
-			            	 <input type="button" id="bFirmar" name="button" class="btn btn-large waves-effect indigo" value="Aceptar" onclick="mi_funcion222222();"/>
+                                        <input type="button" id="bEditar"  name="button" class="btn btn-large waves-effect indigo state2" value="Corregir Datos" onclick="mi_funcion_editar();"/>
+                                        <input type="button" id="bContinuar" name="button" class="btn btn-large waves-effect indigo state1" value="Continuar" onclick="habilitar_continuar();"/>
+			            	<input type="button" id="bFirmar"  name="button" class="btn btn-large waves-effect indigo state2" value="Aceptar" onclick="mi_funcion222222();"/>
+                                        
 
 
 			            </div>
@@ -131,7 +134,39 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 </div>
                                                 
 <script type="text/javascript"> 	
+
+	  $(document).ready(function() {	  
+			$('.state2').hide();
+		});
+function mi_funcion_editar()
+{
+    $('.state2').hide();
+    $('.state1').show();
+    $('.tituloHeader2').show();
+    $("a[title='Eliminar']").show();
+    $("a[title='Modificar']").show();
+    $(".btn.waves-effect.indigo.darken-4").show();
+    $(".btn.waves-effect.red.darken-4").show();
     
+    $("#instrumento").prop('disabled', false);
+    $("#modotrosgarantia").prop('disabled', false);
+    $("#tiposbienes").prop('disabled', false);
+    
+    
+}
+function habilitar_continuar(){
+    alertMaterialize("Revisar datos antes de Aceptar datos y grabar garantia");
+    $('.state2').show();
+    $('.state1').hide();
+    $('.tituloHeader2').hide();
+    $("a[title='Eliminar']").hide();
+    $("a[title='Modificar']").hide();
+    $(".btn.waves-effect.indigo.darken-4").hide();
+    $(".btn.waves-effect.red.darken-4").hide();
+    $("#instrumento").prop('disabled', true);
+    $("#modotrosgarantia").prop('disabled', true);
+    $("#tiposbienes").prop('disabled', true);
+}
     
 function habilitar_todo()
 {
@@ -157,6 +192,7 @@ function confirmar()
     
 function mi_funcion222222()
 {
+    mi_funcion_editar();
     console.log('Mi funcion.........................');
     inscripcionFactoraje();
 }
@@ -343,7 +379,10 @@ function add_bien() {
 	  }
 	  
 	  if(idTipo == '2'){
-		  mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
+                  if (mdIdentificador3.length>0)
+                    mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Serie: " +mdIdentificador3 + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
+                  else
+                    mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
 	  }
 	  
 	  if(idTipo == '1'){

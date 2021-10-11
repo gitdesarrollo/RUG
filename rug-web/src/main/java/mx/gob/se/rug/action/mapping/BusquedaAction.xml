@@ -9,6 +9,13 @@
 			<result type="tiles">busqueda.home</result>
 			<result name="input" type="tiles">busqueda.home</result>
 		</action>
+                
+                <action name="busqueda_anonima" method="muestraBusquedaAnonima" class="busquedaAction">
+			<result type="tiles">busqueda_anonima.home</result>
+			<result name="input" type="tiles">busqueda_anonima.home</result>
+		</action>
+
+                
 		
 		<action name="certifica" method="muestraCertifica" class="busquedaAction">
 			<result type="tiles">certifica.home</result>

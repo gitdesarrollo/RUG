@@ -255,4 +255,83 @@ public class BusquedaDAO {
 		//MyLogger.Logger.log(Level.INFO,"RREESSUULLTTAADDOO: " +busquedaTOs.toString());
 		return busquedaTOs;
 	}
+        
+        
+        public List<BusquedaTO> busquedaSinSaldo(BusquedaTO busquedaInTO, Integer inicio, Integer fin){
+		List<BusquedaTO> busquedaTOs= new ArrayList<BusquedaTO>();
+
+		System.out.println("1" + busquedaInTO.getDescGarantia());
+		System.out.println("2" + busquedaInTO.getNombre());
+		System.out.println("3" + busquedaInTO.getIdGarantia());
+		System.out.println("4" + busquedaInTO.getFolioMercantil());
+		System.out.println("5" + busquedaInTO.getCurpOtorgante());
+		System.out.println("6" + busquedaInTO.getRfcOtorgante());
+		System.out.println("7" + inicio);
+		System.out.println("8" + fin);
+		System.out.println("9" + busquedaInTO.getNoSerial());
+		System.out.println("10" + busquedaInTO.getIdPersona());
+		System.out.println("11" + busquedaInTO.getIdTipoTramite());
+		System.out.println("12" + Types.INTEGER);
+		System.out.println("13" + oracle.jdbc.OracleTypes.CURSOR);
+
+		ConexionBD bd = new ConexionBD();
+		String sql = "{ call RUG.SP_CONSULTA_GARANTIAS_SINSALDO("+"?,?,?,?,?,"+"?,?,?,?,?,?,"+"?,?)}";
+		Connection connection = bd.getConnection();
+		ResultSet rs = null;
+		CallableStatement cs = null;
+		try {
+			cs = connection.prepareCall(sql);
+			
+			
+			cs.setString(1, busquedaInTO.getDescGarantia());
+			cs.setString(2, busquedaInTO.getNombre());
+			if (busquedaInTO.getIdGarantia() != null && !busquedaInTO.getIdGarantia().equals("") ){				
+				cs.setInt(3, Integer.valueOf(busquedaInTO.getIdGarantia()));
+			}else{
+				cs.setNull(3, Types.NULL);
+			}
+			cs.setString(4, busquedaInTO.getFolioMercantil());
+			cs.setString(5, busquedaInTO.getCurpOtorgante());
+			cs.setString(6, busquedaInTO.getRfcOtorgante());
+			cs.setInt(7, inicio);
+			cs.setInt(8, fin);
+			cs.setString(9, busquedaInTO.getNoSerial());
+			cs.setInt(10, new Integer(busquedaInTO.getIdPersona()));
+			cs.setInt(11, new Integer(busquedaInTO.getIdTipoTramite()));
+			cs.registerOutParameter(12, Types.INTEGER);
+			cs.registerOutParameter(13, oracle.jdbc.OracleTypes.CURSOR);
+			cs.execute();
+			rs = (ResultSet)cs.getObject(13);
+			int numReg = (Integer) cs.getObject(12);
+			BusquedaTO busquedaTO;
+			if (numReg == 0) {
+				busquedaTO= new BusquedaTO();
+				busquedaInTO.setNumReg(numReg);
+				busquedaTOs.add(busquedaTO);
+			}else {
+				while (rs.next()){
+				busquedaTO= new BusquedaTO();
+				busquedaTO.setIdTramite(rs.getString("ID_TRAMITE"));
+				busquedaTO.setIdTipoTramite(rs.getString("ID_TIPO_TRAMITE"));
+				busquedaTO.setFechaCreacion(rs.getString("FECHA_CREACION"));
+				busquedaTO.setDescripcion(rs.getString("DESCRIPCION"));
+				busquedaTO.setNombre(rs.getString("NOMBRE"));
+				//busquedaTO.setCurpOtorgante(rs.getString("CURP"));
+				busquedaTO.setRfcOtorgante(rs.getString("FOLIO_MERCANTIL"));
+				busquedaTO.setIdGarantia(rs.getString("ID_GARANTIA"));
+				busquedaTO.setDescGarantia(rs.getString("DESC_TIPOS_BIENES"));
+				busquedaInTO.setNumReg(numReg);
+				busquedaTOs.add(busquedaTO);
+				}
+			}
+		} catch (SQLException e) {
+        MyLogger.Logger.log(Level.INFO,"EXCEPTION: " +e.getMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			bd.close(connection, rs, cs);
+		}
+		//MyLogger.Logger.log(Level.INFO,"RREESSUULLTTAADDOO: " +busquedaTOs.toString());
+		return busquedaTOs;
+	}
 }

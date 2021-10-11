@@ -20,6 +20,12 @@ function busquedaDwr(ruta, idPersona, tipoBusqueda, tipoTramite) {
 			noSerial = '';
 			BusquedaDwrAction.buscar(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, escribeTablaBusqueda);
 		}
+                if (tipoBusqueda == 4) {
+			idGarantia = '';
+			nombre = '';
+			BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, escribeTablaBusqueda);
+		} 
+                
 
 			
 		// if (!isBlank(idGarantia) || !isBlank(nombre) || !isBlank(folioMercantil) || !isBlank(noSerial) || !isBlank(curpOtorgante) || !isBlank(rfcOtorgante)) {

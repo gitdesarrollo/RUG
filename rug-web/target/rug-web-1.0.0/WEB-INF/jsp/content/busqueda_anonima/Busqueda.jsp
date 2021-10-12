@@ -40,9 +40,20 @@
 									<label for="serial">N&uacute;mero de serie</label>
 								</div>
 							</div>
+                                                                        
+                                                                        <h5>Datos de quien hace la consulta</h5>                                                                        
 							<center>
 								<div class='row'>
-									<a class="btn btn-large waves-effect indigo" onclick="busquedaJSP(51071,4);">Consultar</a>
+                                                                    <div class="input-field col s12">
+                                                                        <label>Nombre de la persona que consulta</label>
+                                                                        <input type="text" id="consulta_nombre_1" class="campo_busqueda" >
+                                                                    </div>
+                                                                    <div class="input-field col s12">
+                                                                        <label>Nro. Id de la persona que consulta</label>
+                                                                        <input type="text" id="consulta_id_1" class="campo_busqueda" >
+                                                                    </div>
+                                                                    
+									<a class="btn btn-large waves-effect indigo" onclick="ejecutar_busqueda_jsp()">Consultar</a>
 								</div>
 							</center>
 						</s:form>
@@ -196,3 +207,19 @@
     </table>
 	</div>
 </div>
+
+<script type="text/javascript">
+    function ejecutar_busqueda_jsp()
+    {
+        if ($("#consulta_nombre_1").val() == ""  || $("#consulta_id_1").val() == "")
+        {
+               alert('Ingrese nombre y documento de identificacion para poder realizar la busqueda');
+               return;
+        }
+        busquedaJSP(51071,4,$("#consulta_nombre_1").val(),$("#consulta_id_1").val());
+
+    }   
+
+</script>
+
+ 

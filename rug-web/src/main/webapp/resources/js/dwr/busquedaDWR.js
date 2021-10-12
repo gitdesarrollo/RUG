@@ -1,4 +1,4 @@
-function busquedaDwr(ruta, idPersona, tipoBusqueda, tipoTramite) {
+function busquedaDwr(ruta, idPersona, tipoBusqueda, tipoTramite,consulta_nombre="", consulta_id="") {
 		var idGarantia = trim(getObject('idGarantia').value); // numero de inscripcion de  garantia form 2
 		var nombre = trim(getObject('nombreOtorgante').value); // nombre o razon social form 2
 		var folioMercantil = '';
@@ -23,7 +23,7 @@ function busquedaDwr(ruta, idPersona, tipoBusqueda, tipoTramite) {
                 if (tipoBusqueda == 4) {
 			idGarantia = '';
 			nombre = '';
-			BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, escribeTablaBusqueda);
+			BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, escribeTablaBusqueda,consulta_nombre,consulta_id);
 		} 
                 
 

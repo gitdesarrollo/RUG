@@ -129,7 +129,7 @@
 
 
 
-		function busquedaJSP(idPersona, tipoBusqueda) {
+		function busquedaJSP(idPersona, tipoBusqueda,consulta_nombre="", consulta_id="") {
                 
 			if (!$('#idGarantia').val() && !$('#nombreOtorgante').val() && !$('#rfcOtorgante').val() && !$('#curpOtorgante').val() && !$('#serial').val()) {
 				MaterialDialog.alert(
@@ -152,7 +152,7 @@
 
 			console.log(idPersona);
 			if (checkUser(idPersona)) {
-				busquedaDwr(ruta, idPersona, tipoBusqueda, 11);
+				busquedaDwr(ruta, idPersona, tipoBusqueda, 11,consulta_nombre,consulta_id);
 			} else {
 				$.ajax({
 					url: '<%= request.getContextPath() %>/rs/tipos-tramite/11',

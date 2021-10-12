@@ -257,7 +257,7 @@ public class BusquedaDAO {
 	}
         
         
-        public List<BusquedaTO> busquedaSinSaldo(BusquedaTO busquedaInTO, Integer inicio, Integer fin){
+        public List<BusquedaTO> busquedaSinSaldo(BusquedaTO busquedaInTO, Integer inicio, Integer fin, String consultaNombre, String consultaId ){
 		List<BusquedaTO> busquedaTOs= new ArrayList<BusquedaTO>();
 
 		System.out.println("1" + busquedaInTO.getDescGarantia());
@@ -275,7 +275,7 @@ public class BusquedaDAO {
 		System.out.println("13" + oracle.jdbc.OracleTypes.CURSOR);
 
 		ConexionBD bd = new ConexionBD();
-		String sql = "{ call RUG.SP_CONSULTA_GARANTIAS_SINSALDO("+"?,?,?,?,?,"+"?,?,?,?,?,?,"+"?,?)}";
+		String sql = "{ call RUG.SP_CONSULTA_GARANTIAS_SINSALDO("+"?,?,?,?,?,"+"?,?,?,?,?,?,"+"?,?,?,?)}";
 		Connection connection = bd.getConnection();
 		ResultSet rs = null;
 		CallableStatement cs = null;
@@ -300,6 +300,10 @@ public class BusquedaDAO {
 			cs.setInt(11, new Integer(busquedaInTO.getIdTipoTramite()));
 			cs.registerOutParameter(12, Types.INTEGER);
 			cs.registerOutParameter(13, oracle.jdbc.OracleTypes.CURSOR);
+                        
+                        cs.setString(14,consultaNombre);
+                        cs.setString(15,consultaId);
+                        
 			cs.execute();
 			rs = (ResultSet)cs.getObject(13);
 			int numReg = (Integer) cs.getObject(12);

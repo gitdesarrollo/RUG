@@ -254,7 +254,7 @@ public class BusquedaDwrAction extends AbstractBaseDwrAction {
         
 	public MessageDwr buscarSinSaldo(String idPersona, String noSerial, String idGarantia, String nombre, 
 														String folioMercantil, String descGarantia, String curpOtorgante, String rfcOtorgante, 
-														String ruta, String idTipoTramite){
+														String ruta, String idTipoTramite, String consultaNombre, String consultaId){
 			BusquedaTO  busquedaInTO= new BusquedaTO();
 			busquedaInTO.setIdGarantia(idGarantia.trim());
 			busquedaInTO.setIdTramite(idGarantia.trim());
@@ -291,7 +291,7 @@ public class BusquedaDwrAction extends AbstractBaseDwrAction {
 				//if(inscripcionService.getSaldoByUsuario(idPersona,Integer.valueOf(idTipoTramite),0)) {
                                if (1==1){
 				
-					List<BusquedaTO> busquedaGeneral = busquedaDAO.busquedaSinSaldo(busquedaInTO, inicio, fin);
+					List<BusquedaTO> busquedaGeneral = busquedaDAO.busquedaSinSaldo(busquedaInTO, inicio, fin,consultaNombre,consultaId);
 					int pagActiva = Integer.valueOf(1);
 					int regPagina = Integer.valueOf(20);
 					int registroTotales = busquedaInTO.getNumReg();

@@ -66,6 +66,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 //setActiveTab('seisMenu');
 //$("#seisMenu").attr("class","linkSelected");
 function cargaMasiva(){	
+    console.log("abra cadabra..........................");
 	var idUsuario = <s:property value="idUsuario" />;
 	var idAcreedor = '';	
 	displayLoader(true);

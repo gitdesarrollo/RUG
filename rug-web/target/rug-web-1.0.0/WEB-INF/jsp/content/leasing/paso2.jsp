@@ -132,14 +132,18 @@
                                                                                     <span class="card-title">Monto estimado de la garant&iacute;a (Leasing)</span>
 											<div class="row">
                                                                                                 <div class="input-field col s12">
-                                                                                                    <s:select  name="idTipoMoneda" list="listaMonedas" listKey="idMoneda" listValue="descMoneda"
+                                                                                                    <s:select  name="idTipoMoneda" value="24" list="listaMonedas" listKey="idMoneda" listValue="descMoneda"
 														id="idTipoMoneda" />
 													<label for="idTipoMoneda">Seleccione la moneda:</label>
 												</div>
-												<div class="input-field col s12">
-													<s:textfield  name="actoContratoTO.montoMaximo" type="number" min="0" 
+												<div class="input-fieldx col s12">
+                                                                                                    <label for="monto_calculo">Monto estimado de la garantia</label>
+                                                                                                    <input   name="monto_calculo" value="" id="monto_calculo" min="0" onchange="limpiar_monto()">
+                                                                                                    
+                                                                                                   
+													<s:textfield  name="actoContratoTO.montoMaximo" class="monto_maximo" type="hidden" min="0" 
 														id="actoContratoTO.montoMaximo"  />
-													<label for="actoContratoTO.montoMaximo">Monto estimado de la garantia</label>
+													
 												</div>
 											</div>
 										</div>
@@ -352,6 +356,39 @@
 
 	cargaParteBienes('divParteDWRBienes', idTramite);
 </script>
+
+
+
+<script type="text/javascript">
+                                                                                                        
+        $(document).ready(function () {
+             console.log( "ready!" );        
+             $("#monto_calculo").on({
+             "focus": function(event) {
+               $(event.target).select();
+             },
+             "keyup": function(event) {
+               $(event.target).val(function(index, value) {
+                 return value.replace(/\D/g, "")
+                   .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                   .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+               });
+             }
+           });
+         });
+         
+        function limpiar_monto()
+        {
+           valor= $("#monto_calculo").val().replace(",","")
+           valor = valor.replace(",","");
+           valor = valor.replace(",","");
+           valor = valor.replace(",","");
+
+           $(".monto_maximo").val(valor);
+        }
+
+                                                                                                        
+                                                                                                     </script>
 <script type="text/javascript">
 	function add_bien() {
 
@@ -381,6 +418,9 @@
 
 		ParteDwrAction.registrarBien('divParteDWRBienes', idTramite, mdDescripcion, idTipo, mdIdentificador,
 			mdIdentificador1, mdIdentificador2, showParteBienes);
+
+
+
 
 		$(document).ready(function () {
 			$('#frmBien').modal('close');

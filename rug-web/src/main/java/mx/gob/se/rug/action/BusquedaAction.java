@@ -110,6 +110,14 @@ public class BusquedaAction extends RugBaseAction {
 		
 		return SUCCESS;
 	}
+        
+        public String muestraBusquedaAnonima(){
+		MyLogger.Logger.log(Level.INFO, "Entro al muestraBusqueda");		
+		//UsuarioTO usuario = (UsuarioTO) sessionMap.get("usuario");
+		//setIdPersona(new Integer(usuario.getPersona().getIdPersona()).toString());                
+                //corellana: Se va registrar un usuario ficticio.		
+		return SUCCESS;
+	}
 	
 	public String muestraCertifica(){
 		MyLogger.Logger.log(Level.INFO, "Entro al muestra Certifica");

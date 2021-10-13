@@ -199,31 +199,36 @@ public class PdfServlet extends HttpServlet {
                             pdf.addEventHandler(PdfDocumentEvent.START_PAGE, footerHandler);
                             Document doc = HtmlConverter.convertToDocument(pdfTO.getHtmlList().get(iteracionB), pdf, converterProperties);
                             doc.close();
+                            
                             filepdf = ospdf.toByteArray();
-                            info.setSignText(signText);
-                            info.setGraphicSignature(signImage);
-                            info.setKeyFile(signFile);
-                            info.setKeyPassword(signPassword);
-                            info.setLocation(signLocation);
-                            info.setLlx(Integer.valueOf(signLlx));
-                            info.setLly(Integer.valueOf(signLly));
-                            info.setUrx(Integer.valueOf(signUrx));
-                            info.setUry(Integer.valueOf(signUry));
-                            info.setSignPage(Integer.valueOf(signPage));
-                            info.setFieldName(signFieldname);
-                            if (pdfTO.getTypeValue() == null) {
-                                info.setTypeDocument("Consulta");
-                            } else {
-                                info.setTypeDocument(pdfTO.getTypeValue());
-                            }
-                            info.setReason("Tramite #");
-                            info.setDocument(filepdf);
+                            
+                            
+                            if (Boolean.valueOf(signEnabled)) {
+                                info.setSignText(signText);
+                                info.setGraphicSignature(signImage);
+                                info.setKeyFile(signFile);
+                                info.setKeyPassword(signPassword);
+                                info.setLocation(signLocation);
+                                info.setLlx(Integer.valueOf(signLlx));
+                                info.setLly(Integer.valueOf(signLly));
+                                info.setUrx(Integer.valueOf(signUrx));
+                                info.setUry(Integer.valueOf(signUry));
+                                info.setSignPage(Integer.valueOf(signPage));
+                                info.setFieldName(signFieldname);
+                                if (pdfTO.getTypeValue() == null) {
+                                    info.setTypeDocument("Consulta");
+                                } else {
+                                    info.setTypeDocument(pdfTO.getTypeValue());
+                                }
+                                info.setReason("Tramite #");
+                                info.setDocument(filepdf);
 
-                            try {
-                                ByteArrayOutputStream signedOs = digitalSignatureSvc.signDocument(info);
-                                filepdf = signedOs.toByteArray();
-                            } catch (GeneralSecurityException | com.itextpdf.text.DocumentException e) {
-                                e.printStackTrace();
+                                try {
+                                    ByteArrayOutputStream signedOs = digitalSignatureSvc.signDocument(info);
+                                    filepdf = signedOs.toByteArray();
+                                } catch (GeneralSecurityException | com.itextpdf.text.DocumentException e) {
+                                    e.printStackTrace();
+                                }
                             }
 
                             try {
@@ -324,6 +329,8 @@ public class PdfServlet extends HttpServlet {
 
                             
                              //corellana desactivar para el ambiente local, ya que no tengo el p12 
+                            
+
                             try {
                                 ByteArrayOutputStream signedOs = digitalSignatureSvc.signDocument(info);
                                 file = signedOs.toByteArray();

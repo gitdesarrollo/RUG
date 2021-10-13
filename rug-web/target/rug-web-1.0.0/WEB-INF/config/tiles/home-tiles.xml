@@ -223,6 +223,14 @@
 		<put-attribute name=".include-scripts" value="/WEB-INF/jsp/content/busqueda/scripts.jsp" />
 		<put-attribute name="working.region" value="/WEB-INF/jsp/content/busqueda/Busqueda.jsp" />
 	</definition>
+        
+        
+        <definition name="busqueda_anonima.home" extends=".base">
+		<put-attribute name=".showNav" value="false" />
+		
+		<put-attribute name=".include-scripts" value="/WEB-INF/jsp/content/busqueda_anonima/scripts.jsp" />
+		<put-attribute name="working.region" value="/WEB-INF/jsp/content/busqueda_anonima/Busqueda.jsp" />
+	</definition>
 	
 	<definition name="busquedaJud.home" extends=".base">
 		<put-attribute name=".showNav" value="false" />

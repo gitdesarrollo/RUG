@@ -22,6 +22,115 @@ import mx.gob.se.rug.util.pdf.to.PdfTO;
 
 public class BusquedaDwrAction extends AbstractBaseDwrAction {
 
+    
+public MessageDwr searchInvoice2(String invoice, String serial, String idPersona, String idTipoTramite, String ruta, String nit, String consultaNombre, String consultaId ){
+		BusquedaTO searchTO = new BusquedaTO();
+
+		searchTO.setInvoice(invoice.trim());
+		searchTO.setSet(serial.trim());
+                searchTO.setNit(nit);
+                searchTO.setIdPersona(idPersona);
+                searchTO.setIdTipoTramite(idTipoTramite);
+                
+                
+                searchTO.setIdGarantia("");
+                searchTO.setIdTramite("");
+                searchTO.setFolioMercantil("");
+                searchTO.setNombre("");
+                searchTO.setDescGarantia("");
+                searchTO.setCurpOtorgante("");
+                searchTO.setRfcOtorgante("");
+
+                searchTO.setNoSerial("");
+		 
+                
+                
+		MyLogger.Logger.log(Level.INFO, "Metodo Search Independiente");
+
+		StringBuffer sb = new StringBuffer();
+		BusquedaDAO busquedaDAO =new BusquedaDAO();
+		InscripcionService inscripcionService = new InscripcionServiceImpl();
+		MessageDwr dwrTO = new MessageDwr();
+		dwrTO.setCodeError(0);
+		try{
+			Integer start = 1;
+			Integer finish = 20;
+
+			MyLogger.Logger.log(Level.INFO, "Usuario " + (Integer.parseInt(idPersona) == 17381));
+			if(Integer.parseInt(idPersona) == 17381){
+					List<BusquedaTO> busquedaGeneral = busquedaDAO.searchInvoice2(searchTO,start,finish,consultaNombre,  consultaId);
+					int pagActiva = Integer.valueOf(1);
+					int regPagina = Integer.valueOf(20);
+                                        
+					int registroTotales = 0;
+                                        
+                                        if (!busquedaGeneral.isEmpty())
+                                          registroTotales =   busquedaGeneral.get(0).getNumReg(); //searchTO.getNumReg();
+                                        
+					System.out.println("NUMERO DE REGISTROS :::: " + registroTotales);
+					int numeroPaginas = registroTotales/regPagina;
+					if ( registroTotales %regPagina > 0){
+						numeroPaginas++;
+					}
+					if (numeroPaginas < pagActiva){
+						pagActiva = 1;
+					}
+					if (pagActiva != 1){
+						start = ((pagActiva-1)*regPagina) + 1;
+					}
+
+					sb.append(tableSearch(searchTO,busquedaGeneral,registroTotales,ruta));
+					sb.append(writeSeccionPaginado(numeroPaginas, 1, 20, registroTotales,"pagBusquedaDwr",""));
+					sb.append("<div class=\"row\">");
+					sb.append("<p><span>Para descargar la boleta dar click en el siguiente bot&oacute;n :</span></p>");
+					sb.append("<input type=\"button\"class=\"btn btn-large waves-effect indigo\" value=\"Descargar PDF \" onclick=\"showBoleta();\"  />");
+					sb.append("</div>");
+			}else if(1==1){
+				List<BusquedaTO> busquedaGeneral = busquedaDAO.searchInvoice2(searchTO,start,finish,consultaNombre,  consultaId);
+				int pagActiva = Integer.valueOf(1);
+				int regPagina = Integer.valueOf(20);
+				
+                                
+                               int registroTotales = 0;
+                                        
+                                if (!busquedaGeneral.isEmpty())
+                                    registroTotales =   busquedaGeneral.get(0).getNumReg(); //searchTO.getNumReg();
+                                
+                                
+				System.out.println("NUMERO DE REGISTROS :::: " + registroTotales);
+				int numeroPaginas = registroTotales/regPagina;
+				if ( registroTotales %regPagina > 0){
+					numeroPaginas++;
+				}
+				if (numeroPaginas < pagActiva){
+					pagActiva = 1;
+				}
+				if (pagActiva != 1){
+					start = ((pagActiva-1)*regPagina) + 1;
+				}
+
+				sb.append(tableSearchAnonima(searchTO,busquedaGeneral,registroTotales,ruta));
+				sb.append(writeSeccionPaginado(numeroPaginas, 1, 20, registroTotales,"pagBusquedaDwr",""));
+				/*sb.append("<div class=\"row\">");
+				sb.append("<p><span>Para descargar la boleta dar click en el siguiente bot&oacute;n :</span></p>");
+				sb.append("<input type=\"button\"class=\"btn btn-large waves-effect indigo\" value=\"Descargar PDF \" onclick=\"showBoleta();\"  />");
+				sb.append("</div>");*/
+			}
+			else{
+				System.out.println("NUMERO DE REGISTROS :::: " );
+				sb.append("<div class=\"row\">");
+				sb.append("<p><span class=\"red-text text-darken-4\">No tiene saldo para realizar la operaci&oacute;n</span></p>");
+				sb.append("</div>");
+			}
+
+		}catch (Exception  e) {
+			e.printStackTrace();
+		}
+		dwrTO.setMessage(sb.toString());
+		return dwrTO;
+	}
+
+
 	public MessageDwr searchInvoice(String invoice, String serial, String idPersona, String idTipoTramite, String ruta, String nit){
 		BusquedaTO searchTO = new BusquedaTO();
 

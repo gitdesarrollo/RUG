@@ -74,9 +74,19 @@
 									<label for="idGarantia">N&uacute;mero de inscripci&oacute;n de la Garant&iacute;a</label>
 								</div>
 							</div>
+							<h5>Datos de quien hace la consulta</h5>   
 							<center>
 								<div class='row'>
-									<a class="btn btn-large waves-effect indigo" onclick="busquedaJSP(<s:property value="idPersona"/>,2);">Consultar</a>
+
+									<div class="input-field col s12">
+										<label>Nombre de la persona que consulta</label>
+										<input type="text" id="consulta_nombre_2" class="campo_busqueda" >
+									</div>
+									<div class="input-field col s12">
+										<label>Nro. Id de la persona que consulta</label>
+										<input type="text" id="consulta_id_2" class="campo_busqueda" >
+									</div>
+									<a class="btn btn-large waves-effect indigo" onclick="ejecutar_busqueda_jsp2()">Consultar</a>
 								</div>
 							</center>
 						</s:form>
@@ -86,7 +96,7 @@
 					<div class="row">
 						<s:form	 namespace="usuario" action="busquedaFac.do" theme="simple" cssClass="col s12">
 							<div class="row">
-                                                                <div class="input-field col s2">
+                                <div class="input-field col s2">
 									<s:textfield id="nit" name="nit" class="validate" />
 									<label for="nit">Nit:</label>
 								</div>
@@ -98,8 +108,17 @@
 									<s:textfield type="text" id="set" name="set" class="validate" />
 									<label for="set">Serie:</label>
 								</div>
+								<h5>Datos de quien hace la consulta</h5>
 								<div class="row center-align">
-									<a class="btn btn-large waves-effect indigo" onclick="checkText(<s:property value="idPersona"/>,3);">Consultar</a>
+									<div class="input-field col s12">
+										<label>Nombre de la persona que consulta</label>
+										<input type="text" id="consulta_nombre_3" class="campo_busqueda" >
+									</div>
+									<div class="input-field col s12">
+										<label>Nro. Id de la persona que consulta</label>
+										<input type="text" id="consulta_id_3" class="campo_busqueda" >
+									</div>
+									<a class="btn btn-large waves-effect indigo" onclick=" ejecutar_busqueda_jsp3()">Consultar</a>
 								</div>
 							</div>
 						</s:form>
@@ -219,6 +238,30 @@
         busquedaJSP(51071,4,$("#consulta_nombre_1").val(),$("#consulta_id_1").val());
 
     }   
+	function ejecutar_busqueda_jsp2()
+    {
+        if ($("#consulta_nombre_2").val() == ""  || $("#consulta_id_2").val() == "")
+        {
+               alert('Ingrese nombre y documento de identificacion para poder realizar la busqueda');
+               return;
+        }
+        //busquedaJSP(51071,4,$("#consulta_nombre_2").val(),$("#consulta_id_2").val());
+		busquedaJSP(51071,5,$("#consulta_nombre_2").val(),$("#consulta_id_2").val());
+    }   	
+
+	
+
+    function ejecutar_busqueda_jsp3()
+    {
+        if ($("#consulta_nombre_3").val() == ""  || $("#consulta_id_3").val() == "")
+        {
+               alert('Ingrese nombre y documento de identificacion para poder realizar la busqueda');
+               return;
+        }
+        //busquedaJSP(51071,4,$("#consulta_nombre_2").val(),$("#consulta_id_2").val());
+		//busquedaJSP(51071,5,$("#consulta_nombre_3").val(),$("#consulta_id_3").val());
+		checkText2(51071,3,$("#consulta_nombre_3").val(),$("#consulta_id_3").val());
+    }
 
 </script>
 

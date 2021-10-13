@@ -20,10 +20,19 @@ function busquedaDwr(ruta, idPersona, tipoBusqueda, tipoTramite,consulta_nombre=
 			noSerial = '';
 			BusquedaDwrAction.buscar(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, escribeTablaBusqueda);
 		}
-                if (tipoBusqueda == 4) {
+
+        if (tipoBusqueda == 4) {
 			idGarantia = '';
 			nombre = '';
-			BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, escribeTablaBusqueda,consulta_nombre,consulta_id);
+			//BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, escribeTablaBusqueda,consulta_nombre,consulta_id);
+			BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, consulta_nombre,consulta_id,escribeTablaBusqueda);
+		} 
+
+		if (tipoBusqueda == 5) {
+			idGarantia = '';
+			nombre = '';
+			//BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, escribeTablaBusqueda,consulta_nombre,consulta_id);
+			BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, consulta_nombre,consulta_id,escribeTablaBusqueda);
 		} 
                 
 
@@ -34,6 +43,18 @@ function busquedaDwr(ruta, idPersona, tipoBusqueda, tipoTramite,consulta_nombre=
 		// } else {
 		// 	alert("Falta criterio de busqueda.");
 		// }
+}
+
+function searchInvoiceform2(ruta, idPersona, tipoBusqueda, tipoTramite,consulta_nombre="", consulta_id="") {
+	// search data invoice
+
+	var invoice = trim(getObject('invoice').value);
+	var set = trim(getObject('set').value);
+        var nit = trim(getObject('nit').value);
+
+	if (!isBlank(invoice) || !isBlank(set) || !isBlank(nit) ) {
+		BusquedaDwrAction.searchInvoice2(invoice, set, idPersona, tipoTramite, ruta,nit,consulta_nombre,consulta_id,escribeTablaBusqueda);
+	}
 }
 
 function searchInvoiceform(ruta, idPersona, tipoBusqueda, tipoTramite) {

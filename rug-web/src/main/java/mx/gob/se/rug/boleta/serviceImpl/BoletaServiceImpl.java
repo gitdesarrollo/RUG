@@ -3,6 +3,7 @@ package mx.gob.se.rug.boleta.serviceImpl;
 import java.math.BigInteger;
 import java.sql.Connection;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -398,8 +399,19 @@ public class BoletaServiceImpl {
 		//pdfTO.setHtml("[*1*]",getParteTramite(idBoleta, detalleTO.getIdTramite(), detalleTO.getGarantiaTO().getIdTipoGarantia(), 1));
 		setTextosFormulario(inscripcionService.getTextosFormularioByIdGarantia(detalleTO.getGarantiaTO().getIdTipoGarantia()));
 		pdfTO.setIdTipoGarantia(detalleTO.getGarantiaTO().getIdTipoGarantia());
+				
+                /*corellana: Hector pidio que para los de leasing el titulo sea otro */
+                if(detalleTO.getGarantiaTO().getIdTipoGarantia().equals(16))
+                {
+                    pdfTO.setHtml("[*titulo_garantia*]", "          <span class=\"card-title center-align\">INSCRIPCI&Oacute;N DE LA GARANT&Iacute;A MOBILIARIA (LEASING)</span>" );
+                }
+                 else
+                {
+                    pdfTO.setHtml("[*titulo_garantia*]", "          <span class=\"card-title center-align\">INSCRIPCI&Oacute;N DE LA GARANT&Iacute;A MOBILIARIA</span>" );
+                }
 		
-		pdfTO.setHtml("[*deudoresTable*]", "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(1)+"</span>" + getPersonaParte(detalleTO.getIdTramite(),2));
+                
+                pdfTO.setHtml("[*deudoresTable*]", "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(1)+"</span>" + getPersonaParte(detalleTO.getIdTramite(),2));
 		pdfTO.setHtml("[*acreedoresTable*]", "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(2)+"</span>" + getPersonaParte(detalleTO.getIdTramite(),3));
 		pdfTO.setHtml("[*otorgantesTable*]", getTextosFormulario().get(3)==null||getTextosFormulario().get(3).equalsIgnoreCase("")?"":"<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(3)+"</span>" + getPersonaParte(detalleTO.getIdTramite(),1));
 		pdfTO.setHtml("[*bienes*]",
@@ -414,9 +426,41 @@ public class BoletaServiceImpl {
 				+ "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(8)+"</span><p>"
 				+ NullsFree.getNotNullValue(detalleTO.getGarantiaTO().getOtrosTerminosCondiciones()) + "</p></div>");
 		
+                /*corellana: unicamente para leasing*/                
+                if(detalleTO.getGarantiaTO().getIdTipoGarantia().equals(16))
+                {
+                    String monto_maximo  = detalleTO.getGarantiaTO().getMontoMaximo();
+                    String monto_original = monto_maximo;
+                    try{
+                        monto_maximo = monto_maximo.replace("$", "");
+                        monto_maximo = monto_maximo.replace("Bolivar", "");
+
+                        DecimalFormat formatter = new DecimalFormat("#,###.00");
+                        double amount = Double.parseDouble(monto_maximo);
+                        monto_maximo = formatter.format(amount);
+                    }
+                    catch (Exception e) {
+                         monto_maximo = monto_original;
+                    }
+                    
+                    
+                    pdfTO.setHtml("[*montoEstimado*]", "<div class=\"input-field col s12\">"
+				+ "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(10)+"</span><p>"
+				+ NullsFree.getNotNullValue(monto_maximo) + "</p></div>");
+                }
+                else
+                {
+                    pdfTO.setHtml("[*montoEstimado*]", "");
+                }
+                
 		if(detalleTO.getIdTipoTramite()==1) {// solo aplica a inscripciones
 			pdfTO.setHtml("[*operacion*]", "[*cert*]Inscripci\u00f3n " + (getTextosFormulario().get(9)==null?"":getTextosFormulario().get(9)));
-                        pdfTO.setTypeValue("Inscripci\u00f3n " + (getTextosFormulario().get(9)==null?"":getTextosFormulario().get(9)));
+                        
+                        if(detalleTO.getGarantiaTO().getIdTipoGarantia().equals(2))
+                            pdfTO.setTypeValue("Factoraje");
+                        else
+                            pdfTO.setTypeValue("Inscripci\u00f3n " + (getTextosFormulario().get(9)==null?"":getTextosFormulario().get(9)));
+                        
 		}
 		//pdfTO.setHtml("[*2*]",getParteTramite(idBoleta, detalleTO.getIdTramite(), detalleTO.getGarantiaTO().getIdTipoGarantia(), 2));
 	

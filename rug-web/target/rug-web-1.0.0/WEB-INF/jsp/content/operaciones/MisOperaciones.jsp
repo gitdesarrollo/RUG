@@ -9,7 +9,7 @@
 					<div class="card-content">
 						<div class="row">
 							<div class="col s12">		
-								<span class="card-title">Mis Operaciones</span>
+								<span class="card-title">Mis Operaciones.</span>
 							</div>
 						</div>
 					<div class="section row">

@@ -15,6 +15,7 @@ public class BienEspecialTO {
 		switch (tipoBien) {
 			case 1: return "Vehiculo";
 			case 2: return "Factura";
+                        case 4: return "Maquinaria" ;//corellana cambio leasing
 			default: return "Otro";
 		}
 	}

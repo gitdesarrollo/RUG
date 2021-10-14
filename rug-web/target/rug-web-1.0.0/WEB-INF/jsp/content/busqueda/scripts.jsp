@@ -77,7 +77,7 @@
 
 		function checkText(idPersona,tipoBusqueda){
 
-	        if($('#invoice').val().length == 0 && $('#set').val().length == 0){
+	        if($('#invoice').val().length == 0 && $('#set').val().length == 0 && $('#nit').val().length == 0){
 	            MaterialDialog.alert(
 	                'Complete los criterios de b&uacute;squeda',{
 	                    title: '<table><tr><td width="10%"><i class="medium icon-yellow material-icons">warning</i></td><td style="vertical-align: middle; text-align:left;">Alerta</td></tr></table>',
@@ -114,6 +114,7 @@
                                         text: "aceptar",
                                         modalClose: true,
                                         callback: function () {
+                                            console.log('A punto de hacer una busqueda por factura y numero serie');
                                             searchInvoiceform(ruta, idPersona, tipoBusqueda, 11);
                                         }
                                     }

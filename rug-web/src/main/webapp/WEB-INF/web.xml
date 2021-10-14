@@ -24,6 +24,7 @@
         /WEB-INF/config/spring/roles/roles-context.xml
         /WEB-INF/config/spring/administracion/perfil-context.xml
         /WEB-INF/config/spring/inscripcion/inscripcion-context.xml
+        /WEB-INF/config/spring/leasing/leasing-context.xml
         /WEB-INF/config/spring/masiva/masiva-context.xml
     </param-value>
   </context-param>

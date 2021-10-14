@@ -63,6 +63,10 @@ public class DetalleAction extends RugBaseAction implements ServletRequestAware 
 	private Integer idGarantiaAnt;
 	private Integer idTramiteAnt;
 	private Boolean hayAnterior=true;
+        
+        //corellana
+        private Boolean esLeasing=false;
+        
 	private Boolean haySiguiente=true;
 	private Boolean vieneFirma;
 	private String fechaInscripcion;
@@ -379,6 +383,9 @@ public class DetalleAction extends RugBaseAction implements ServletRequestAware 
 		Integer idGarantiaAct=(Integer) sessionMap.get(Constants.ID_GARANTIA);
 		setIdGarantia(idGarantiaAct.toString());
 		setIdTramite(idTramiteAct.toString());
+                
+ 
+                
 		if (getBvalida().equals("1")){
 			setVieneFirma(true);
 		}else{
@@ -442,7 +449,10 @@ public class DetalleAction extends RugBaseAction implements ServletRequestAware 
 			}
 			setTramiteTOs(detserv.getTramites(idGarantia,tramite));
 			setLongitud(tramiteTOs.size());
-			
+			//corellana
+                        setEsLeasing(detalleTO.getIdtipogarantia()==16);
+                        
+                        
 			setTextosFormulario(inscripcionService.getTextosFormularioByIdGarantia(getDetalleTO().getIdtipogarantia()));
 			
 			if(getDetalleTO().getCambio().equalsIgnoreCase("V")){
@@ -743,6 +753,15 @@ public class DetalleAction extends RugBaseAction implements ServletRequestAware 
 
 	public void setHayAnterior(Boolean hayAnterior) {
 		this.hayAnterior = hayAnterior;
+	}
+        
+        public Boolean getEsLeasing() {
+		return esLeasing;
+	}
+
+
+	public void setEsLeasing(Boolean esLeasing) {
+		this.esLeasing = esLeasing;
 	}
 
 

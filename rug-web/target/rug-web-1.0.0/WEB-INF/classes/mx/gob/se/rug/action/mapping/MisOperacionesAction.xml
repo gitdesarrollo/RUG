@@ -40,6 +40,12 @@
 			<result name="failed" type="tiles">http.error.action</result>
 			
 		</action>
+                
+                <action name="misOperacionesLeasing" method="cargaPagina" class="OperacionesLeasingAction">
+			<result type="tiles">misOperaciones_leasing.home</result>
+			<result name="success" type="tiles">misOperaciones_leasing.home</result>
+			<result name="failed" type="tiles">http.error.action</result>
+		</action>
 		
 		<action name="eliminarTP" method="eliminarTramitePendiente" class="operacionesAction">
 			<result type="tiles">misOperaciones.home</result>

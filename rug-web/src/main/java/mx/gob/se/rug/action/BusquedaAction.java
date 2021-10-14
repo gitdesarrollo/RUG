@@ -23,7 +23,17 @@ public class BusquedaAction extends RugBaseAction {
 	// serie - factura
 	private String set;
 	private String invoice;
+        private String nit;
+        
 	
+        public String getNit() { /*orellana: busqueda por factura nit serie*/
+		return nit;
+	}
+
+	public void setNit(String nit) {
+		this.nit = nit;
+	}
+
 	
 	public String getIdPersona() {
 		return idPersona;
@@ -98,6 +108,14 @@ public class BusquedaAction extends RugBaseAction {
 		UsuarioTO usuario = (UsuarioTO) sessionMap.get("usuario");
 		setIdPersona(new Integer(usuario.getPersona().getIdPersona()).toString());
 		
+		return SUCCESS;
+	}
+        
+        public String muestraBusquedaAnonima(){
+		MyLogger.Logger.log(Level.INFO, "Entro al muestraBusqueda");		
+		//UsuarioTO usuario = (UsuarioTO) sessionMap.get("usuario");
+		//setIdPersona(new Integer(usuario.getPersona().getIdPersona()).toString());                
+                //corellana: Se va registrar un usuario ficticio.		
 		return SUCCESS;
 	}
 	

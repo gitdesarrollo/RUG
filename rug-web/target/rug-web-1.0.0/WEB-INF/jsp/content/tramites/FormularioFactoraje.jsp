@@ -28,6 +28,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 			<div class="col s2"></div>
 			<div class="col s8">
 				<!-- row note teal -->
+
 				<form id="fafactoraje" name="fafactoraje" action="saveFactoraje.do" method="post">
 					<span class="card-title"><s:property value="%{textosFormulario.get(0)}"/></span>
 					<input type="hidden" name="refInscripcion" id="refInscripcion" value="<s:property value='idTramite'/>" />
@@ -68,10 +69,10 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 					</div>
 					<div class="row">
 						<div class="col s12 right-align">
-							<a class="btn-floating btn-large waves-effect indigo modal-trigger" onclick="limpiaCampos()"
+							<a class="btn-floating btn-large waves-effect indigo modal-trigger state1" onclick="limpiaCampos()"
 								href="#frmBien" id="btnAgregar"><i
 								class="material-icons left">add</i></a>
-							<a class="btn-floating btn-large waves-effect indigo modal-trigger" onclick="limpiaCamposFile()"
+							<a class="btn-floating btn-large waves-effect indigo modal-trigger state1" onclick="limpiaCamposFile()"
 									href="#frmFile" id="btnFile"><i
 									class="material-icons left">attach_file</i></a>
 						</div>
@@ -96,7 +97,12 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 				    <hr />
 				 	<center>
 			            <div class='row'>
-			            	<input type="button" id="bFirmar" name="button" class="btn btn-large waves-effect indigo" value="Aceptar" onclick="inscripcionFactoraje();"/>
+                                        <input type="button" id="bEditar"  name="button" class="btn btn-large waves-effect indigo state2" value="Corregir Datos" onclick="mi_funcion_editar();"/>
+                                        <input type="button" id="bContinuar" name="button" class="btn btn-large waves-effect indigo state1" value="Continuar" onclick="habilitar_continuar();"/>
+			            	<input type="button" id="bFirmar"  name="button" class="btn btn-large waves-effect indigo state2" value="Aceptar" onclick="mi_funcion222222();"/>
+                                        
+
+
 			            </div>
 		          	</center>
 				</form>
@@ -126,6 +132,72 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 		</div></div>
 	</div>
 </div>
+                                                
+<script type="text/javascript"> 	
+
+	  $(document).ready(function() {	  
+			$('.state2').hide();
+		});
+function mi_funcion_editar()
+{
+    $('.state2').hide();
+    $('.state1').show();
+    $('.tituloHeader2').show();
+    $("a[title='Eliminar']").show();
+    $("a[title='Modificar']").show();
+    $(".btn.waves-effect.indigo.darken-4").show();
+    $(".btn.waves-effect.red.darken-4").show();
+    
+    $("#instrumento").prop('disabled', false);
+    $("#modotrosgarantia").prop('disabled', false);
+    $("#tiposbienes").prop('disabled', false);
+    
+    
+}
+function habilitar_continuar(){
+    alertMaterialize("Revisar datos antes de Aceptar datos y grabar garantia");
+    $('.state2').show();
+    $('.state1').hide();
+    $('.tituloHeader2').hide();
+    $("a[title='Eliminar']").hide();
+    $("a[title='Modificar']").hide();
+    $(".btn.waves-effect.indigo.darken-4").hide();
+    $(".btn.waves-effect.red.darken-4").hide();
+    $("#instrumento").prop('disabled', true);
+    $("#modotrosgarantia").prop('disabled', true);
+    $("#tiposbienes").prop('disabled', true);
+}
+    
+function habilitar_todo()
+{
+    //alert('Revise todos los datos ingresados antes de continuar');
+    document.getElementById("bFirmar").disabled = true;
+    document.getElementById("divParteDWRxx2").disabled = false;
+    document.getElementById("divParteDWRxx3").disabled = false;
+    document.getElementById("divParteDWRxx4").disabled = false;
+    document.getElementById("divParteDWRBienes").disabled = false;
+    document.getElementById("modotrosgarantia").disabled = false;
+    console.log('Mi funcion.........................');
+}
+    
+function confirmar()
+{
+    alert('Revise todos los datos ingresados antes de continuar');
+    
+    $('.tituloHeader2').hide();
+    $('.btn').hide();
+    $('.btn').hide();
+    $('.btn').hide();
+}
+    
+function mi_funcion222222()
+{
+    mi_funcion_editar();
+    console.log('Mi funcion.........................');
+    inscripcionFactoraje();
+}
+</script> 
+
 <script type="text/javascript"> 	
 					var idPersona = <s:property value="idPersona"/>;
 					var idTramite= <s:property value="idTramite"/>;
@@ -173,11 +245,12 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 								</div>
 							</div>
 							<div id="secId3" class="row" style="display: none;">
-<%--								<div class="input-field col s6">--%>
-<%--									<s:textfield name="mdIdentificador3" id="mdIdentificador3"--%>
-<%--												 cssClass="validate" maxlength="150" onkeypress="return characterNotAllowed(event);"/>--%>
-<%--									<label id="lblMdIdentificador3" for="mdIdentificador3">VIN</label>--%>
-<%--								</div>--%>
+								<div class="input-field col s6" >
+									<s:textfield name="mdIdentificador3" id="mdIdentificador3"
+												 cssClass="validate" maxlength="150" />
+									<label id="lblMdIdentificador3" for="mdIdentificador3">VIN</label> 
+                                                                        <p><small>Ingrese el numero de serie en caso de ser factura de papel, para el caso de FEL el numero de serie no es obligatorio.</small></p>
+								</div>
 								<div class="input-field col s6">
 									<s:textfield name="mdIdentificador2" id="mdIdentificador2"
 										cssClass="validate" maxlength="150" />
@@ -306,7 +379,10 @@ function add_bien() {
 	  }
 	  
 	  if(idTipo == '2'){
-		  mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
+                  if (mdIdentificador3.length>0)
+                    mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Serie: " +mdIdentificador3 + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
+                  else
+                    mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
 	  }
 	  
 	  if(idTipo == '1'){
@@ -315,9 +391,14 @@ function add_bien() {
 			  return false;
 		  }
 	  } 
-	  
-	  ParteDwrAction.registrarBien('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador,
-			  mdIdentificador1, mdIdentificador2, mdIdentificador3,showParteBienes);
+	  console.log("antes del registra bien ");
+          //corellana: original 
+	  //ParteDwrAction.registrarBien('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador,
+		//	  mdIdentificador1, mdIdentificador2, mdIdentificador3,showParteBienes);
+                          
+          //corellana: se cambio a este ya que el registrar bien acepta menos parametros
+          ParteDwrAction.registrarBien_v2('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador,
+			  mdIdentificador1, mdIdentificador2,mdIdentificador3,showParteBienes);
           
 
 	  
@@ -349,7 +430,7 @@ function cambiaBienesEspeciales() {
 		  document.getElementById("secId4").style.display = 'block';
 		  
 		  document.getElementById("lblMdIdentificador2").innerHTML = 'No. Factura';
-		  // document.getElementById("lblMdIdentificador3").innerHTML = 'Serie'
+		  document.getElementById("lblMdIdentificador3").innerHTML = 'Serie'
 		  document.getElementById("lblMdDescripcion").innerHTML = 'Observaciones Generales';
 	  } else if (x=='3'){
 		  document.getElementById("mdDescripcion").disabled = false;	  
@@ -407,7 +488,8 @@ function otroRegistro() {
 	  }
   }
  
-function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/  
+function BindTable(jsondata, tableid) {
+    /*Function used to convert the JSON array to Html Table*/  
      var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/  
 	 var idTramite = document.getElementById("refInscripcion").value;
 	 var mdDescripcion = '';
@@ -559,7 +641,8 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
      }  
  }
  
-function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/  
+function BindTableHeader(jsondata, tableid) {
+    /*Function used to get all column names from JSON and bind the html table header*/  
      var columnSet = [];  
      var headerTr$ = $('<tr/>');  
      for (var i = 0; i < jsondata.length; i++) {  

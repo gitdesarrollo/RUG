@@ -95,6 +95,7 @@
 									</ul>
 									<a href="<%= request.getContextPath() %>/home/busqueda.do" class="collection-item">Consultas</a>
 									<a href="<%= request.getContextPath() %>/home/misBoletas.do" class="collection-item">Cargar Boletas</a>
+                                                                        <a href="<%= request.getContextPath() %>/leasing/paso1.do" class="collection-item">Formulario Leasing</a>
 								</s:if>
 								<s:else>
 									<a href="<%= request.getContextPath() %>/home/busquedaJud.do" class="collection-item">Consultas</a>

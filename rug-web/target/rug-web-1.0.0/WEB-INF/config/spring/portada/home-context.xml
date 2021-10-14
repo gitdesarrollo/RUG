@@ -64,6 +64,10 @@
 	<bean id="misOperacionesAction" scope="prototype"
 			class="mx.gob.se.rug.action.MisOperacionesAction">
 	</bean>
+        
+        <bean id="misOperacionesLeasginAction" scope="prototype"
+			class="mx.gob.se.rug.action.MisOperacionesLeasingAction">
+	</bean>
 	
 	<bean id="misBoletasAction" scope="prototype"
 			class="mx.gob.se.rug.action.MisBoletasAction">
@@ -132,6 +136,8 @@
 	<bean id="operacionesAction" scope="prototype"
 			class="mx.gob.se.rug.operaciones.action.OperacionesAction">
 	</bean>	
+        
+        
 	
 	<bean id="boletasAction" scope="prototype"
 			class="mx.gob.se.rug.boletas.action.BoletasAction">

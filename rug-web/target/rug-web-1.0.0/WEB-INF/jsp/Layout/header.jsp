@@ -29,6 +29,8 @@
 			<%
 		if (session.getAttribute(Constants.USUARIO) == null) {
 		%>
+                        <li><a href="<%= request.getContextPath() %>/home/busqueda_anonima.do"
+					class="hide-on-med-and-down waves-effect blue darken-4 waves-light btn">Busqueda sin costo</a></li>
 			<li><a href="<%= request.getContextPath() %>/usuario/add.do"
 					class="hide-on-med-and-down waves-effect red darken-4 waves-light btn">Registrarse</a></li>
 			<li><a href="<%= request.getContextPath() %>/">Iniciar sesi&oacute;n</a></li>

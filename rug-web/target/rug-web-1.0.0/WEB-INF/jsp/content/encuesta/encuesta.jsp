@@ -38,7 +38,7 @@
                                                     <label>¿Es un usuario del sistema RUG?</h2></label>
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <s:radio name="registro" id="registro" list="#{'1':'Si','2':'No'}" value="1" />
+                                                    <s:radio name="registro" id="registro" list="{'1':'Si','2':'No'}" value="1" />
                                                     <s:fielderror fieldName="registro" />
                                                 </div>  									    	
                                             </div>
@@ -54,7 +54,7 @@
                                                     <label>¿Cómo califica la facilidad en el proceso de registro?</h2></label>
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <s:radio name="proceso" id="proceso" list="#{'1':'Muy facil','2':'Facil','3':'Normal','4':'Dificil','5':'Muy Dificil'}" value="1" />
+                                                    <s:radio name="proceso" id="proceso" list="{'1':'Muy facil','2':'Facil','3':'Normal','4':'Dificil','5':'Muy Dificil'}" value="1" />
                                                     <s:fielderror fieldName="proceso" />
                                                 </div>  									    	
                                             </div>
@@ -63,7 +63,7 @@
                                                     <label for="facilidad">¿Cómo califica la facilidad para encontrar el trámite a realizar (Inscripción, Modificación, etc)?</label>									    		
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <s:radio name="facilidad" id="facilidad" list="#{'1':'Muy facil','2':'Facil','3':'Normal','4':'Dificil','5':'Muy Dificil'}" value="1" />
+                                                    <s:radio name="facilidad" id="facilidad" list="{'1':'Muy facil','2':'Facil','3':'Normal','4':'Dificil','5':'Muy Dificil'}" value="1" />
                                                     <s:fielderror fieldName="facilidad" />
                                                 </div>  
                                             </div>
@@ -72,7 +72,7 @@
                                                     <label for="pagos">¿Utiliza pago en ventanilla o en linea?</label>									    		
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <s:radio name="pagos" id="pagos" list="#{'1':'Si','2':'No'}" value="1" />
+                                                    <s:radio name="pagos" id="pagos" list="{'1':'Si','2':'No'}" value="1" />
                                                     <s:fielderror fieldName="pagos" />
                                                 </div> 
                                             </div>
@@ -81,7 +81,7 @@
                                                     <label for="subusuarios">¿Utiliza sub usuarios?</label>									    		
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <s:radio name="subusuarios" id="subusuarios" list="#{'1':'Si','2':'No'}" value="1" />
+                                                    <s:radio name="subusuarios" id="subusuarios" list="{'1':'Si','2':'No'}" value="1" />
                                                     <s:fielderror fieldName="subusuarios" />
                                                 </div>  
                                             </div>

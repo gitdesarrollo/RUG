@@ -365,8 +365,9 @@ public class ModificacionAction extends RugBaseAction  {
 		return modfechacelebcontrato;
 	}
 	public String modificacion(){
-		
-		return SUCCESS;
+		 
+                    
+            return SUCCESS;
 	}
 	
 	public String iniciaModificacion(){

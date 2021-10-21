@@ -29,8 +29,9 @@ function busquedaDwr(ruta, idPersona, tipoBusqueda, tipoTramite,consulta_nombre=
 		} 
 
 		if (tipoBusqueda == 5) {
-			idGarantia = '';
-			nombre = '';
+                        rfcOtorgante = '';
+			curpOtorgante = '';
+			noSerial = '';
 			//BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, escribeTablaBusqueda,consulta_nombre,consulta_id);
 			BusquedaDwrAction.buscarSinSaldo(idPersona, noSerial, idGarantia, nombre, folioMercantil, descGarantia, curpOtorgante, rfcOtorgante, ruta, tipoTramite, consulta_nombre,consulta_id,escribeTablaBusqueda);
 		} 

@@ -162,7 +162,26 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 				    		<s:textarea id="modotrosgarantia" name="modotrosgarantia" cols="80" rows="10" value="%{modotrosgarantia}" maxlength="3500"/>				        										
 				        	<label for="modotrosgarantia"><s:property value="%{textosFormulario.get(8)}"/></label>
 				   		</div>
-				 	</div>				 	
+				 	</div>	
+                                        <s:if test="detalleTO.idtipogarantia==16">
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <s:select  name="idTipoMoneda" value="%{detalleTO.idMoneda}" list="listaMonedas" listKey="idMoneda" listValue="descMoneda"
+                                                                id="idTipoMoneda" />
+                                                        <label for="idTipoMoneda">Seleccione la moneda:</label>
+                                                </div>
+                                                <div class="input-fieldx col s12">
+                                                    <label for="monto_calculo">Monto estimado de la garantia</label>
+                                                    <s:textfield   name="modmonto" value="%{detalleTO.monto}" id="modmonto" min="0" onchange="limpiar_monto()"/>
+
+
+                                                        <s:textfield  name="actoContratoTO.montoMaximo" class="monto_maximo" type="hidden" min="0" 
+                                                                id="actoContratoTO.montoMaximo"  />
+
+                                                </div>
+                                            </div>
+
+                                        </s:if>
 				 	<div class="row note teal">							    	
 			        	<span class="white-text">
 			        		Objeto de la Modificaci&oacute;n
@@ -388,7 +407,7 @@ function limpiaCampos() {
 	  if (checkBox.checked == true) {
 		  MaterialDialog.alert(
 					'<p style="text-align: justify; text-justify: inter-word;">Recuerde: <b>Artï¿½culo 17. Garantia Mobiliria Prioritaria.</b> ' +
-					'La publicidad de la garantï¿½a mobiliaria se constituye por medio de la inscripciï¿½n del formulario registral, '+
+					'La publicidad de la garantía mobiliaria se constituye por medio de la inscripciï¿½n del formulario registral, '+
 					'que haga referencia al carï¿½cter prioritario especial de esta garantï¿½a y que describa los bienes gravadoas por '+
 					'categorï¿½a, sin necesidad de descripciï¿½n pormenorizada. <br> <br>' +
 					'Para el caso se consituya respecto de bienes que '+

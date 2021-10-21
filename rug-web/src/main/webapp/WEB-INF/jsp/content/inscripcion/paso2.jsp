@@ -412,7 +412,7 @@
 		if (checkBox.checked == true) {
 			MaterialDialog.alert(
 				'<p style="text-align: justify; text-justify: inter-word;">Recuerde: <b>Artï¿½culo 17. Garantia Mobiliria Prioritaria.</b> ' +
-				'La publicidad de la garantï¿½a mobiliaria se constituye por medio de la inscripciï¿½n del formulario registral, ' +
+				'La publicidad de la garantía mobiliaria se constituye por medio de la inscripciï¿½n del formulario registral, ' +
 				'que haga referencia al carï¿½cter prioritario especial de esta garantï¿½a y que describa los bienes gravadoas por ' +
 				'categorï¿½a, sin necesidad de descripciï¿½n pormenorizada. <br> <br>' +
 				'Para el caso se consituya respecto de bienes que ' +

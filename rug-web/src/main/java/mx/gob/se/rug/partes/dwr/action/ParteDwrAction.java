@@ -3547,7 +3547,7 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 		sb.append("<table id=\"tableDeudores\" class=\"striped\" >");
 		sb.append("<thead>");
 		sb.append("<tr>");
-		sb.append("<th>Nombre, Denominaci&oacute;n o Raz&oacute;n Social1</th>");
+		sb.append("<th>Nombre, Denominaci&oacute;n o Raz&oacute;n Social</th>");
 		sb.append("<th>No. Identificaci&oacute;n \\ No. Identificaci&oacute;n Tributaria</th>");
 		sb.append("<th>Opciones</th>");
 		sb.append("</tr>");

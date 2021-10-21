@@ -1,0 +1,116 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="section"></div>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Consulta de requisiciones</span>
+          <div class="row">
+          </div>
+          <div class="row">
+            <ngx-daterangepicker [(ngModel)]="rangoFechas" (ngModelChange)="onRangeChanged($event)" [options]="options"></ngx-daterangepicker>
+          </div>
+          <div class="row">
+            <div class="col s4">
+              <select id="estado" materialize="material_select" [(ngModel)]="estado" (ngModelChange)="onEstadoChanged($event)">
+                <option value="T">Todas</option>
+                <option value="S">Pendientes de aprobación</option>
+                <option value="A">Aprobadas</option>
+                <option value="C">Rechazadas</option>
+                <option value="D">Despachadas</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <table>
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Solicitante</th>
+                  <th>Fecha</th>
+                  <th>Observaciones</th>
+                  <th>Estado</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let requisicion of requisiciones | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: currentPage, totalItems: total }; let i = index">
+                  <td>{{ requisicion.correlativo }}</td>
+                  <td>{{ requisicion.solicitante ? requisicion.solicitante.nombre : '' }}</td>
+                  <td>{{ requisicion.fecha }}</td>
+                  <td>{{ requisicion.observaciones }}</td>
+                  <td>{{ requisicion.estado | estadoRequisicion }}</td>
+                  <td>
+                    <a
+                      class="waves-effect waves-light btn-floating"
+                      (click)="onViewRequisicionClicked(i)"><i class="material-icons">visibility</i></a>
+                      <a
+                        class="waves-effect waves-light btn-floating"
+                        href="{{urlBase}}/reporte-requisiciones?tipoReporte=2&usuario={{authenticatedUser.usuarioId}}&idRequisicion={{requisicion.requisicionId}}"
+                        target="_blank"><i class="material-icons">print</i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-template #p="paginationApi"
+              id="server"
+              (pageChange)="onPageChange($event)">
+              <ul class="pagination custom-pagination">
+                <li class="pagination-previous" [class.disabled]="p.isFirstPage()">
+                  <a *ngIf="!p.isFirstPage()" (click)="p.previous()"><i class="material-icons">chevron_left</i></a>
+                </li>
+                <li *ngFor="let page of p.pages" [class.active]="p.getCurrent() === page.value" [class.waves-effect]="p.getCurrent() !== page.value">
+                  <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                    {{ page.label }}
+                  </a>
+                  <a *ngIf="p.getCurrent() === page.value">
+                    {{ page.label }}
+                  </a>
+                </li>
+                <li class="pagination-next" [class.disabled]="p.isLastPage()">
+                  <a *ngIf="!p.isLastPage()" (click)="p.next()"><i class="material-icons">chevron_right</i></a>
+                </li>
+              </ul>
+            </pagination-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="section"></div>
+<div id="modDetalle" class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <h4>Detalle de requisición</h4>
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <table *ngIf="modalRequisicion">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Cantidad solicitada</th>
+                <th>Existencia</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detalle of modalRequisicion.detalle; let i = index">
+                <td>{{ detalle.codigoArticulo }}</td>
+                <td>{{ detalle.articulo.descripcion }}</td>
+                <td>{{ detalle.cantidad }}</td>
+                <td>{{ detalle.articulo.stock }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col s12 right-align">
+            <a class="waves-effect waves-light btn red darken-4" (click)="onCloseClicked()">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

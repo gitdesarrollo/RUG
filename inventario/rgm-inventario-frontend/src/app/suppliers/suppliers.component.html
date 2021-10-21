@@ -1,0 +1,125 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="section"></div>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col s2"></div>
+      <div class="col s8">
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s8">
+                <span class="card-title">Proveedores</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s6">
+                <a class="waves-effect waves-light btn-large" (click)="onAddSupplierClicked()">Agregar</a>
+              </div>
+              <div class="col s6 right-align">
+                <a href="{{urlReporteProveedores}}" class="btn" target="_blank">Generar reporte</a>
+              </div>
+            </div>
+            <div class="row">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nombre o razón social</th>
+                    <th>Dirección</th>
+                    <th>NIT</th>
+                    <th>Estado</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let supplier of suppliers; let i = index">
+                    <td>{{ supplier.nombre }}</td>
+                    <td>{{ supplier.direccion }}</td>
+                    <td>{{ supplier.nit }}</td>
+                    <td>{{ supplier.estado }}</td>
+                    <td>
+                      <a
+                        class="waves-effect waves-light btn indigo"
+                        (click)="onEditSupplierClicked(supplier, i)"><i class="material-icons">edit</i></a>
+                      <a
+                        class="waves-effect waves-light btn red darken-4"
+                        [swal]="{title: 'Eliminar proveedor', text: '¿Está seguro de eliminar al proveedor?', type: 'warning', showCancelButton: true}"
+                        (confirm)="onRemoveSupplierClicked(i)"><i class="material-icons">delete</i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s2"></div>
+    </div>
+  </div>
+</main>
+<div class="section"></div>
+<div id="modSupplier" class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <h4>Proveedor</h4>
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <form materialize class="col s12" (ngSubmit)="onSubmit()" [formGroup]="supplierForm">
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  class="validate"
+                  id="nombre"
+                  formControlName="nombre">
+                <label for="nombre">Nombre o razón social</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  class="validate"
+                  id="direccion"
+                  formControlName="direccion">
+                <label for="direccion">Dirección</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  class="validate"
+                  id="nit"
+                  formControlName="nit">
+                <label for="nit">NIT</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <select
+                  id="estado"
+                  materialize="material_select"
+                  formControlName="estado">
+                  <option value="" disabled selected>Seleccione el estado</option>
+                  <option value="A">Activo</option>
+                  <option value="I">Inactivo</option>
+                </select>
+                <label for="estado">Estado</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 right-align">
+                <button
+                  class="waves-effect waves-light btn"
+                  type="submit"
+                  [disabled]="!supplierForm.valid">Guardar</button>
+                <a class="waves-effect waves-light btn red darken-4" (click)="onCancelClicked()">Cancelar</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

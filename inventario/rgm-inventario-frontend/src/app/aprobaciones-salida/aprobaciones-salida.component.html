@@ -1,0 +1,111 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="section"></div>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Aprobación de salidas</span>
+          <div class="row right-align" *ngIf="urlSalidaPdf">
+            <a href="{{urlSalidaPdf}}" class="btn btn-primary" target="_blank">Descargar PDF</a>
+          </div>
+          <div class="row">
+            <table>
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Solicitante</th>
+                  <th>Fecha</th>
+                  <th>Observaciones</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let salida of salidas | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: currentPage, totalItems: total }; let i = index">
+                  <td>{{ salida.correlativo }}</td>
+                  <td>{{ salida.solicitante ? salida.solicitante.nombre : '' }}</td>
+                  <td>{{ salida.fecha }}</td>
+                  <td>{{ salida.observaciones }}</td>
+                  <td>
+                    <a
+                      class="waves-effect waves-light btn-floating"
+                      (click)="onViewSalidaClicked(i)"><i class="material-icons">visibility</i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-template #p="paginationApi"
+              id="server"
+              (pageChange)="onPageChange($event)">
+              <ul class="pagination custom-pagination">
+                <li class="pagination-previous" [class.disabled]="p.isFirstPage()">
+                  <a *ngIf="!p.isFirstPage()" (click)="p.previous()"><i class="material-icons">chevron_left</i></a>
+                </li>
+                <li *ngFor="let page of p.pages" [class.active]="p.getCurrent() === page.value" [class.waves-effect]="p.getCurrent() !== page.value">
+                  <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                    {{ page.label }}
+                  </a>
+                  <a *ngIf="p.getCurrent() === page.value">
+                    {{ page.label }}
+                  </a>
+                </li>
+                <li class="pagination-next" [class.disabled]="p.isLastPage()">
+                  <a *ngIf="!p.isLastPage()" (click)="p.next()"><i class="material-icons">chevron_right</i></a>
+                </li>
+              </ul>
+            </pagination-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="section"></div>
+<div id="modDetalle" class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <h4>Detalle de salida</h4>
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <table *ngIf="modalSalida">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Cantidad a extraer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detalle of modalSalida.detalle; let i = index">
+                <td>{{ detalle.codigoArticulo }}</td>
+                <td>{{ detalle.articulo.descripcion }}</td>
+                <td>{{ detalle.cantidad }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col s12 right-align">
+            <button
+              class="waves-effect waves-light btn-floating indigo"
+              type="button"
+              (click)="onApprovedClicked()"><i class="material-icons">check_circle</i></button>
+            <a class="waves-effect waves-light btn-floating red darken-4" (click)="onRejectedClicked()"><i class="material-icons">cancel</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<swal
+  #swalMotivoRechazo
+  title="Motivo rechazo"
+  text="Debe ingresar el motivo por el que se rechaza la salida."
+  type="error">
+</swal>
+<swal
+  #swalDetalleObligatorios
+  title="Campos obligatorios"
+  text="Debe ingresar la cantidad aprobada para todos los articulos."
+  type="error">
+</swal>

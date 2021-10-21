@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence 	version="2.1" 
+				xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="INV_PERSISTENCE" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/invDS</jta-data-source>
+		<class>gt.gob.rgm.inv.model.Marca</class>
+		<class>gt.gob.rgm.inv.model.Articulo</class>
+		<class>gt.gob.rgm.inv.model.Proveedor</class>
+		<class>gt.gob.rgm.inv.model.TipoArticulo</class>
+		<class>gt.gob.rgm.inv.model.UnidadMedida</class>
+		<class>gt.gob.rgm.inv.model.Usuario</class>
+		<class>gt.gob.rgm.inv.model.Aprobacion</class>
+		<class>gt.gob.rgm.inv.model.Despacho</class>
+		<class>gt.gob.rgm.inv.model.DetalleDespacho</class>
+		<class>gt.gob.rgm.inv.model.DetalleIngreso</class>
+		<class>gt.gob.rgm.inv.model.DetalleRequisicion</class>
+		<class>gt.gob.rgm.inv.model.DetalleSalida</class>
+		<class>gt.gob.rgm.inv.model.Estado</class>
+		<class>gt.gob.rgm.inv.model.EstadoOperacion</class>
+		<class>gt.gob.rgm.inv.model.Ingreso</class>
+		<class>gt.gob.rgm.inv.model.Kardex</class>
+		<class>gt.gob.rgm.inv.model.Requisicion</class>
+		<class>gt.gob.rgm.inv.model.Salida</class>
+		<class>gt.gob.rgm.inv.model.Serie</class>
+		<class>gt.gob.rgm.inv.model.TipoIngreso</class>
+		<class>gt.gob.rgm.inv.model.TipoSalida</class>
+		<class>gt.gob.rgm.inv.model.ParametroConf</class>
+		<properties>
+			<property name="eclipselink.logging.level.sql" value="INFO"/>
+ 			<property name="eclipselink.logging.parameters" value="true"/>
+		</properties>		
+	</persistence-unit>				
+</persistence>

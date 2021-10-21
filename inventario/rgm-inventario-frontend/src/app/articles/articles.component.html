@@ -1,0 +1,231 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="section"></div>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col s2"></div>
+      <div class="col s8">
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s8">
+                <span class="card-title">Articulos</span>
+              </div>
+            </div>
+            <div class="row">
+              <a class="waves-effect waves-light btn-large" (click)="onAddArticleClicked()">Agregar</a>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Codigo</th>
+                    <th>Descripción</th>
+                    <th>Tipo</th>
+                    <th>Marca</th>
+                    <th>Unidad</th>
+                    <th>Existencia</th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <th colspan="2"><input type="text" #filTextoInput [(ngModel)]="filTexto"
+                      placeholder="Buscar"
+                      (ngModelChange)="filTextoChanged($event)"
+                      [ngModelOptions]="{updateOn: 'blur'}" (keyup.enter)="onFilTexto()"></th>
+                      <th colspan="5"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let article of articles | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: currentPage, totalItems: total }; let i = index">
+                    <td>{{ article.codigo }}</td>
+                    <td>{{ article.descripcion }}</td>
+                    <td>{{ article.tipo }}</td>
+                    <td>{{ article.marca }}</td>
+                    <td>{{ article.unidad }}</td>
+                    <td>{{ article.existencia }}</td>
+                    <td>
+                      <a
+                        class="waves-effect waves-light btn indigo"
+                        (click)="onEditArticleClicked(article, i)"><i class="material-icons">edit</i></a>
+                      <a
+                        class="waves-effect waves-light btn red darken-4"
+                        [swal]="{title: 'Eliminar articulo', text: '¿Está seguro de eliminar al articulo?', type: 'warning', showCancelButton: true}"
+                        (confirm)="onRemoveArticleClicked(i)"><i class="material-icons">delete</i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-template #p="paginationApi"
+                id="server"
+                (pageChange)="onPageChange($event)">
+                <ul class="pagination custom-pagination">
+                  <li class="pagination-previous" [class.disabled]="p.isFirstPage()">
+                    <a *ngIf="!p.isFirstPage()" (click)="p.previous()"><i class="material-icons">chevron_left</i></a>
+                  </li>
+                  <li *ngFor="let page of p.pages" [class.active]="p.getCurrent() === page.value" [class.waves-effect]="p.getCurrent() !== page.value">
+                    <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                      {{ page.label }}
+                    </a>
+                    <a *ngIf="p.getCurrent() === page.value">
+                      {{ page.label }}
+                    </a>
+                  </li>
+                  <li class="pagination-next" [class.disabled]="p.isLastPage()">
+                    <a *ngIf="!p.isLastPage()" (click)="p.next()"><i class="material-icons">chevron_right</i></a>
+                  </li>
+                </ul>
+              </pagination-template>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s2"></div>
+    </div>
+  </div>
+</main>
+<div class="section"></div>
+<div id="modArticle" class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <h4>Articulo</h4>
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <form materialize class="col s12" (ngSubmit)="onSubmit()" [formGroup]="articleForm">
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  class="validate"
+                  id="codigo"
+                  formControlName="codigo">
+                <label for="codigo">Codigo</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  class="validate"
+                  id="codigoBarras"
+                  formControlName="codigoBarras">
+                <label for="codigoBarras">Codigo de Barras</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  class="validate"
+                  id="descripcion"
+                  formControlName="descripcion">
+                <label for="descripcion">Descripcion</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <select
+                  id="tipo"
+                  materialize="material_select"
+                  formControlName="tipo"
+                  [materializeSelectOptions]="types">
+                  <option value="" disabled selected>Seleccione el tipo</option>
+                  <option value="{{type.id}}" *ngFor="let type of types">{{type.nombre}}</option>
+                </select>
+                <label for="tipo">Tipo</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <select
+                  id="marca"
+                  materialize="material_select"
+                  formControlName="marca"
+                  [materializeSelectOptions]="brands">
+                  <option value="" disabled selected>Seleccione la marca</option>
+                  <option value="{{brand.id}}" *ngFor="let brand of brands">{{brand.nombre}}</option>
+                </select>
+                <label for="marca">Marca</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <select
+                  id="unidad"
+                  materialize="material_select"
+                  formControlName="unidad"
+                  [materializeSelectOptions]="units">
+                  <option value="" disabled selected>Seleccione la unidad</option>
+                  <option value="{{unit.id}}" *ngFor="let unit of units">{{unit.nombre}}</option>
+                </select>
+                <label for="unidad">Unidad</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <select
+                  id="proveedor"
+                  materialize="material_select"
+                  formControlName="proveedor"
+                  [materializeSelectOptions]="suppliers">
+                  <option value="" disabled selected>Seleccione el proveedor</option>
+                  <option value="{{supplier.id}}" *ngFor="let supplier of suppliers">{{supplier.nombre}}</option>
+                </select>
+                <label for="proveedor">Proveedor</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  class="validate"
+                  id="valor"
+                  formControlName="valor">
+                <label for="valor">Valor</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  class="validate"
+                  id="minimoExistencia"
+                  formControlName="minimoExistencia">
+                <label for="minimoExistencia">Minimo Existencia</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <input
+                  type="checkbox"
+                  class="validate"
+                  id="perecedero"
+                  formControlName="perecedero"
+                />
+                <label for="perecedero">Es perecedero?</label>
+              </div>
+              <!-- <div class="row" *ngIf="articleForm.value.perecedero">
+                <div class="input-field col s12">
+                  <input
+                    type="text"
+                    class="validate"
+                    id="fechaVencimiento"
+                    formControlName="fechaVencimiento"
+                    materialize="pickadate"
+                    [materializeParams]="[{format: 'dd/mm/yyyy', formatSubmit: 'yyyy-mm-dd', container: 'body'}]">
+                  <label for="fechaVencimiento">Fecha de Vencimiento</label>
+                </div>
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col s12 right-align">
+                <button
+                  class="waves-effect waves-light btn"
+                  type="submit"
+                  [disabled]="!articleForm.valid">Guardar</button>
+                <a class="waves-effect waves-light btn red darken-4" (click)="onCancelClicked()">Cancelar</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

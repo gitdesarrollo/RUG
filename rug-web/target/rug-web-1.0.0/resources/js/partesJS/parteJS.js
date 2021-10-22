@@ -400,6 +400,82 @@ function modificaParteBien(elementId, idTramite, tipoBien, tipoId, ident, desc, 
 	//$('#frmBien').modal('close');
 }
 
+function modificaParteBienFactoraje(elementId, idTramite, tipoBien, tipoId, ident, desc, idTramiteGar, serie){
+	elementIDBien = elementId;
+	displayLoader(true);	
+	
+        console.log("X ", tipoBien, " Y ", tipoId);
+        
+	var x = tipoBien;
+	var y = tipoId;	
+	  
+	if(y=='Placa') {
+		  var veh = ident.split('-');
+		  document.getElementById("mdIdentificador").value = veh[0];
+		  document.getElementById("mdIdentificador1").value = veh[1];
+		  document.getElementById("mdIdentificador2").value = '';
+	  } else {
+		  document.getElementById("mdIdentificador2").value = ident;
+                  document.getElementById("mdIdentificador3").value = serie;
+                  
+	  }
+	document.getElementById("mdDescripcion").value = desc;
+	  
+	if(x=='Vehiculo'){		  	
+		  document.getElementById("secId1").style.display = 'block'; 
+		  document.getElementById("secId2").style.display = 'block';
+		  document.getElementById("secId3").style.display = 'block';
+		  document.getElementById("secId4").style.display = 'none';
+		  
+		  document.getElementById("lblMdDescripcion").innerHTML = 'Descripci&oacute;n del veh&iacute;culo';
+		  		    
+		  document.getElementById("lblMdIdentificador2").innerHTML = 'VIN';
+		  document.getElementById("mdBienEspecial").value = 1;
+		  		  
+	  } else if (x=='Factura'){
+		  document.getElementById("secId1").style.display = 'none'; 
+		  document.getElementById("secId2").style.display = 'none';
+		  document.getElementById("secId3").style.display = 'block';	
+		  document.getElementById("secId4").style.display = 'none';		  
+		  
+		  document.getElementById("lblMdIdentificador2").innerHTML = 'No. Factura';
+		  document.getElementById("lblMdIdentificador3").innerHTML = 'Serie';
+		  document.getElementById("lblMdDescripcion").innerHTML = 'Emitido Por';
+		  
+		  document.getElementById("mdBienEspecial").value = 2;
+	  } else {
+		  document.getElementById("secId1").style.display = 'none'; 
+		  document.getElementById("secId2").style.display = 'none';
+		  document.getElementById("secId3").style.display = 'block';
+		  document.getElementById("secId4").style.display = 'none';		  
+		  
+		  document.getElementById("lblMdIdentificador2").innerHTML = 'No. Serie';
+		  document.getElementById("lblMdDescripcion").innerHTML = 'Descripci&oacute;n del bien';
+		  document.getElementById("mdBienEspecial").value = 3;
+	  }
+	
+	document.getElementById("secId5").style.display = 'none';
+	document.getElementById("secId6").style.display = 'block';
+	document.getElementById("formBienButton").innerHTML = 'Modificar';
+	document.getElementById("formBienButton").onclick = function(){
+		
+	     var m_mdDescripcion = document.getElementById("mdDescripcion").value;
+	     var m_idTipo = document.getElementById("mdBienEspecial").value;
+	     var m_mdIdentificador = document.getElementById("mdIdentificador").value;
+	     var m_mdIdentificador1 = document.getElementById("mdIdentificador1").value;
+	     var m_mdIdentificador2 = document.getElementById("mdIdentificador2").value;
+	      var m_mdIdentificador3 = document.getElementById("mdIdentificador3").value;
+
+		// ParteDwrAction.modificaParteBien(elementId, idTramite, m_mdDescripcion, m_idTipo, m_mdIdentificador, m_mdIdentificador1, m_mdIdentificador2, m_mdIdentificador3, idTramiteGar, showParteBienes);
+		ParteDwrAction.modificaParteBienFactoraje(elementId, idTramite, m_mdDescripcion, m_idTipo, m_mdIdentificador, m_mdIdentificador1, m_mdIdentificador2, idTramiteGar,m_mdIdentificador3, showParteBienes);
+		$('#frmBien').modal('close');
+	}
+	
+	$('#frmBien').modal('open');
+	Materialize.updateTextFields();
+	//$('#frmBien').modal('close');
+}
+
 function eliminaParteDeudor(elementId, idTramite, idPersona,
 		idPersonaModificar, isInscripcion) {
 
@@ -692,7 +768,7 @@ function guardaParteOtorgante(elementID, idTramite, idPersona, idPersonaModifica
 		if (!noVacio(rfc)) {
                     if (elementID!='divParteDWRxx4') //corellana: este campo no es obligatorio.(hector 15/09/2021)
 			{
-                            alertMaterialize('El campo Documento de identificaci贸n es obligatorio');
+                            alertMaterialize('El campo Documento de identificaci髇 es obligatorio');
                             return false;
                         }
 		}		
@@ -793,7 +869,7 @@ function modificaParteOtorgante(elementID, idTramite, idPersona,
 			return false;
 		}
 		if (!noVacio(rfc)) {
-			alertMaterialize('El campo Documento de identificaci贸n es obligatorio');
+			alertMaterialize('El campo Documento de identificaci髇 es obligatorio');
 			return false;
 		}
 		
@@ -933,7 +1009,7 @@ function guardaParteAcreedor(elementID, idTramite, idPersona,
 			return false;
 		}
 		if (!noVacio(rfc)) {
-			alertMaterialize('El campo Documento de identificaci贸n es obligatorio');
+			alertMaterialize('El campo Documento de identificaci髇 es obligatorio');
 			return false;
 		}
 		nitfinal = nitf;
@@ -1094,7 +1170,7 @@ function guardaParteAcreedorRepresentado(elementID, idPersona,
 					}
 				}else {
 				if (valor2 == '1') {
-					alert('El campo Documento de Identificaci贸n es obligatorio');
+					alert('El campo Documento de Identificaci髇 es obligatorio');
 					return false;
 				}
 				}
@@ -1105,7 +1181,7 @@ function guardaParteAcreedorRepresentado(elementID, idPersona,
 						return false;
 					}
 				} else {
-					alert('El campo Documento de Identificaci贸n es obligatorio');
+					alert('El campo Documento de Identificaci髇 es obligatorio');
 					return false;
 				}
 			}
@@ -1193,7 +1269,7 @@ function guardaParteAcreedorRepresentado(elementID, idPersona,
 						return false;
 					} */
 				} else {
-					alert('El campo Documento de Identificaci贸n es obligatorio');
+					alert('El campo Documento de Identificaci髇 es obligatorio');
 					return false;
 				}
 			}
@@ -1222,7 +1298,7 @@ function guardaParteAcreedorRepresentado(elementID, idPersona,
 						return false;
 					} */
 				} else {
-					alert('El campo Documento de Identificaci贸n es obligatorio');
+					alert('El campo Documento de Identificaci髇 es obligatorio');
 					return false;
 				}
 			}
@@ -1244,7 +1320,7 @@ function guardaParteAcreedorRepresentado(elementID, idPersona,
 						return false;
 					} */
 				} else {
-					alert('El campo Documento de Identificaci贸n es obligatorio');
+					alert('El campo Documento de Identificaci髇 es obligatorio');
 					return false;
 				}
 			}
@@ -1967,7 +2043,7 @@ function modificaParteAcreedor(elementID, idTramite, idPersona,
 			return false;
 		}
 		if (!noVacio(rfc)) {
-			alertMaterialize('El campo Documento de identificaci贸n es obligatorio');
+			alertMaterialize('El campo Documento de identificaci髇 es obligatorio');
 			return false;
 		}
 		
@@ -2384,7 +2460,7 @@ function guardaParteDeudor(elementID, idTramite, idPersona, idPersonaModificar,	
 			return false;
 		}
 		if (!noVacio(rfc)) {
-			alertMaterialize('El campo Documento de identificaci贸n es obligatorio');
+			alertMaterialize('El campo Documento de identificaci髇 es obligatorio');
 			return false;
 		}		
 				
@@ -2475,7 +2551,7 @@ function modificaParteDeudor(elementID, idTramite, idPersona,
 			return false;
 		}
 		if (!noVacio(rfc)) {
-			alertMaterialize('El campo Documento de identificaci贸n es obligatorio');
+			alertMaterialize('El campo Documento de identificaci髇 es obligatorio');
 			return false;
 		}
 		

@@ -306,7 +306,7 @@ public class AcreedoresCatalogosDaoJdbcImpl extends RugBaseJdbcDao implements Ac
 		query.append(" SELECT CVE_ACREEDOR as claveAcreedor, CVE_USUARIO as claveUsuario,  ");
 		query.append(" ID_PERSONA idPersona, NOMBRE_PERSONA nombre, AP_PATERNO apPaterno, AP_MATERNO apMaterno, RFC rfc, SIT_USUARIO situacion, NUM_SERIE, ");
 		query.append(" CURP_DOC docId, ");
-		query.append(" DECODE(per_juridica,'PF', 'Persona Individual', 'PM', 'Persona JurÃ­dica') tipoPersona, ");
+		query.append(" DECODE(per_juridica,'PF', 'Persona Individual', 'PM', 'Persona Jurídica') tipoPersona, ");
 		query.append(" DECODE(inscrito, 'N', 'Nacional', 'E', 'Extranjero') inscritoComo, ");
 		query.append(" preg_recupera_psw ");
 		query.append(" FROM V_USUARIO_SESION_RUG ");

@@ -285,6 +285,14 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 						</div>
 						<div id="secId2" class="row" style="display: none;"><span class="col s12 center-align">Y</span></div>
 						<div id="secId3" class="row" style="display: none;">
+                                                    <s:if test="detalleTO.idtipogarantia==2">
+                                                        <div class="input-field col s6" >
+									<s:textfield name="mdIdentificador3" id="mdIdentificador3"
+												 cssClass="validate" maxlength="150" />
+									<label id="lblMdIdentificador3" for="mdIdentificador3">Serie</label> 
+                                                                        <p><small>Ingrese el numero de serie en caso de ser factura de papel, para el caso de FEL el numero de serie no es obligatorio.</small></p>
+							</div>
+                                                      </s:if>                  
 							<div class="input-field col s12">
 								<s:textfield name="mdIdentificador2" id="mdIdentificador2"
 									cssClass="validate" maxlength="150" />

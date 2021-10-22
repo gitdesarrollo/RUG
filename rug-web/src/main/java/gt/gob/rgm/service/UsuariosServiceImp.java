@@ -66,7 +66,7 @@ public class UsuariosServiceImp implements UsuariosService {
 		// que el correo no exista con otro usuario
 		RugSecuUsuarios usuarioExiste = secuUsuarioDao.findByCveUsuario(usuario.getCveUsuario());
 		if(usuarioExiste != null) {
-			usuario.setMensajeError("El correo ingresado ya est√° siendo utilizado por otro usuario");
+			usuario.setMensajeError("El correo ingresado ya est· siendo utilizado por otro usuario");
 			return usuario;
 		}
 		

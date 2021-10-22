@@ -248,7 +248,7 @@ public class InscripcionDAO {
 		String regresa = Constants.FAILED;
 		ConexionBD bd = new ConexionBD();
 		Connection connection = bd.getConnection();
-		String sql = "{call RUG.SP_ALTA_GARANTIA_BIENES( ?,?,?,?,?,?,? ) } ";
+		String sql = "{call RUG.SP_ALTA_GARANTIA_BIENES( ?,?,?,?,?,?,? ,?) } ";
 		CallableStatement cs = null;
 
 
@@ -259,16 +259,16 @@ public class InscripcionDAO {
 			cs.setInt(3, bienEspecialTO.getTipoIdentificadorInt());
 			cs.setString(4, bienEspecialTO.getIdentificador());
 			cs.setString(5, bienEspecialTO.getDescripcion());
-//			cs.setString(6, bienEspecialTO.getSerie());
-			cs.registerOutParameter(6, Types.INTEGER);
-			cs.registerOutParameter(7, Types.VARCHAR);
+			cs.setString(6, bienEspecialTO.getSerie());
+			cs.registerOutParameter(7, Types.INTEGER);
+			cs.registerOutParameter(8, Types.VARCHAR);
 			cs.executeQuery();
-			regresa = cs.getString(7);
+			regresa = cs.getString(8);
 
 			MyLogger.Logger.log(Level.INFO, "InscripcionDAO insert bienEspecialTO3: Integer Result  = "
-					+ cs.getInt(6));
+					+ cs.getInt(7));
 			MyLogger.Logger.log(Level.INFO, "InscripcionDAO insert bienEspecialTO: Varchar Result  = "
-					+ cs.getString(7));
+					+ cs.getString(8));
 			cs.close();
 		} catch (SQLException e) {
 			MyLogger.Logger.log(Level.INFO, "error");
@@ -285,7 +285,7 @@ public class InscripcionDAO {
 		String regresa = Constants.FAILED;
 		ConexionBD bd = new ConexionBD();
 		Connection connection = bd.getConnection();
-		String sql = "{call RUG.SP_MODIFICA_GARANTIA_BIENES( ?,?,?,?,?,?,?) } ";
+		String sql = "{call RUG.SP_MODIFICA_GARANTIA_BIENES( ?,?,?,?,?,?,?,?) } ";
 		CallableStatement cs = null;
 		try {
 			cs = connection.prepareCall(sql);
@@ -293,14 +293,16 @@ public class InscripcionDAO {
 			cs.setInt(2, bienEspecialTO.getTipoBienInt());
 			cs.setInt(3, bienEspecialTO.getTipoIdentificadorInt());
 			cs.setString(4, bienEspecialTO.getIdentificador());
-			cs.setString(5, bienEspecialTO.getDescripcion());			
-//			cs.setString(6, bienEspecialTO.getSerie());
-			cs.registerOutParameter(6, Types.INTEGER);
-			cs.registerOutParameter(7, Types.VARCHAR);
+			cs.setString(5, bienEspecialTO.getDescripcion());
+                        //corellana: agregar serie al modificar un item ajustes para hector
+                        
+			cs.setString(6, bienEspecialTO.getSerie());
+			cs.registerOutParameter(7, Types.INTEGER);
+			cs.registerOutParameter(8, Types.VARCHAR);
 			cs.executeQuery();
-			regresa = cs.getString(7);
+			regresa = cs.getString(8);
 			MyLogger.Logger.log(Level.INFO, "InscripcionDAO update bienEspecialTO: Integer Result  = "
-					+ cs.getInt(6));
+					+ cs.getInt(7));
 //			MyLogger.Logger.log(Level.INFO, "InscripcionDAO update bienEspecialTO: Varchar Result  = "
 //					+ cs.getString(8));
 			cs.close();

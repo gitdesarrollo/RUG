@@ -266,7 +266,7 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 						<span class="card-title">Vigencia de la Inscripci&oacute;n</span>
 						<div class="row note">
 							<p>
-								<span>La inscripci&oacute;n en el Registro tendr&aacute; vigencia por un plazo de 5 a&ntilde;os, renovable por per&iacute;odos de tres a&ntilde;os. </span>
+								<span>La inscripci&oacute;n en el Registro tendr&aacute; vigencia por un plazo de 5 a&ntilde;os, renovable por per&iacute;odos de tres a&ntilde;os.. </span>
 							</p>
 						</div>
 						<div class="row">
@@ -339,6 +339,13 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 	step: 1,
 	width:  600		
 });
+
+$( document ).ready(function() {
+    //$( ".rs-container").css( "width", "auto" );
+        console.log( "ready!" );
+    
+});
+ 
 </script>
 <script type="text/javascript">
 loadValues();

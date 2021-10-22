@@ -248,7 +248,7 @@ function mi_funcion222222()
 								<div class="input-field col s6" >
 									<s:textfield name="mdIdentificador3" id="mdIdentificador3"
 												 cssClass="validate" maxlength="150" />
-									<label id="lblMdIdentificador3" for="mdIdentificador3">VIN</label> 
+									<label id="lblMdIdentificador3" for="mdIdentificador3">Serie</label> 
                                                                         <p><small>Ingrese el numero de serie en caso de ser factura de papel, para el caso de FEL el numero de serie no es obligatorio.</small></p>
 								</div>
 								<div class="input-field col s6">
@@ -515,11 +515,13 @@ function BindTable(jsondata, tableid) {
      for (var i = 0; i < jsondata.length; i++) {  
          var row$ = $('<tr/>');  
 		 mdDescripcion = '';
+                 numeroDeLaFactura = '';
 		 mdIdentificador = '';
 		 mdIdentificador1 = '';
 	     mdIdentificador2 = '';
 		 mdFactura1 = '';
 		 mdFactura2 = '';
+                 mdSerie = '';
 		 correcto = 0;
 		 tipoId = '';
 		 
@@ -569,7 +571,8 @@ function BindTable(jsondata, tableid) {
 				 if(colIndex > 2) {
 					 correcto = 1;
 				 }
-			 } else if(idTipo == '2') { //Facturas				 
+			 } else if(idTipo == '2') { //Facturas		
+                                console.log("facturas ......... convirtiendo a excel");
 				 if(colIndex == 0) {	
 					if(cellValue.length > 25){
 						cellValue = 'Valor invalido';
@@ -602,9 +605,25 @@ function BindTable(jsondata, tableid) {
 						correcto = 1;
 					} else {						
 						mdDescripcion = 'Emitido por: ' + mdFactura1 + " Fecha: " + mdFactura2 + " " + cellValue;
+                                                numeroDeLaFactura = cellValue;
 					}	
 				 }
-				 if(colIndex > 3) {
+                                 ///orellana: se esta colocando esto para la carga de facturas con serie
+				 if(colIndex == 4) {
+                                        if(cellValue.length > 100){
+						cellValue = 'Valor invalido';
+						correcto = 1;
+					} else {
+                                             if(cellValue.length >= 1){
+                                              //mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Serie: " +mdIdentificador3 + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
+						mdDescripcion = 'Emitido por: ' + mdFactura1 + " Serie: " + cellValue +  " Fecha: " + mdFactura2 + " " + numeroDeLaFactura;
+                                                mdSerie = cellValue;
+                                            }
+					}
+				 }
+                                 //orellana: Carga de facturas
+                                  if(colIndex > 4) {
+                                     console.log("aqui estoy invalidando la carga");
 					 correcto = 1;
 				 }
 			 } else if(idTipo == '3') { 
@@ -631,8 +650,12 @@ function BindTable(jsondata, tableid) {
              row$.append($('<td/>').html(cellValue));  
          }  
 		 if(correcto == 0) {
-			ParteDwrAction.registrarBien('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador, 
-				mdIdentificador1, mdIdentificador2, showParteBienes); 
+                        
+			ParteDwrAction.registrarBien_v2('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador, 
+				mdIdentificador1, mdIdentificador2,mdSerie, showParteBienes); 
+                        
+                           
+                            
 			row$.append('<td><font color="green">Cargado</font></td>');
 		 } else {
 			 row$.append('<td><font color="red">Error verifique datos</font></td>');
@@ -662,7 +685,7 @@ function BindTableHeader(jsondata, tableid) {
  }  
  
 function ExportToTable() { 
-
+console.log("Exportando a Table xls ");
 document.getElementById("exceltable").innerHTML = '<table id="exceltable"></table> ';
 
 var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;  
@@ -721,7 +744,7 @@ var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
 
 function cambiaBienesEspecialesFile() {
 	  var x = document.getElementById("mdBienEspecial2").value;
-	  
+	  console.log("EL VALOR DE X ==> " + x);
 	  if(x=='1'){
 		  document.getElementById("txtspan").innerHTML = 'Los campos del excel son: '
 		    + '<p><b>Tipo Identificador</b>, 1 si es Placa y 2 si es VIN<p>'
@@ -733,7 +756,8 @@ function cambiaBienesEspecialesFile() {
 		    + '<p><b>Numero Identificacion Contribuyente</b>, maximo 25 caracteres</p>'
 			+ '<p><b>Fecha</b>, formato texto DD/MM/YYYY</p>'
 			+ '<p><b>Numero Factura</b>, maximo 25 caracteres</p>'
-			+ '<p><b>Descripcion</b>, maximo 100 caracteres</p>';
+			+ '<p><b>Descripcion</b>, maximo 100 caracteres</p>'
+                        + '<p><b>Serie</b>maximo 100 caracteres</p>';
 	  } else if (x=='3'){
 		  document.getElementById("txtspan").innerHTML = 'Los campos del excel son: '
 		    + '<p><b>Identificador</b>, maximo 25 caracteres</p>'

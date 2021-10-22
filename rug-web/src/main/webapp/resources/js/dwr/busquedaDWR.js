@@ -56,6 +56,7 @@ function searchInvoiceform2(ruta, idPersona, tipoBusqueda, tipoTramite,consulta_
 	if (!isBlank(invoice) || !isBlank(set) || !isBlank(nit) ) {
 		BusquedaDwrAction.searchInvoice2(invoice, set, idPersona, tipoTramite, ruta,nit,consulta_nombre,consulta_id,escribeTablaBusqueda);
 	}
+       
 }
 
 function searchInvoiceform(ruta, idPersona, tipoBusqueda, tipoTramite) {
@@ -110,7 +111,10 @@ function pagBusquedaDwr(ruta, registroTotales, pagActiva, regPagina) {
 }
 
 function escribeTablaBusqueda(response) {
+      
 	fillObject('resultadoDIV', response.message);
+     setTimeout(() => {   window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" }); }, 2000);
+      
 	//displayLoader(false);
 }
 

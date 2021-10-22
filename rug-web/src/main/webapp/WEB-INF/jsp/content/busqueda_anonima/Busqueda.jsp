@@ -9,11 +9,12 @@
 <%--			<div class="card-content">--%>
 <%--				<p>Consulta Principal</p>--%>
 <%--			</div>--%>
+
 			<div class="card-tabs">
 				<ul class="tabs tabs-fixed-width">
-					<li class="tab"><a class="active" href="#criterio">B&uacute;squeda  por Criterios(Sin costo)</a></li>
-					<li class="tab"><a href="#secundaria">B&uacute;squeda  Secundaria</a></li>
-					<li class="tab"><a href="#factura">B&uacute;squeda por Factura</a></li>
+					<li onclick="limpiar_filtros()" class="tab"><a class="active" href="#criterio">B&uacute;squeda  por Criterios (Sin costo)</a></li>
+					<li onclick="limpiar_filtros()" class="tab"><a href="#secundaria">B&uacute;squeda  Secundaria (Sin costo)</a></li>
+					<li onclick="limpiar_filtros()" class="tab"><a href="#factura">B&uacute;squeda por Factura (Sin costo)</a></li>
 				</ul>
 			</div>
 			<div class="card-content grey lighten-4">
@@ -36,7 +37,7 @@
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<s:textfield name="serial" id="serial" size="25"  maxlength="25" />
+									<s:textfield name="serial" id="serial" size="250"  maxlength="250" />
 									<label for="serial">N&uacute;mero de serie</label>
 								</div>
 							</div>
@@ -54,6 +55,7 @@
                                                                     </div>
                                                                     
 									<a class="btn btn-large waves-effect indigo" onclick="ejecutar_busqueda_jsp()">Consultar</a>
+                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseado es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</center>
 						</s:form>
@@ -87,6 +89,7 @@
 										<input type="text" id="consulta_id_2" class="campo_busqueda" >
 									</div>
 									<a class="btn btn-large waves-effect indigo" onclick="ejecutar_busqueda_jsp2()">Consultar</a>
+                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseado es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</center>
 						</s:form>
@@ -119,6 +122,7 @@
 										<input type="text" id="consulta_id_3" class="campo_busqueda" >
 									</div>
 									<a class="btn btn-large waves-effect indigo" onclick=" ejecutar_busqueda_jsp3()">Consultar</a>
+                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseado es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</div>
 						</s:form>
@@ -236,6 +240,8 @@
                return;
         }
         busquedaJSP(51071,4,$("#consulta_nombre_1").val(),$("#consulta_id_1").val());
+            
+
 
     }   
 	function ejecutar_busqueda_jsp2()
@@ -247,8 +253,32 @@
         }
         //busquedaJSP(51071,4,$("#consulta_nombre_2").val(),$("#consulta_id_2").val());
 		busquedaJSP(51071,5,$("#consulta_nombre_2").val(),$("#consulta_id_2").val());
+                 
     }   	
 
+    function limpiar_filtros()
+    {
+        console.log('limpiando');
+        $("#curpOtorgante").val ("");
+        $("#rfcOtorgante").val ("");
+        $("#serial").val ("");
+        $("#consulta_nombre_1").val ("");
+        $("#consulta_id_1").val ("");
+        $("#nombreOtorgante").val ("");
+        $("#nombreOtorgante").val ("");
+        $("#consulta_nombre_2").val ("");
+        $("#consulta_id_2").val ("");
+        
+                $("#nit").val ("");
+        $("#invoice").val ("");        $("#set").val ("");
+        $("#consulta_nombre_3").val ("");        
+        $("#consulta_id_3").val ("");
+        
+        
+        
+        
+        
+    }
 	
 
     function ejecutar_busqueda_jsp3()
@@ -261,6 +291,9 @@
         //busquedaJSP(51071,4,$("#consulta_nombre_2").val(),$("#consulta_id_2").val());
 		//busquedaJSP(51071,5,$("#consulta_nombre_3").val(),$("#consulta_id_3").val());
 		checkText2(51071,3,$("#consulta_nombre_3").val(),$("#consulta_id_3").val());
+                    
+                   
+
     }
 
 </script>

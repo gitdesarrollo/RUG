@@ -285,6 +285,14 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 						</div>
 						<div id="secId2" class="row" style="display: none;"><span class="col s12 center-align">Y</span></div>
 						<div id="secId3" class="row" style="display: none;">
+                                                    <s:if test="detalleTO.idtipogarantia==2">
+                                                        <div class="input-field col s6" >
+									<s:textfield name="mdIdentificador3" id="mdIdentificador3"
+												 cssClass="validate" maxlength="150" />
+									<label id="lblMdIdentificador3" for="mdIdentificador3">Serie</label> 
+                                                                        <p><small>Ingrese el numero de serie en caso de ser factura de papel, para el caso de FEL el numero de serie no es obligatorio.</small></p>
+							</div>
+                                                      </s:if>                  
 							<div class="input-field col s12">
 								<s:textfield name="mdIdentificador2" id="mdIdentificador2"
 									cssClass="validate" maxlength="150" />
@@ -407,7 +415,7 @@ function limpiaCampos() {
 	  if (checkBox.checked == true) {
 		  MaterialDialog.alert(
 					'<p style="text-align: justify; text-justify: inter-word;">Recuerde: <b>Artï¿½culo 17. Garantia Mobiliria Prioritaria.</b> ' +
-					'La publicidad de la garantía mobiliaria se constituye por medio de la inscripciï¿½n del formulario registral, '+
+					'La publicidad de la garantï¿½a mobiliaria se constituye por medio de la inscripciï¿½n del formulario registral, '+
 					'que haga referencia al carï¿½cter prioritario especial de esta garantï¿½a y que describa los bienes gravadoas por '+
 					'categorï¿½a, sin necesidad de descripciï¿½n pormenorizada. <br> <br>' +
 					'Para el caso se consituya respecto de bienes que '+

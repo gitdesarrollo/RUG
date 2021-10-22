@@ -77,7 +77,7 @@
                 
 	function checkText2(idPersona,tipoBusqueda,consulta_nombre="", consulta_id=""){
 
-	        if($('#invoice').val().length == 0 && $('#set').val().length == 0 && $('#nit').val().length == 0){
+	        if($('#invoice').val().length == 0 || $('#set').val().length == 0 || $('#nit').val().length == 0){
 	            MaterialDialog.alert(
 	                'Complete los criterios de b&uacute;squeda',{
 	                    title: '<table><tr><td width="10%"><i class="medium icon-yellow material-icons">warning</i></td><td style="vertical-align: middle; text-align:left;">Alerta</td></tr></table>',
@@ -95,6 +95,8 @@
             var ruta = '${pageContext.servletContext.contextPath}';
             if (checkUser(idPersona)) {
                 searchInvoiceform2(ruta, idPersona, tipoBusqueda, 11,consulta_nombre,consulta_id);
+                //window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+
             } else {
                 $.ajax({
                     url: '<%= request.getContextPath() %>/rs/tipos-tramite/11',
@@ -116,6 +118,8 @@
                                         callback: function () {
                                             console.log('A punto de hacer una busqueda por factura y numero serie');
                                             searchInvoiceform(ruta, idPersona, tipoBusqueda, 11);
+                                           // window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+
                                         }
                                     }
                                 }
@@ -206,6 +210,9 @@
 			console.log(idPersona);
 			if (checkUser(idPersona)) {
 				busquedaDwr(ruta, idPersona, tipoBusqueda, 11,consulta_nombre,consulta_id);
+                              //  window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+
+                                
 			} else {
 				$.ajax({
 					url: '<%= request.getContextPath() %>/rs/tipos-tramite/11',

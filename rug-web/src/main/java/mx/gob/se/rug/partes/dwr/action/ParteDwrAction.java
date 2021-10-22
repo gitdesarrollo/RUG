@@ -533,7 +533,11 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 			List<BienEspecialTO> listaBienes = inscripcionDAO.getListaBienes(new Integer(idTramite), 1);
 			MyLogger.Logger.log(Level.INFO, "Lista bienes" + listaBienes.size());
 			if (listaBienes.size() > 0) {
+                            
+                            if (listaBienes.get(0).tipoBien != 2)
 				dwr.setMessage(writeTablaBienes(elementId, idTramite, listaBienes).toString());
+                            else
+                                dwr.setMessage(writeTablaBienes_factoraje(elementId, idTramite, listaBienes).toString());
 			}
 			else {
 				dwr.setMessage("<table></table>");
@@ -2513,6 +2517,49 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 			bienEspecialTO.setDescripcion(mdDescripcion);
 			bienEspecialTO.setTipoBien(new Integer(idTipo));
 			if(idTipo.equalsIgnoreCase("1")) {//vehiculos			
+				/*if(!mdIdentificador.equalsIgnoreCase("")&&!mdIdentificador1.equalsIgnoreCase("")) {
+					bienEspecialTO.setIdentificador(mdIdentificador+"-"+mdIdentificador1);
+					bienEspecialTO.setTipoIdentificador(1); //por placa y uso
+				} else {
+					bienEspecialTO.setIdentificador(mdIdentificador2);
+					bienEspecialTO.setTipoIdentificador(2); //VIN
+				}*/
+                                if(!mdIdentificador2.equalsIgnoreCase("")) {
+					bienEspecialTO.setIdentificador(mdIdentificador2);
+					bienEspecialTO.setTipoIdentificador(2); //VIN
+				} else if(!mdIdentificador.equalsIgnoreCase("")&&!mdIdentificador1.equalsIgnoreCase("")) {					
+					bienEspecialTO.setIdentificador(mdIdentificador+"-"+mdIdentificador1);
+					bienEspecialTO.setTipoIdentificador(1); //por placa y uso
+				}
+			} else if(idTipo.equalsIgnoreCase("2")) {//facturas
+				bienEspecialTO.setIdentificador(mdIdentificador2);
+				bienEspecialTO.setTipoIdentificador(3); // no factura
+			} else {
+				bienEspecialTO.setIdentificador(mdIdentificador2);
+				bienEspecialTO.setTipoIdentificador(4); // no serie
+			}
+
+//			bienEspecialTO.setSerie(mdIdentificador3);
+						
+			inscripcionService.modificarBien(bienEspecialTO);
+			dwr = getParteBienes(elementId, idTramite);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return dwr;
+	}
+          
+        public MessageDwr modificaParteBienV2(String elementId, String idTramite, String mdDescripcion, String idTipo, String mdIdentificador,
+			String mdIdentificador1, String mdIdentificador2, String idTramiteGar, String mdSerie) {
+		MessageDwr dwr = new MessageDwr();
+		try {
+			BienEspecialTO bienEspecialTO = new BienEspecialTO();
+			bienEspecialTO.setIdTramite(new Integer(idTramite));
+			bienEspecialTO.setIdTramiteGarantia(new Integer(idTramiteGar));
+			bienEspecialTO.setDescripcion(mdDescripcion);
+			bienEspecialTO.setTipoBien(new Integer(idTipo));
+			if(idTipo.equalsIgnoreCase("1")) {//vehiculos			
 				if(!mdIdentificador.equalsIgnoreCase("")&&!mdIdentificador1.equalsIgnoreCase("")) {
 					bienEspecialTO.setIdentificador(mdIdentificador+"-"+mdIdentificador1);
 					bienEspecialTO.setTipoIdentificador(1); //por placa y uso
@@ -2523,6 +2570,44 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 			} else if(idTipo.equalsIgnoreCase("2")) {//facturas
 				bienEspecialTO.setIdentificador(mdIdentificador2);
 				bienEspecialTO.setTipoIdentificador(3); // no factura
+                                bienEspecialTO.setSerie(mdSerie);
+			} else {
+				bienEspecialTO.setIdentificador(mdIdentificador2);
+				bienEspecialTO.setTipoIdentificador(4); // no serie
+			}
+
+//			bienEspecialTO.setSerie(mdIdentificador3);
+						
+			inscripcionService.modificarBien(bienEspecialTO);
+			dwr = getParteBienes(elementId, idTramite);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return dwr;
+	}
+        
+         public MessageDwr modificaParteBienFactoraje(String elementId, String idTramite, String mdDescripcion, String idTipo, String mdIdentificador,
+			String mdIdentificador1, String mdIdentificador2, String idTramiteGar, String mdSerie) {
+		MessageDwr dwr = new MessageDwr();
+		try {
+			BienEspecialTO bienEspecialTO = new BienEspecialTO();
+			bienEspecialTO.setIdTramite(new Integer(idTramite));
+			bienEspecialTO.setIdTramiteGarantia(new Integer(idTramiteGar));
+			bienEspecialTO.setDescripcion(mdDescripcion);
+			bienEspecialTO.setTipoBien(new Integer(idTipo));
+			if(idTipo.equalsIgnoreCase("1")) {//vehiculos			
+				if(!mdIdentificador.equalsIgnoreCase("")&&!mdIdentificador1.equalsIgnoreCase("")) {
+					bienEspecialTO.setIdentificador(mdIdentificador+"-"+mdIdentificador1);
+					bienEspecialTO.setTipoIdentificador(1); //por placa y uso
+				} else {
+					bienEspecialTO.setIdentificador(mdIdentificador2);
+					bienEspecialTO.setTipoIdentificador(2); //VIN
+				}
+			} else if(idTipo.equalsIgnoreCase("2")) {//facturas
+				bienEspecialTO.setIdentificador(mdIdentificador2);
+				bienEspecialTO.setTipoIdentificador(3); // no factura
+                                bienEspecialTO.setSerie(mdSerie);
 			} else {
 				bienEspecialTO.setIdentificador(mdIdentificador2);
 				bienEspecialTO.setTipoIdentificador(4); // no serie
@@ -3473,10 +3558,8 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 		return sb;
 
 	}
-
-	
-	
-	private StringBuffer writeTablaBienes(String elementID, String idTramite, List<BienEspecialTO> listaBienesTO) {
+        
+        private StringBuffer writeTablaBienes(String elementID, String idTramite, List<BienEspecialTO> listaBienesTO) {
 		StringBuffer sb = new StringBuffer();
 		
 		Iterator<BienEspecialTO> it = listaBienesTO.iterator();
@@ -3524,6 +3607,71 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 					+ notNull(bienEspecialTO.getDescripcion())
 					+ "','"
 					+ bienEspecialTO.getIdTramiteGarantia()
+					+ "')\"><i class=\"material-icons\">edit</i></a></td>");
+			sb.append("</tr>");
+
+			//					+ "','"
+//					+ notNull(bienEspecialTO.getSerie())
+		}
+		sb.append("</tbody>");
+		sb.append("</table>");
+
+		
+		return sb;
+	}
+
+	
+	
+	private StringBuffer writeTablaBienes_factoraje(String elementID, String idTramite, List<BienEspecialTO> listaBienesTO) {
+		StringBuffer sb = new StringBuffer();
+		
+		Iterator<BienEspecialTO> it = listaBienesTO.iterator();
+
+
+		sb.append("<table id=\"bienes\" class=\"table responsive-table centered\" data-paging=\"true\" data-filtering=\"false\" data-sorting=\"true\">");
+		sb.append("<thead>");
+		sb.append("<tr>");
+		sb.append("<th>Tipo Bien Especial</th>");
+		sb.append("<th>Tipo Identificador</th>");
+		sb.append("<th>Identificador</th>");
+		sb.append("<th>Serie</th>");
+		sb.append("<th>Descripcion</th>");
+		sb.append("<th>Opciones</th>");
+		sb.append("</tr>");
+		sb.append("</thead>");
+		sb.append("<tbody>");
+		
+		BienEspecialTO bienEspecialTO;
+		while (it.hasNext()) {
+			bienEspecialTO = it.next();
+			sb.append("<tr>");
+			sb.append("<td>"	+ bienEspecialTO.getTipoBien() + "</td>");
+			sb.append("<td>"	+ bienEspecialTO.getTipoIdentificador() + "</td>");
+			sb.append("<td>"	+ notNull(bienEspecialTO.getIdentificador()) + "</td>");
+			sb.append("<td>"	+ notNull(bienEspecialTO.getSerie()) + "</td>");
+			sb.append("<td>"	+ notNull(bienEspecialTO.getDescripcion()) + "</td>");
+			sb.append("<td> <a class=\"btn waves-effect red darken-4\" onclick=\"eliminaParteBien('"
+					+ elementID
+					+ "','"
+					+ idTramite
+					+ "','"
+					+ bienEspecialTO.getIdTramiteGarantia()+ "')\"><i class=\"material-icons\">delete</i></a>");
+			sb.append(" <a class=\"btn waves-effect indigo darken-4\" onclick=\"modificaParteBienFactoraje('"
+					+ elementID
+					+ "','"
+					+ idTramite
+					+ "','"
+					+ bienEspecialTO.getTipoBien()
+					+ "','"
+					+ bienEspecialTO.getTipoIdentificador()
+					+ "','"
+					+ notNull(bienEspecialTO.getIdentificador())
+					+ "','"
+					+ notNull(bienEspecialTO.getDescripcion())
+					+ "','"
+					+ bienEspecialTO.getIdTramiteGarantia()
+                                	+ "','"
+					+ bienEspecialTO.getSerie()
 					+ "')\"><i class=\"material-icons\">edit</i></a></td>");
 			sb.append("</tr>");
 

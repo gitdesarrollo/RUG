@@ -64,7 +64,7 @@ public class AcreedoresDaoJdbcImpl extends BaseRugDao implements AcreedoresDAO {
 			DateUtilRug dateUtilRug = new DateUtilRug();
 			cs.setDate(18, dateUtilRug.parseToSQLDate(Calendar.getInstance().getTime()));
 			cs.setDate(19, dateUtilRug.parseToSQLDate(Calendar.getInstance().getTime()));
-			cs.setString(20, "Este es un contrato de modificaciÃ³n.");
+			cs.setString(20, "Este es un contrato de modificación.");
 			cs.setNull(21, Types.NULL);
 //			cs.setString(8, altaParteTO.getClaveLada());
 			cs.setString(22, altaParteTO.getTelefono());
@@ -100,7 +100,7 @@ public class AcreedoresDaoJdbcImpl extends BaseRugDao implements AcreedoresDAO {
 		} catch (SQLException e) {
 			regresaM = new PlSql();
 			regresaM.setIntPl(999);
-			regresaM.setStrPl("Error de modificaciÃ³n :"+ e.getMessage());
+			regresaM.setStrPl("Error de modificación :"+ e.getMessage());
 			e.printStackTrace();
 		}finally{
 			bd.close(connection, null, cs);

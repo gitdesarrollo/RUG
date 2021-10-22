@@ -1,0 +1,81 @@
+<ul id="dropdown-user" class="dropdown-content">
+  <li>
+    <a [routerLink]="['/change-password']">Cambiar contraseña</a>
+  </li>
+</ul>
+<ul id="dropdown-user-large" class="dropdown-content">
+    <li>
+      <a [routerLink]="['/change-password']">Cambiar contraseña</a>
+    </li>
+  </ul>
+<nav class="blue darken-4" role="navigation">
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">
+      <img class="responsive-img" src="/inventarios-web/assets/img/logo-mineco-pweb_0.jpg">
+    </a>
+    <ul class="left menu">
+    	<li>
+        <a materialize="sideNav" [materializeParams]="sidenavParams" [materializeActions]="sidenavActions" data-activates="sidenav" class="btn-floating btn-flat waves-effect waves-light transparent">
+          <i class="material-icons">menu</i>
+        </a>
+    	</li>
+      <li class="hide-on-med-and-down" style="padding-left: 20px; font-size: 1.6em;">
+ 	       Registro de Garant&iacute;as Mobiliarias
+ 	    </li>
+    </ul>
+    <ul class="right">
+  		<!-- <li class="hide-on-med-and-down">
+  			<span class="white-text name">{{ user.nombre }}</span>
+  		</li> -->
+      <li class="hide-on-med-and-down">
+        <a materialize="dropdown" class="dropdown-trigger" data-activates="dropdown-user-large" data-beloworigin="true">
+          {{ user.nombre }}
+          <i class="material-icons right">arrow_drop_down</i>
+        </a>
+      </li>
+  		<li class="hide-on-med-and-down">
+        <a (click)="onLogout()" class="waves-effect red darken-4 waves-light btn">Salir</a>
+      </li>
+      <li class="hide-on-large-only">
+        <a materialize="dropdown" class="dropdown-trigger" data-activates="dropdown-user" data-beloworigin="true">
+          <i class="material-icons">settings</i>
+        </a>
+      </li>
+      <li class="hide-on-large-only">
+        <a (click)="onLogout()">
+          <i class="material-icons">exit_to_app</i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<ul materialize="collapsible" id="sidenav" class="side-nav indigo lighten-5">
+  <li>
+		<div class="user-view">
+			<div class="background">
+				<div style="width: 100%; height: 100%; background-color: #1c3144c7;"></div>
+			</div>
+			<a href="#"><img class="circle" src="/inventarios-web/assets/img/msn-user-profile.png" style="background-color: #e2e5ef;"></a>
+			<a href="#">
+				<span class="white-text name">{{ user.nombre }}</span>
+			</a>
+			<a href="#"><span class="white-text email">{{ user.email }}</span></a>
+		</div>
+	</li>
+  <ng-container *ngFor="let opcion of opciones">
+  <li class="bold" *ngIf="!opcion.roles || opcion.roles.indexOf(user.rol) > -1">
+    <a class="collapsible-header waves-effect waves-indigo">{{ opcion.etiqueta }} <i class="material-icons right">arrow_drop_down</i></a>
+    <div class="collapsible-body" *ngIf="opcion.opciones">
+      <ul>
+        <ng-container *ngFor="let opcionHija of opcion.opciones">
+        <li *ngIf="!opcionHija.roles || opcionHija.roles.indexOf(user.rol) > -1">
+          <a routerLinkActive="submenu-active" routerLink="{{opcionHija.link}}">{{ opcionHija.etiqueta }}</a>
+        </li>
+        </ng-container>
+      </ul>
+    </div>
+  </li>
+  </ng-container>
+</ul>
+<router-outlet></router-outlet>
+<div style="opacity: 1;" class="loading-overlay" *ngIf="loading"></div>

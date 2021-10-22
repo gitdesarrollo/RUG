@@ -1,0 +1,48 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class="section"></div>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Consulta de despachos</span>
+          <div class="row">
+          </div>
+          <div class="row">
+            <ngx-daterangepicker [(ngModel)]="rangoFechas" (ngModelChange)="onRangeChanged($event)" [options]="options"></ngx-daterangepicker>
+          </div>
+          <div class="row">
+            <table>
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Solicitante</th>
+                  <th>Fecha</th>
+                  <th>Observaciones</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let despacho of despachos; let i = index">
+                  <td>{{ despacho.correlativo }}</td>
+                  <td>{{ despacho.solicitante ? despacho.solicitante.nombre : '' }}</td>
+                  <td>{{ despacho.fecha }}</td>
+                  <td>{{ despacho.observaciones }}</td>
+                  <td>
+                    <a
+                      class="waves-effect waves-light btn-floating"
+                      (click)="onViewRequisicionClicked(i)"><i class="material-icons">visibility</i></a>
+                    <a
+                      class="waves-effect waves-light btn-floating"
+                      (click)="onViewRequisicionClicked(i)"><i class="material-icons">print</i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="section"></div>

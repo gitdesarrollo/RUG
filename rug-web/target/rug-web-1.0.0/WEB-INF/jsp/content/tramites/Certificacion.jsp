@@ -98,7 +98,7 @@ function certificacion(garantia, tramite) {
 		url: '<%= request.getContextPath() %>/rs/tipos-tramite/5',
 		success: function(result) {
 			MaterialDialog.dialog(
-					"El costo de una " + result.descripcion + " es de Q. " + (Math.round(result.precio * 100) / 100).toFixed(2) + ", ï¿½estï¿½ seguro que desea continuar?",
+					"El costo de una " + result.descripcion + " es de Q. " + (Math.round(result.precio * 100) / 100).toFixed(2) + ", ¿Está seguro que desea continuar?",
 				{				
 					title:'<table><tr><td width="10%"><i class="medium icon-green material-icons">check_circle</i></td><td style="vertical-align: middle; text-align:left;">Confirmar</td></tr></table>', // Modal title
 					buttons:{

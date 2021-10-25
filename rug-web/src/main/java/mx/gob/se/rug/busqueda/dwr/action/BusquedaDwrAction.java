@@ -12,11 +12,13 @@ import mx.gob.economia.dgi.framework.dwr.action.AbstractBaseDwrAction;
 import mx.gob.se.rug.busqueda.dao.BusquedaDAO;
 import mx.gob.se.rug.busqueda.to.BusquedaTO;
 import mx.gob.se.rug.common.util.NullsFree;
+import mx.gob.se.rug.constants.Constants;
 import mx.gob.se.rug.detallegarantia.service.impl.DetalleServiceImpl;
 import mx.gob.se.rug.detallegarantia.to.DetalleTO;
 import mx.gob.se.rug.inscripcion.service.InscripcionService;
 import mx.gob.se.rug.inscripcion.service.impl.InscripcionServiceImpl;
 import mx.gob.se.rug.to.MessageDwr;
+import mx.gob.se.rug.to.UsuarioTO;
 import mx.gob.se.rug.util.MyLogger;
 import mx.gob.se.rug.util.pdf.to.PdfTO;
 
@@ -277,7 +279,7 @@ public MessageDwr searchInvoice2(String invoice, String serial, String idPersona
 				if(inscripcionService.getSaldoByUsuario(idPersona,Integer.valueOf(idTipoTramite),0)) {
                                
 				
-					List<BusquedaTO> busquedaGeneral = busquedaDAO.busqueda(busquedaInTO, inicio, fin);
+					List<BusquedaTO> busquedaGeneral = busquedaDAO.busqueda(busquedaInTO, inicio, fin,0);
 					int pagActiva = Integer.valueOf(1);
 					int regPagina = Integer.valueOf(20);
 					int registroTotales = busquedaInTO.getNumReg();
@@ -548,6 +550,19 @@ public MessageDwr searchInvoice2(String invoice, String serial, String idPersona
 		busquedaInTO.setCurpOtorgante(curpOtorgante.trim());
 		busquedaInTO.setRfcOtorgante(rfcOtorgante.trim());
 		busquedaInTO.setNoSerial(noSerial);
+                
+                
+                
+                UsuarioTO usuario = (UsuarioTO) getSession().getAttribute(Constants.USUARIO);
+                
+                if (usuario == null)
+                    busquedaInTO.setIdPersona("51071");
+                else    
+                    busquedaInTO.setIdPersona( String.valueOf(usuario.getPersona().getIdPersona()) );
+                
+                
+                busquedaInTO.setIdTipoTramite("11");
+                
 		MyLogger.Logger.log(Level.INFO, busquedaInTO.getNombre());
 		MyLogger.Logger.log(Level.INFO,"Entro al resBusqueda DWR");
 		BusquedaDAO busquedaDAO =new BusquedaDAO();
@@ -576,7 +591,7 @@ public MessageDwr searchInvoice2(String invoice, String serial, String idPersona
 			fin = inicio + (regPagina-1);
 			
 			StringBuffer sb = new StringBuffer();
-			sb.append(tableSearch(busquedaInTO, busquedaDAO.busqueda(busquedaInTO, inicio, fin),registroTotales ,ruta));
+			sb.append(tableSearch(busquedaInTO, busquedaDAO.busqueda(busquedaInTO, inicio, fin,1),registroTotales ,ruta));
 			sb.append(writeSeccionPaginado(numeroPaginas, pagActiva, 20, registroTotales,"pagBusquedaDwr",""));
 			sb.append("<div class=\"row\">"); 
 			sb.append("<p><span>Para descargar la boleta dar click en el siguiente bot&oacute;n:</span></p>"); 

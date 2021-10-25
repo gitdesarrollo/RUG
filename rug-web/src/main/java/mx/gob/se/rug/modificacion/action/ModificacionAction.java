@@ -114,11 +114,18 @@ public class ModificacionAction extends RugBaseAction  {
 		tipo3.setDesTipo("Otros");
 		
 		listaBienEspecial = new ArrayList<TipoTo>();
-		listaBienEspecial.add(tipo0);
-		listaBienEspecial.add(tipo1);
-		listaBienEspecial.add(tipo2);
-		listaBienEspecial.add(tipo3);
-		
+                
+                if (getDetalleTO().getIdtipogarantia() != 2)
+                {
+                    listaBienEspecial.add(tipo0);
+                    listaBienEspecial.add(tipo1);
+                    listaBienEspecial.add(tipo2);
+                    listaBienEspecial.add(tipo3);
+                
+                }
+                else
+                     listaBienEspecial.add(tipo2);
+                
 		cargaUsos();
 	}
 	
@@ -410,7 +417,7 @@ public class ModificacionAction extends RugBaseAction  {
 	
 	public String inicia(){
 		String regresa = "failed";
-		cargarBienesEspeciales();
+		
 		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT_DDMMYY);
 		System.out.println("modificacion jj" + esModificacion);
 		if (esModificacion!=null){
@@ -457,7 +464,8 @@ public class ModificacionAction extends RugBaseAction  {
 				setTipoBienTOs(detserv.getTipoBienes());
 				setTipoGarantiaTOs(detservt.getTiposGarantia());
 				setModtipogarantia(getDetalleTO().getIdtipogarantia());
-				
+                                //orellana: para el caso especial de factoraje solo debe cargar la factura
+				cargarBienesEspeciales();
 				setTextosFormulario(inscripcionService.getTextosFormularioByIdGarantia(getDetalleTO().getIdtipogarantia()));
 				
 				/*if(getDetalleTO().getIdtipogarantia()==2) { //Factoraje
@@ -609,6 +617,9 @@ public class ModificacionAction extends RugBaseAction  {
 				setTipoGarantiaTOs(detservt.getTiposGarantia());
 				setModtipogarantia(getDetalleTO().getIdtipogarantia());
 				
+                                //orellana: para el caso especial de factoraje solo debe cargar la factura
+                                cargarBienesEspeciales();
+                                
 				setTextosFormulario(inscripcionService.getTextosFormularioByIdGarantia(getDetalleTO().getIdtipogarantia()));				
 				
 				setListaMonedas(inscripcionService.getMonedas());

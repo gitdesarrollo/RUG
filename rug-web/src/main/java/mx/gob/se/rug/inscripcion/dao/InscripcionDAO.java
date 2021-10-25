@@ -248,7 +248,7 @@ public class InscripcionDAO {
 		String regresa = Constants.FAILED;
 		ConexionBD bd = new ConexionBD();
 		Connection connection = bd.getConnection();
-		String sql = "{call RUG.SP_ALTA_GARANTIA_BIENES( ?,?,?,?,?,?,? ,?) } ";
+    		String sql = "{call RUG.SP_ALTA_GARANTIA_BIENES( ?,?,?,?,?,?,? ,?) } ";
 		CallableStatement cs = null;
 
 

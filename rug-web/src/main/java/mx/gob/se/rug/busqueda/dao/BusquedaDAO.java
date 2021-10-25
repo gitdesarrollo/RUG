@@ -263,7 +263,7 @@ public class BusquedaDAO {
         return busquedaTOs;
     }
 
-	public List<BusquedaTO> busqueda(BusquedaTO busquedaInTO, Integer inicio, Integer fin){
+	public List<BusquedaTO> busqueda(BusquedaTO busquedaInTO, Integer inicio, Integer fin, int pagineo){
 		List<BusquedaTO> busquedaTOs= new ArrayList<BusquedaTO>();
 
 		System.out.println("1" + busquedaInTO.getDescGarantia());
@@ -281,7 +281,7 @@ public class BusquedaDAO {
 		System.out.println("13" + oracle.jdbc.OracleTypes.CURSOR);
 
 		ConexionBD bd = new ConexionBD();
-		String sql = "{ call RUG.SP_CONSULTA_GARANTIAS_REG("+"?,?,?,?,?,"+"?,?,?,?,?,?,"+"?,?)}";
+		String sql = "{ call RUG.SP_CONSULTA_GARANTIAS_REG("+"?,?,?,?,?,"+"?,?,?,?,?,?,"+"?,?,?)}";
 		Connection connection = bd.getConnection();
 		ResultSet rs = null;
 		CallableStatement cs = null;
@@ -304,11 +304,14 @@ public class BusquedaDAO {
 			cs.setString(9, busquedaInTO.getNoSerial());
 			cs.setInt(10, new Integer(busquedaInTO.getIdPersona()));
 			cs.setInt(11, new Integer(busquedaInTO.getIdTipoTramite()));
-			cs.registerOutParameter(12, Types.INTEGER);
-			cs.registerOutParameter(13, oracle.jdbc.OracleTypes.CURSOR);
+                        
+                        cs.setInt(12,pagineo);
+                        
+			cs.registerOutParameter(13, Types.INTEGER);
+			cs.registerOutParameter(14, oracle.jdbc.OracleTypes.CURSOR);
 			cs.execute();
-			rs = (ResultSet)cs.getObject(13);
-			int numReg = (Integer) cs.getObject(12);
+			rs = (ResultSet)cs.getObject(14);
+			int numReg = (Integer) cs.getObject(13);
 			BusquedaTO busquedaTO;
 			if (numReg == 0) {
 				busquedaTO= new BusquedaTO();

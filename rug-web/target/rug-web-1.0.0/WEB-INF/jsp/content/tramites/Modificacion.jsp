@@ -414,28 +414,28 @@ function limpiaCampos() {
 	  var checkBox = document.getElementById("actoContratoTO.garantiaPrioritaria");
 	  if (checkBox.checked == true) {
 		  MaterialDialog.alert(
-					'<p style="text-align: justify; text-justify: inter-word;">Recuerde: <b>Artï¿½culo 17. Garantia Mobiliria Prioritaria.</b> ' +
-					'La publicidad de la garantï¿½a mobiliaria se constituye por medio de la inscripciï¿½n del formulario registral, '+
-					'que haga referencia al carï¿½cter prioritario especial de esta garantï¿½a y que describa los bienes gravadoas por '+
-					'categorï¿½a, sin necesidad de descripciï¿½n pormenorizada. <br> <br>' +
+					'<p style="text-align: justify; text-justify: inter-word;">Recuerde: <b>Artículo 17. Garantia Mobiliria Prioritaria.</b> ' +
+					'La publicidad de la garantía mobiliaria se constituye por medio de la inscripción del formulario registral, '+
+					'que haga referencia al carácter prioritario especial de esta garantía y que describa los bienes gravadoas por '+
+					'categoría, sin necesidad de descripción pormenorizada. <br> <br>' +
 					'Para el caso se consituya respecto de bienes que '+
-		    	    'pasarï¿½n a formar parte del inventario el deudor garante, el acreedor garantizado que financie adquisicion ' +
-		    	    'de la garantï¿½a mobiliaria prioritaria deberï¿½ notificar por escrito, en papel o por medio de un documento ' +
-		    	    'electrï¿½nico, con anterioridad o al momento de la inscripciï¿½n e esta garantï¿½a, a aquello acreedores garantizados '+
-		    	    'que hayan inscrito previamente garantï¿½as mobiliarias sobre el inventario, a fin de que obtenga un grado de ' +
+		    	    'pasarón a formar parte del inventario el deudor garante, el acreedor garantizado que financie adquisicion ' +
+		    	    'de la garantía mobiliaria prioritaria deberá notificar por escrito, en papel o por medio de un documento ' +
+		    	    'electrónico, con anterioridad o al momento de la inscripción e esta garantía, a aquello acreedores garantizados '+
+		    	    'que hayan inscrito previamente garantías mobiliarias sobre el inventario, a fin de que obtenga un grado de ' +
 		    	    'prelacion superior al de estos acreedores. <br><br>'+
-		    	    '<b>Artï¿½culo 56. Prelaciï¿½n de la garantï¿½a mobiliaria prioritaria para la adquisiciï¿½n de bienes. </b> Una garantï¿½a ' +
-		    	    'mobiliaria prioritaria para la adquisiciï¿½n de bienes especï¿½ficos tendrï¿½ prelaciï¿½n sobre cualquier '+
-					'garantï¿½a anterior que afecte bienes muebles futuros del mismo tipo en '+
-					'posesiï¿½n del deudor garante, siempre y cuando la garantï¿½a mobiliaria '+
+		    	    '<b>Artículo 56. Prelación de la garantía mobiliaria prioritaria para la adquisición de bienes. </b> Una garantía ' +
+		    	    'mobiliaria prioritaria para la adquisición de bienes específicos tendrá prelación sobre cualquier '+
+					'garantía anterior que afecte bienes muebles futuros del mismo tipo en '+
+					'posesión del deudor garante, siempre y cuando la garantía mobiliaria '+
 					'prioritaria se constituya y publicite conforme lo establecido por esta '+
-					'ley, aï¿½n y cuando a esta garantï¿½a mobiliaria prioritaria se le haya dado '+
-					'publicidad con posterioridad a la publicidad de la garantï¿½a anterior. La '+
-					'garantï¿½a mobiliaria prioritaria para la adquisiciï¿½n de bienes especï¿½ficos '+
-					'se extenderï¿½ exclusivamente sobre los bienes muebles especï¿½ficos '+
-					'adquiridos y al numerario especï¿½ficamente atribuible a la venta de estos '+
-					'ï¿½ltimos, siempre y cuando el acreedor garantizado cumpla con los '+
-					'requisitos de inscripciï¿½n de la garantï¿½a mobiliaria prioritaria, '+
+					'ley, aún y cuando a esta garantía mobiliaria prioritaria se le haya dado '+
+					'publicidad con posterioridad a la publicidad de la garantía anterior. La '+
+					'garantía mobiliaria prioritaria para la adquisición de bienes específicos '+
+					'se extenderá exclusivamente sobre los bienes muebles específicos '+
+					'adquiridos y al numerario específicamente atribuible a la venta de estos '+
+					'últimos, siempre y cuando el acreedor garantizado cumpla con los '+
+					'requisitos de inscripción de la garantía mobiliaria prioritaria, '+
 					'establecidos en esta ley. </p>',
 					{
 						title:'Garantia Prioritaria', // Modal title

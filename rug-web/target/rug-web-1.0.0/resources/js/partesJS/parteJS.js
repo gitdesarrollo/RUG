@@ -182,6 +182,7 @@ function cargaParteComerciante(elementId, idTramite, idPersona,
 
 }
 function cargaParteBienes(elementId, idTramite){
+        console.log('GET PARTE BIENES 123123213');
 	displayLoader(true);
 	ParteDwrAction.getParteBienes(elementId, idTramite, showParteBienes);
 	elementIDBienes = elementId;
@@ -404,7 +405,7 @@ function modificaParteBienFactoraje(elementId, idTramite, tipoBien, tipoId, iden
 	elementIDBien = elementId;
 	displayLoader(true);	
 	
-        console.log("X ", tipoBien, " Y ", tipoId);
+        console.log("X .", tipoBien, " Y .", tipoId);
         
 	var x = tipoBien;
 	var y = tipoId;	
@@ -433,6 +434,7 @@ function modificaParteBienFactoraje(elementId, idTramite, tipoBien, tipoId, iden
 		  document.getElementById("mdBienEspecial").value = 1;
 		  		  
 	  } else if (x=='Factura'){
+                  console.log('Se metio por esta parte para ver las facturas');
 		  document.getElementById("secId1").style.display = 'none'; 
 		  document.getElementById("secId2").style.display = 'none';
 		  document.getElementById("secId3").style.display = 'block';	
@@ -443,6 +445,7 @@ function modificaParteBienFactoraje(elementId, idTramite, tipoBien, tipoId, iden
 		  document.getElementById("lblMdDescripcion").innerHTML = 'Emitido Por';
 		  
 		  document.getElementById("mdBienEspecial").value = 2;
+                  cambiaBienesEspeciales();
 	  } else {
 		  document.getElementById("secId1").style.display = 'none'; 
 		  document.getElementById("secId2").style.display = 'none';
@@ -464,7 +467,14 @@ function modificaParteBienFactoraje(elementId, idTramite, tipoBien, tipoId, iden
 	     var m_mdIdentificador = document.getElementById("mdIdentificador").value;
 	     var m_mdIdentificador1 = document.getElementById("mdIdentificador1").value;
 	     var m_mdIdentificador2 = document.getElementById("mdIdentificador2").value;
-	      var m_mdIdentificador3 = document.getElementById("mdIdentificador3").value;
+	      var m_mdIdentificador3 = document.getElementById("mdIdentificador3").value  ;
+
+            if (m_mdIdentificador3.length>0)
+                m_mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Serie: " +m_mdIdentificador3 + " Fecha: " + document.getElementById("mdFactura2").value + " "  ;
+            else
+                m_mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " ;
+
+
 
 		// ParteDwrAction.modificaParteBien(elementId, idTramite, m_mdDescripcion, m_idTipo, m_mdIdentificador, m_mdIdentificador1, m_mdIdentificador2, m_mdIdentificador3, idTramiteGar, showParteBienes);
 		ParteDwrAction.modificaParteBienFactoraje(elementId, idTramite, m_mdDescripcion, m_idTipo, m_mdIdentificador, m_mdIdentificador1, m_mdIdentificador2, idTramiteGar,m_mdIdentificador3, showParteBienes);

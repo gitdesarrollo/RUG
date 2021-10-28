@@ -55,7 +55,8 @@
                                                                     </div>
                                                                     
 									<a class="btn btn-large waves-effect indigo" onclick="ejecutar_busqueda_jsp()">Consultar</a>
-                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseado es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
+                                                                        <a class="btn btn-large waves-effect indigo" onclick="limpiar_filtros()">Limpiar</a>
+                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseada es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</center>
 						</s:form>
@@ -89,6 +90,8 @@
 										<input type="text" id="consulta_id_2" class="campo_busqueda" >
 									</div>
 									<a class="btn btn-large waves-effect indigo" onclick="ejecutar_busqueda_jsp2()">Consultar</a>
+                                                                        <a class="btn btn-large waves-effect indigo" onclick="limpiar_filtros()">Limpiar</a>
+
                                                                         <p>Para asegurar que encuentre la informaci&oacute;n deseado es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</center>
@@ -122,6 +125,7 @@
 										<input type="text" id="consulta_id_3" class="campo_busqueda" >
 									</div>
 									<a class="btn btn-large waves-effect indigo" onclick=" ejecutar_busqueda_jsp3()">Consultar</a>
+                                                                        <a class="btn btn-large waves-effect indigo" onclick="limpiar_filtros()">Limpiar</a>                                                                        
                                                                         <p>Para asegurar que encuentre la informaci&oacute;n deseado es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</div>
@@ -274,7 +278,7 @@
         $("#consulta_nombre_3").val ("");        
         $("#consulta_id_3").val ("");
         
-        
+         $("#idGarantia").val ("");
         
         
         

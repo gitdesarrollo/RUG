@@ -123,8 +123,10 @@ public class ModificacionAction extends RugBaseAction  {
                     listaBienEspecial.add(tipo3);
                 
                 }
-                else
-                     listaBienEspecial.add(tipo2);
+                else{
+                    listaBienEspecial.add(tipo0);
+                    listaBienEspecial.add(tipo2);
+                }
                 
 		cargaUsos();
 	}

@@ -238,7 +238,7 @@ function mi_funcion222222()
 								</div>
 							</div>
 							<div class="row" >
-								<div class="input-field col s12">
+								<div hidden class="input-field col s12">
 									<s:textarea rows="10" id="mdDescripcion" cols="80"
 												name="mdDescripcion2" data-length="700" cssClass="materialize-textarea" maxlength="700"/>
 									<label id="lblMdDescripcion" for="mdDescripcion">Descripci&oacute;n del bien</label>
@@ -291,7 +291,7 @@ function mi_funcion222222()
 		<div id="secId6" >
 			<a href="#!" id="formBienButton"
 				class="modal-action modal-close btn teal lighten-1"
-				onclick="add_bien();">Aceptar</a>
+				onclick="console.log('alskjdflaksdj');add_bien();">Aceptar</a>
 		</div>
 	</div>
 
@@ -364,7 +364,7 @@ function mi_funcion222222()
 		}
 	}
 function add_bien() {
-	  
+	  console.log('add bien ');
 	  var idTramite = document.getElementById("refInscripcion").value;
 	  var mdDescripcion = document.getElementById("mdDescripcion").value;
 	  var idTipo = document.getElementById("mdBienEspecial").value;
@@ -373,16 +373,19 @@ function add_bien() {
 	  var mdIdentificador2 = document.getElementById("mdIdentificador2").value;
 	  var mdIdentificador3 = document.getElementById("mdIdentificador3").value;
 
-	  if(!noVacio(mdDescripcion)){
-		  alertMaterialize('Debe ingresar la descripcion del bien especial');
-		  return false;
-	  }
+	  
 	  
 	  if(idTipo == '2'){
+           
                   if (mdIdentificador3.length>0)
                     mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Serie: " +mdIdentificador3 + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
                   else
                     mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
+	  }
+          
+          if(!noVacio(mdDescripcion)){
+		  alertMaterialize('Debe ingresar la descripcion del bien especial');
+		  return false;
 	  }
 	  
 	  if(idTipo == '1'){

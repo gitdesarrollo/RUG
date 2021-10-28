@@ -307,7 +307,7 @@ public class BoletaServiceImpl {
 		//pdfTO = setFirma(pdfTO);
 		return pdfTO;
 	}
-	
+        
 	String getBienesParte(Integer idTramite) {
 		InscripcionDAO inscripcionDAO = new InscripcionDAO();
 		List<BienEspecialTO> listaBienes = new ArrayList<BienEspecialTO>();
@@ -354,6 +354,61 @@ public class BoletaServiceImpl {
 		
 		return sb.toString();
 	}
+        
+        
+        
+        
+	
+	String getBienesParteFactoraje(Integer idTramite) {
+		InscripcionDAO inscripcionDAO = new InscripcionDAO();
+		List<BienEspecialTO> listaBienes = new ArrayList<BienEspecialTO>();
+		StringBuffer sb = new StringBuffer();
+		
+		try {
+			listaBienes = inscripcionDAO.getListaBienes(new Integer(idTramite), 2);
+			if(listaBienes.isEmpty()) return sb.toString();
+			else sb.append("<span class=\"blue-text text-darken-2\">Lista de Bienes Especiales:</span>");
+			
+			Iterator<BienEspecialTO> it = listaBienes.iterator();
+			// clase para factoraje
+			sb.append("<div class=\"col s12\">");
+			sb.append("<table class=\"responsive-table striped\">");
+			sb.append("<thead>");
+			sb.append("<tr>");
+			sb.append("<th>Tipo Bien Especial</th>");
+			sb.append("<th>Serie</th>");
+			sb.append("<th>Numero de Factura</th>");
+//			sb.append("<th>Serie</th>");
+			sb.append("<th>Descripcion</th>");
+			sb.append("</tr>");
+			sb.append("</thead>");
+			sb.append("<tbody>");
+			
+			BienEspecialTO bienEspecialTO;
+			while (it.hasNext()) {
+				bienEspecialTO = it.next();
+				sb.append("<tr>");
+				sb.append("<td>"	+ bienEspecialTO.getTipoBien() + "</td>");
+				sb.append("<td>"	+ bienEspecialTO.getSerie() + "</td>");
+				sb.append("<td>"	+ bienEspecialTO.getIdentificador() + "</td>");
+//				sb.append("<td>"	+ bienEspecialTO.getSerie() + "</td>");
+				sb.append("<td>"	+ bienEspecialTO.getDescripcion() + "</td>");
+				sb.append("</tr>");
+			}
+			sb.append("</tbody>");
+			sb.append("</table>");
+			sb.append("</div>");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		return sb.toString();
+	}
+        
+        
+        
+        
 	
 	String getPersonaParte(Integer idTramite, Integer idParte) {
 		BoletaDAO boletaDAO = new BoletaDAO();
@@ -418,13 +473,18 @@ public class BoletaServiceImpl {
 				"<div class=\"input-field col s12\">" 
 			+   "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(4)+"</span>"
 			+	"<p>" + detalleTO.getGarantiaTO().getDescripcionBienes() + "</p></div>");
-		pdfTO.setHtml("[*bienesTable*]", "<span class=\"blue-text text-darken-2\">Lista de Bienes Especiales:</span>" + getBienesParte(detalleTO.getIdTramite()));			
+                if (detalleTO.getGarantiaTO().getIdTipoGarantia().equals(2))                    
+                    pdfTO.setHtml("[*bienesTable*]", "<span class=\"blue-text text-darken-2\">Lista de Bienes Especiales:</span>" + getBienesParteFactoraje(detalleTO.getIdTramite()));			
+                else
+                    pdfTO.setHtml("[*bienesTable*]", "<span class=\"blue-text text-darken-2\">Lista de Bienes Especiales:</span>" + getBienesParte(detalleTO.getIdTramite()));			
+                
+                
 		pdfTO.setHtml("[*infoContrato*]", "<div class=\"input-field col s12\">"
 				+ "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(6)+"</span><p>"
 				+ NullsFree.getNotNullValue(detalleTO.getGarantiaTO().getInstrumentoPublico()) + "</p></div>");
 		pdfTO.setHtml("[*observacionesAdicionales*]", "<div class=\"input-field col s12\">"
 				+ "<span class=\"blue-text text-darken-2\">"+getTextosFormulario().get(8)+"</span><p>"
-				+ NullsFree.getNotNullValue(detalleTO.getGarantiaTO().getOtrosTerminosCondiciones()) + "</p></div>");
+                            + NullsFree.getNotNullValue(detalleTO.getGarantiaTO().getOtrosTerminosCondiciones()) + "</p></div>");
 		
                 /*corellana: unicamente para leasing*/                
                 if(detalleTO.getGarantiaTO().getIdTipoGarantia().equals(16))

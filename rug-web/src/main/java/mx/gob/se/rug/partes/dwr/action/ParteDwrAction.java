@@ -3632,9 +3632,10 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 		sb.append("<thead>");
 		sb.append("<tr>");
 		sb.append("<th>Tipo Bien Especial</th>");
-		sb.append("<th>Tipo Identificador</th>");
-		sb.append("<th>Identificador</th>");
-		sb.append("<th>Serie</th>");
+		
+                sb.append("<th>Serie</th>");
+		sb.append("<th>Numero Factura</th>");
+		
 		sb.append("<th>Descripcion</th>");
 		sb.append("<th>Opciones</th>");
 		sb.append("</tr>");
@@ -3646,9 +3647,10 @@ public class ParteDwrAction extends AbstractBaseDwrAction {
 			bienEspecialTO = it.next();
 			sb.append("<tr>");
 			sb.append("<td>"	+ bienEspecialTO.getTipoBien() + "</td>");
-			sb.append("<td>"	+ bienEspecialTO.getTipoIdentificador() + "</td>");
+			
+                        sb.append("<td>"	+ notNull(bienEspecialTO.getSerie()) + "</td>");
 			sb.append("<td>"	+ notNull(bienEspecialTO.getIdentificador()) + "</td>");
-			sb.append("<td>"	+ notNull(bienEspecialTO.getSerie()) + "</td>");
+			
 			sb.append("<td>"	+ notNull(bienEspecialTO.getDescripcion()) + "</td>");
 			sb.append("<td> <a class=\"btn waves-effect red darken-4\" onclick=\"eliminaParteBien('"
 					+ elementID

@@ -257,14 +257,14 @@ Map<Integer,PrivilegioTO> priv= privilegiosTO.getMapPrivilegio();
 							<div class="input-field col s6">
 								<s:textfield name="mdFactura1" id="mdFactura1"
 									cssClass="validate" maxlength="150" />
-								<label id="lblMdFactura1" for="mdFactura1">Emitido por:</label>
+								<label id="lblMdFactura1" for="mdFactura1">Emitido por:....</label>
 							</div>						
 							<div class="input-field col s6">
 								<input type="text" name="mdFactura2" class="datepicker" id="mdFactura2" />									
 								<label id="lblMdFactura2" for="mdFactura2">Fecha: </label>
 							</div>						
 						</div>
-						<div class="row">
+						<div id="descripcion_bien_div" class="row">
 							<div class="input-field col s12">
 								<s:textarea rows="10" id="mdDescripcion" cols="80" 												
 											name="mdDescripcion" />							    	 								        	
@@ -334,17 +334,38 @@ function add_bien() {
 	  
           console.log("Data " , idTramite, " ", mdDescripcion, " ", idTipo, " ", mdIdentificador, " ", mdIdentificador1, " ", mdIdentificador2)
           
-	  if(!noVacio(mdDescripcion)){
-		  alertMaterialize('Debe ingresar la descripcion del bien especial');
-		  return false;
-	  }
+	 
 	  
 	  if(idTipo == '2'){
 		  mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
 	  }
+           if(!noVacio(mdDescripcion)){
+		  alertMaterialize('Debe ingresar la descripcion del bien especial '    );
+		  return false;
+	  }
+          
+          if (idTipo == '2'){
+               var mdIdentificador3 = document.getElementById("mdIdentificador3").value;
+                mdDescripcion = "";
+            
+                if (mdIdentificador3.length>0)
+                    mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Serie: " +mdIdentificador3 + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
+                  else
+                    mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
+                
+                console.log('Se fue po rel bien_v2');
+                ParteDwrAction.registrarBien_v2('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador,
+                  mdIdentificador1, mdIdentificador2,mdIdentificador3,showParteBienes);
+                
+            cambiaBienesEspeciales();
+          }else
+          {
+                ParteDwrAction.registrarBien('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador, 
+        	  mdIdentificador1, mdIdentificador2, showParteBienes);
+	      
+              
+          }
 	  
-	  ParteDwrAction.registrarBien('divParteDWRBienes',idTramite, mdDescripcion, idTipo, mdIdentificador, 
-			  mdIdentificador1, mdIdentificador2, showParteBienes);
 	  
 	  $(document).ready(function() {	  
 			$('#frmBien').modal('close');
@@ -352,8 +373,12 @@ function add_bien() {
 }
 
 function cambiaBienesEspeciales() {
+    
+           
 	  var x = document.getElementById("mdBienEspecial").value;
 	  
+           console.log('Cambiar biene especiales ' + x +" - ");
+          
 	  if(x=='1'){
 		  document.getElementById("mdDescripcion").disabled = false;	  
 		  document.getElementById("secId1").style.display = 'block'; 
@@ -364,14 +389,38 @@ function cambiaBienesEspeciales() {
 		  document.getElementById("lblMdDescripcion").innerHTML = 'Descripci&oacute;n del veh&iacute;culo';
 		  document.getElementById("lblMdIdentificador2").innerHTML = 'VIN';
 	  } else if (x=='2'){
+              console.log('Cambiar biene especiales registro unico de garantia mo');
 		  document.getElementById("mdDescripcion").disabled = false;	  
 		  document.getElementById("secId1").style.display = 'none'; 
 		  document.getElementById("secId2").style.display = 'none';
 		  document.getElementById("secId3").style.display = 'block';		
 		  document.getElementById("secId4").style.display = 'block';
 		  
+                  document.getElementById("lblMdFactura1").innerHTML = 'Nit.';
 		  document.getElementById("lblMdIdentificador2").innerHTML = 'No. Factura';
 		  document.getElementById("lblMdDescripcion").innerHTML = 'Observaciones Generales';
+                  
+                  var observaciones =  document.getElementById("mdDescripcion").value;
+                  
+                  if (observaciones.includes('Serie')){
+                      var por  = observaciones.lastIndexOf("por: ") + 5;
+                      var serie  = observaciones.lastIndexOf("Serie: ") ;
+                      var nit = observaciones.substring(por,serie).trim();
+                      var fecha = observaciones.lastIndexOf("Fecha: ")+ 7;
+                      var mi_fecha = observaciones.substring(fecha,observaciones.length);
+                      console.log("La fecha que le voy a meter es : " + mi_fecha);
+                      
+                      $("#mdFactura1").val(nit );
+                      $("#mdFactura2").val(mi_fecha );
+                      
+                  }
+                  else{
+                      
+                      
+                  }
+            
+            console.log('aqui debo hacer el calculo chapucero ' +document.getElementById("mdDescripcion").value );
+                  $("#descripcion_bien_div").hide();
 	  } else if (x=='3'){
 		  document.getElementById("mdDescripcion").disabled = false;	  
 		  document.getElementById("secId1").style.display = 'none'; 
@@ -406,7 +455,7 @@ function limpiaCampos() {
 	  
 	  document.getElementById("mdBienEspecial").value  = '0';
 	  
-	  
+	  cambiaBienesEspeciales();
 	  Materialize.updateTextFields();
 }
   

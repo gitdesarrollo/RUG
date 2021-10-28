@@ -413,7 +413,7 @@
 			MaterialDialog.alert(
 				'<p style="text-align: justify; text-justify: inter-word;">Recuerde: <b>Artículo 17. Garantia Mobiliria Prioritaria.</b> ' +
 				'La publicidad de la garantía mobiliaria se constituye por medio de la inscripción del formulario registral, ' +
-				'que haga referencia al carï¿½cter prioritario especial de esta garantía y que describa los bienes gravadoas por ' +
+				'que haga referencia al carácter prioritario especial de esta garantía y que describa los bienes gravadoas por ' +
 				'categoría, sin necesidad de descripción pormenorizada. <br> <br>' +
 				'Para el caso se consituya respecto de bienes que ' +
 				'pasaron a formar parte del inventario el deudor garante, el acreedor garantizado que financie adquisicion ' +

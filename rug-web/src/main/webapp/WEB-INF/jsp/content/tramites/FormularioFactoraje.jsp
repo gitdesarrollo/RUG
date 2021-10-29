@@ -238,7 +238,7 @@ function mi_funcion222222()
 								</div>
 							</div>
 							<div class="row" >
-								<div hidden class="input-field col s12">
+								<div  class="input-field col s12">
 									<s:textarea rows="10" id="mdDescripcion" cols="80"
 												name="mdDescripcion2" data-length="700" cssClass="materialize-textarea" maxlength="700"/>
 									<label id="lblMdDescripcion" for="mdDescripcion">Descripci&oacute;n del bien</label>

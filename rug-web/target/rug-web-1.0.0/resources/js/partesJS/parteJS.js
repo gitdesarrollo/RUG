@@ -445,6 +445,47 @@ function modificaParteBienFactoraje(elementId, idTramite, tipoBien, tipoId, iden
 		  document.getElementById("lblMdDescripcion").innerHTML = 'Emitido Por';
 		  
 		  document.getElementById("mdBienEspecial").value = 2;
+                  
+                  console.log('aqui debo hacer el calculo chapucero2 ' +document.getElementById("mdDescripcion").value );
+                   var observaciones =  document.getElementById("mdDescripcion").value;
+                  
+                  if (observaciones.includes('Serie')){
+                      var por  = observaciones.lastIndexOf("por: ") + 5;
+                      var serie  = observaciones.lastIndexOf("Serie: ") ;
+                      var nit = observaciones.substring(por,serie).trim();
+                      var fecha = observaciones.lastIndexOf("Fecha: ")+ 7;
+                      var mi_fecha = observaciones.substring(fecha,fecha + 10);
+                      console.log("La fecha que le voy a meter es : " + mi_fecha);
+                      var observaciones_generales = observaciones.substring(fecha + 10,observaciones.length );
+                      
+                      $("#mdFactura1").val(nit );
+                      $("#mdFactura2").val(mi_fecha );
+                      $("#mdDescripcion").val(observaciones_generales );
+                      
+                  }
+                  else{
+                       var por  = observaciones.lastIndexOf("por: ") + 5;
+                      //var serie  = observaciones.lastIndexOf("Serie: ") ;
+                      var fecha_inicio = observaciones.lastIndexOf("Fecha: ");
+                      var fecha = observaciones.lastIndexOf("Fecha: ")+ 7;
+                      var nit = observaciones.substring(por,fecha_inicio).trim();
+                      
+                      var mi_fecha = observaciones.substring(fecha,fecha + 10);
+                      console.log("La fecha que le voy a meter es : " + mi_fecha);
+                      var observaciones_generales = observaciones.substring(fecha + 10,observaciones.length );
+                      
+                      $("#mdFactura1").val(nit );
+                      $("#mdFactura2").val(mi_fecha );
+                      $("#mdIdentificador3").val("" );
+                      $("#mdDescripcion").val(observaciones_generales );
+                      
+                  }
+            
+                   
+                  
+                  
+                  
+                  
                   cambiaBienesEspeciales();
 	  } else {
 		  document.getElementById("secId1").style.display = 'none'; 
@@ -470,9 +511,9 @@ function modificaParteBienFactoraje(elementId, idTramite, tipoBien, tipoId, iden
 	      var m_mdIdentificador3 = document.getElementById("mdIdentificador3").value  ;
 
             if (m_mdIdentificador3.length>0)
-                m_mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Serie: " +m_mdIdentificador3 + " Fecha: " + document.getElementById("mdFactura2").value + " "  ;
+                m_mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Serie: " +m_mdIdentificador3 + " Fecha: " + document.getElementById("mdFactura2").value + " " + m_mdDescripcion ;
             else
-                m_mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " ;
+                m_mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " + m_mdDescripcion  ;
 
 
 

@@ -210,32 +210,62 @@
 						</p>
 					</div>
 				</div>
-				<s:if test="hayBienes"> 
-				    <div class="row">
-				    	<div class="input-field col s12">
-				    		<span class="blue-text text-darken-2">Bienes en garant&iacute;a si estos tienen n&uacute;mero de serie:</span>
-				    		<table id="mytable" class="bordered striped centered responsive-table" >
-								<thead>										
-									<tr>
-										<th>Tipo Bien Especial</th>
-										<th>Tipo Identificador</th>
-										<th>Identificador</th>
-										<th>Descripci&oacute;n</th>														
-									</tr>
-								</thead>
-								<tbody>
-									<s:iterator value="bienesEspTOs">
-										<tr>
-											<td><s:property value="tipoBien"/></td>
-											<td><s:property value="tipoIdentificador"/></td>
-											<td><s:property value="identificador"/></td>	
-											<td><s:property value="descripcion"/></td>					
-										</tr>
-									</s:iterator>
-								</tbody>
-							</table>
-				    	</div>
-				    </div>
+				<s:if test="hayBienes"> asdfdfa
+                                    <s:if test="detalleTO.idtipogarantia==2">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                    <span class="blue-text text-darken-2">Bienes en garant&iacute;a si estos tienen n&uacute;mero de serie:</span>
+                                                    <table id="mytable" class="bordered striped centered responsive-table" >
+                                                                    <thead>										
+                                                                            <tr>
+                                                                                    <th>Tipo Bien Especial</th>
+                                                                                    <th>Serie</th>
+                                                                                    <th>Numero de Factura</th>
+                                                                                    <th>Descripci&oacute;n</th>														
+                                                                            </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                            <s:iterator value="bienesEspTOs">
+                                                                                    <tr>
+                                                                                            <td><s:property value="tipoBien"/></td>
+                                                                                            <td><s:property value="serie"/></td>
+                                                                                            <td><s:property value="identificador"/></td>	
+                                                                                            <td><s:property value="descripcion"/></td>					
+                                                                                    </tr>
+                                                                            </s:iterator>
+                                                                    </tbody>
+                                                            </table>
+                                            </div>
+                                        </div>
+                                    </s:if>
+                                    <s:if test="detalleTO.idtipogarantia!=2">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                    <span class="blue-text text-darken-2">Bienes en garant&iacute;a si estos tienen n&uacute;mero de serie:</span>
+                                                    <table id="mytable" class="bordered striped centered responsive-table" >
+                                                                    <thead>										
+                                                                            <tr>
+                                                                                    <th>Tipo Bien Especial</th>
+                                                                                    <th>Tipo Identificador</th>
+                                                                                    <th>Identificador</th>
+                                                                                    <th>Descripci&oacute;n</th>														
+                                                                            </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                            <s:iterator value="bienesEspTOs">
+                                                                                    <tr>
+                                                                                            <td><s:property value="tipoBien"/></td>
+                                                                                            <td><s:property value="tipoIdentificador"/></td>
+                                                                                            <td><s:property value="identificador"/></td>	
+                                                                                            <td><s:property value="descripcion"/></td>					
+                                                                                    </tr>
+                                                                            </s:iterator>
+                                                                    </tbody>
+                                                            </table>
+                                            </div>
+                                        </div>
+                                    </s:if>
+                                    
 				</s:if>
 				<div class="row note teal">
 					<span class="white-text">Informaci&oacute;n Espec&iacute;fica de la Garant&iacute;a Mobiliaria</span>

@@ -335,10 +335,12 @@ function add_bien() {
           console.log("Data " , idTramite, " ", mdDescripcion, " ", idTipo, " ", mdIdentificador, " ", mdIdentificador1, " ", mdIdentificador2)
           
 	 
-	  
+	  /*
 	  if(idTipo == '2'){
 		  mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
-	  }
+	  }   
+           */
+   
            if(!noVacio(mdDescripcion)){
 		  alertMaterialize('Debe ingresar la descripcion del bien especial '    );
 		  return false;
@@ -346,7 +348,7 @@ function add_bien() {
           
           if (idTipo == '2'){
                var mdIdentificador3 = document.getElementById("mdIdentificador3").value;
-                mdDescripcion = "";
+                mdDescripcion = document.getElementById("mdDescripcion").value;
             
                 if (mdIdentificador3.length>0)
                     mdDescripcion = 'Emitido por: ' + document.getElementById("mdFactura1").value + " Serie: " +mdIdentificador3 + " Fecha: " + document.getElementById("mdFactura2").value + " " + mdDescripcion;
@@ -407,11 +409,13 @@ function cambiaBienesEspeciales() {
                       var serie  = observaciones.lastIndexOf("Serie: ") ;
                       var nit = observaciones.substring(por,serie).trim();
                       var fecha = observaciones.lastIndexOf("Fecha: ")+ 7;
-                      var mi_fecha = observaciones.substring(fecha,observaciones.length);
+                      var mi_fecha = observaciones.substring(fecha,fecha + 10);
                       console.log("La fecha que le voy a meter es : " + mi_fecha);
+                      var observaciones_generales = observaciones.substring(fecha + 10,observaciones.length );
                       
                       $("#mdFactura1").val(nit );
                       $("#mdFactura2").val(mi_fecha );
+                      $("#mdDescripcion").val(observaciones_generales );
                       
                   }
                   else{
@@ -420,7 +424,7 @@ function cambiaBienesEspeciales() {
                   }
             
             console.log('aqui debo hacer el calculo chapucero ' +document.getElementById("mdDescripcion").value );
-                  $("#descripcion_bien_div").hide();
+                 // $("#descripcion_bien_div").hide();
 	  } else if (x=='3'){
 		  document.getElementById("mdDescripcion").disabled = false;	  
 		  document.getElementById("secId1").style.display = 'none'; 
@@ -446,6 +450,7 @@ function limpiaCampos() {
 	  document.getElementById("mdIdentificador").value = '0';
 	  document.getElementById("mdIdentificador1").value = '';
 	  document.getElementById("mdIdentificador2").value = '';
+          document.getElementById("mdIdentificador3").value = '';
 	  
 	  document.getElementById("mdFactura1").value = '';
 	  document.getElementById("mdFactura2").value = '';

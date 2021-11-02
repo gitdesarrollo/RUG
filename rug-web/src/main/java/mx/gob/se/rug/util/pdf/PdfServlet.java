@@ -32,8 +32,10 @@ import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
+import com.itextpdf.kernel.geom.PageSize;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfNumber;
 
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.utils.PdfMerger;
@@ -72,6 +74,8 @@ import java.util.zip.ZipOutputStream;
 import mx.gob.se.rug.util.pdf.CreateSignature;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+
+
 
 public class PdfServlet extends HttpServlet {
 
@@ -276,9 +280,21 @@ public class PdfServlet extends HttpServlet {
                         PdfWriter writer = new PdfWriter(os);
                         ConverterProperties converterProperties = new ConverterProperties();
                         PdfDocument pdf = new PdfDocument(writer);
+                        
                         PageXofY footerHandler = new PageXofY(pdfTO.getKey());
-                        pdf.addEventHandler(PdfDocumentEvent.START_PAGE, footerHandler);	
+                        
+                                
+                        pdf.addEventHandler(PdfDocumentEvent.START_PAGE, footerHandler);
+                    
+                        
+                       pdf.setDefaultPageSize(PageSize.A3);
+
+                      
+                        
                         Document doc = HtmlConverter.convertToDocument(pdfTO.getHtml(), pdf, converterProperties);
+                        
+                 
+                        
                         if (idTramite != null) {
                             pdfTO.setIdTramite(idTramite);
                         }

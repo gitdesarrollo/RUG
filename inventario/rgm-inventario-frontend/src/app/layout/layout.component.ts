@@ -65,7 +65,7 @@ export class LayoutComponent implements OnInit {
     // inicializar opciones
     const jsonOpciones = [{
     	etiqueta: 'Catalogos',
-      roles: ['A', 'I'],
+      roles: ['A','F' ,'I'],
       opciones: [{
       	etiqueta: 'Usuarios',
       	link: '/users'

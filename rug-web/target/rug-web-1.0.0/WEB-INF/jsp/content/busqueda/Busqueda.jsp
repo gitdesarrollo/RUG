@@ -11,9 +11,9 @@
 <%--			</div>--%>
 			<div class="card-tabs">
 				<ul class="tabs tabs-fixed-width">
-					<li class="tab"><a class="active" href="#criterio">B&uacute;squeda  por Criterios</a></li>
-					<li class="tab"><a href="#secundaria">B&uacute;squeda  Secundaria</a></li>
-					<li class="tab"><a href="#factura">B&uacute;squeda por Factura</a></li>
+					<li  onclick="limpiar_filtros()"  class="tab"><a class="active" href="#criterio">B&uacute;squeda  por Criterios</a></li>
+					<li  onclick="limpiar_filtros()" class="tab"><a href="#secundaria">B&uacute;squeda  Secundaria</a></li>
+					<li  onclick="limpiar_filtros()" class="tab"><a href="#factura">B&uacute;squeda por Factura</a></li>
 				</ul>
 			</div>
 			<div class="card-content grey lighten-4">
@@ -43,6 +43,8 @@
 							<center>
 								<div class='row'>
 									<a class="btn btn-large waves-effect indigo" onclick="busquedaJSP(<s:property value="idPersona"/>,1);">Consultar</a>
+                                                                         <a class="btn btn-large waves-effect indigo" onclick="limpiar_filtros()">Limpiar</a>
+                                                                         <p>Para asegurar que encuentre la informaci&oacute;n deseada, es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</center>
 						</s:form>
@@ -66,6 +68,8 @@
 							<center>
 								<div class='row'>
 									<a class="btn btn-large waves-effect indigo" onclick="busquedaJSP(<s:property value="idPersona"/>,2);">Consultar</a>
+                                                                         <a class="btn btn-large waves-effect indigo" onclick="limpiar_filtros()">Limpiar</a>
+                                                                         <p>Para asegurar que encuentre la informaci&oacute;n deseada, es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</center>
 						</s:form>
@@ -89,6 +93,8 @@
 								</div>
 								<div class="row center-align">
 									<a class="btn btn-large waves-effect indigo" onclick="checkText(<s:property value="idPersona"/>,3);">Consultar</a>
+                                                                         <a class="btn btn-large waves-effect indigo" onclick="limpiar_filtros()">Limpiar</a>
+                                                                         <p>Para asegurar que encuentre la informaci&oacute;n deseada, es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</div>
 						</s:form>
@@ -196,3 +202,36 @@
     </table>
 	</div>
 </div>
+
+
+<script type="text/javascript">
+    
+
+    function limpiar_filtros()
+    {
+        console.log('limpiando');
+        $("#curpOtorgante").val ("");
+        $("#rfcOtorgante").val ("");
+        $("#serial").val ("");
+        $("#consulta_nombre_1").val ("");
+        $("#consulta_id_1").val ("");
+        $("#nombreOtorgante").val ("");
+        $("#nombreOtorgante").val ("");
+        $("#consulta_nombre_2").val ("");
+        $("#consulta_id_2").val ("");
+        
+                $("#nit").val ("");
+        $("#invoice").val ("");        $("#set").val ("");
+        $("#consulta_nombre_3").val ("");        
+        $("#consulta_id_3").val ("");
+        
+         $("#idGarantia").val ("");
+        
+        
+        
+    }
+	
+
+    
+
+</script>

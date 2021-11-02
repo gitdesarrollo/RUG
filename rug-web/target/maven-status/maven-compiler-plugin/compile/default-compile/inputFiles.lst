@@ -179,6 +179,7 @@
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/gt/gob/rgm/dao/RugRelGrupoAcreedorRepository.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/util/CharSetUtil.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/cancelacion/dao/CancelacionAnotaDAO.java
+/home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/util/pdf/PageOrientationsEventHandler.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/to/InscripcionGarantiaMTO.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/gt/gob/rgm/service/JmsSolrMessageSender.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/masiva/to/string/DatosTransmision.java
@@ -394,6 +395,7 @@
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/masiva/to/string/DatosModificacion.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/prorroga/serviceimpl/ProrrogaServiceImpl.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/usuario/dao/ControlUsuarioDao.java
+/home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/util/pdf/PageRotationEventHandler.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/administracion/service/impl/PerfilServicePojoImpl.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/masiva/service/impl/ReduccionProrrogaServiceImpl.java
 /home/corellana/Projects/Java/RUG/rug-web/src/main/java/mx/gob/se/rug/to/AcreedorTO.java

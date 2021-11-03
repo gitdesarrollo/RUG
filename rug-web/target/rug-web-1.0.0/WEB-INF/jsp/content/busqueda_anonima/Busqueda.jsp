@@ -56,7 +56,7 @@
                                                                     
 									<a class="btn btn-large waves-effect indigo" onclick="ejecutar_busqueda_jsp()">Consultar</a>
                                                                         <a class="btn btn-large waves-effect indigo" onclick="limpiar_filtros()">Limpiar</a>
-                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseada es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
+                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseada, es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</center>
 						</s:form>
@@ -92,7 +92,7 @@
 									<a class="btn btn-large waves-effect indigo" onclick="ejecutar_busqueda_jsp2()">Consultar</a>
                                                                         <a class="btn btn-large waves-effect indigo" onclick="limpiar_filtros()">Limpiar</a>
 
-                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseado es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
+                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseada, es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</center>
 						</s:form>
@@ -126,7 +126,7 @@
 									</div>
 									<a class="btn btn-large waves-effect indigo" onclick=" ejecutar_busqueda_jsp3()">Consultar</a>
                                                                         <a class="btn btn-large waves-effect indigo" onclick="limpiar_filtros()">Limpiar</a>                                                                        
-                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseado es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
+                                                                        <p>Para asegurar que encuentre la informaci&oacute;n deseada, es mejor que solo ingrese un campo por cada b&uacute;squeda</p>
 								</div>
 							</div>
 						</s:form>

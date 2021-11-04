@@ -1,0 +1,131 @@
+<!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading> -->
+<div class="section"></div>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col s1"></div>
+      <div class="col s10">
+        <h4>Firma de Garantías</h4>
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m6 l6 xl6">
+                <span class="card-title">Detalle de Garantías</span>
+              </div>
+              <!-- <div class="col s4 m6 l6 xl6 right-align">
+                <button
+                  class="waves-effect waves-light btn"
+                  type="button"
+                  (click)="exportData()">Exportar</button>
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="input-field col s12 m6 l4 xl2">
+                <label for="idWarranty">Número de Garantía</label>
+                <input id="idWarranty" type="text" #idWarranty [(ngModel)]="Warranty" (ngModelChange)="changeNumberWarranty($event)" [ngModelOptions]="{updateOn: 'blur'}" (keyup.enter)="getGarantia()">
+              </div> 
+              <div class="row s12 m6 l4 x12">
+                <table *ngIf="tablaShow">
+                  <thead>
+                    <tr>
+                      <th>Número de Garantía</th>
+                      <th>Trámite</th>
+                      <th>Fecha</th>
+                      <th>Solicitante</th>
+                      <th>Descripción</th>
+                      <th>Identificador</th>
+                      <th>Descripcion Bien</th>
+                      <th>PDF</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let transaction of Garantia.guarantees | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: currentPage, totalItems: total }; let i = index">
+                      <td>{{ transaction.guarantee ? transaction.guarantee.idGarantia : '' }}</td>
+                      <td>{{ transaction.descripcion }}</td>
+                      <td>{{ transaction.fechaCreacion | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+                      <td>{{ transaction.solicitante ? transaction.solicitante.name : '' }}</td>
+                      <td class="hide-on-med-and-down">{{ transaction.guarantee ? (transaction.guarantee.descGarantia | truncate) : '' }}</td>
+                      <td>{{ transaction.bienLista ? (transaction.bienLista.identificador | truncate): '' }}</td>
+                      <td>{{ transaction.bienLista ? (transaction.bienLista.descripcion | truncate): '' }}</td>
+                      <td></td>
+                      <td>
+                        <a
+                           *ngIf="transaction.idTipoTramite != 5 && transaction.idTipoTramite != 18"
+                           class="waves-effect waves-green btn-floating"
+                           href="{{ baseUrl + '/rugboletap?tramite=' + transaction.idTramiteTemp + '&garantia=' + transaction.guarantee.idGarantia }}" target="_blank"><i class="material-icons left">file_download</i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- <table>
+                <thead>
+                  <tr>
+                    <th>Número garantía</th>
+                    <th>Trámite</th>
+                    <th>Fecha</th>
+                    <th>Solicitante</th>
+                    <th class="hide-on-med-and-down">Descripción</th>
+                    <th>Identificador</th>
+                    <th>Descripción B</th>
+                    <th>Ver</th>
+                    <th>PDF</th>
+                  </tr>
+                  <tr>
+                    <th>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let transaction of guarantees | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: currentPage, totalItems: total }; let i = index">
+                    <td>{{ transaction.guarantee ? transaction.guarantee.idGarantia : '' }}</td>
+                    <td>{{ transaction.descripcion }}</td>
+                    <td>{{ transaction.fechaCreacion | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+                    <td>{{ transaction.solicitante ? transaction.solicitante.name : '' }}</td>
+                    <td class="hide-on-med-and-down">{{ transaction.guarantee ? (transaction.guarantee.descGarantia | truncate) : '' }}</td>
+                    <td>{{ transaction.bienLista ? (transaction.bienLista.identificador | truncate): '' }}</td>
+                    <td>{{ transaction.bienLista ? (transaction.bienLista.descripcion | truncate): '' }}</td>
+                    <td></td>
+                    <td>
+                      <a
+                        *ngIf="transaction.idTipoTramite != 5 && transaction.idTipoTramite != 18"
+                        class="waves-effect waves-green btn-floating"
+                        (click)="onViewPartsClicked(transaction)"><i class="material-icons left">visibility</i></a>
+                    </td>
+                    <td>
+                      <a
+                         *ngIf="transaction.idTipoTramite != 5 && transaction.idTipoTramite != 18"
+                         class="waves-effect waves-green btn-floating"
+                         href="{{ baseUrl + '/rugboletap?tramite=' + transaction.idTramiteTemp + '&garantia=' + transaction.guarantee.idGarantia }}" target="_blank"><i class="material-icons left">file_download</i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> -->
+              <!-- <pagination-template #p="paginationApi"
+                id="server"
+                (pageChange)="onPageChange($event)">
+                <ul class="pagination custom-pagination">
+                  <li class="pagination-previous" [class.disabled]="p.isFirstPage()">
+                    <a *ngIf="!p.isFirstPage()" (click)="p.previous()"><i class="material-icons">chevron_left</i></a>
+                  </li>
+                  <li *ngFor="let page of p.pages" [class.active]="p.getCurrent() === page.value" [class.waves-effect]="p.getCurrent() !== page.value">
+                    <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                      {{ page.label }}
+                    </a>
+                    <a *ngIf="p.getCurrent() === page.value">
+                      {{ page.label }}
+                    </a>
+                  </li>
+                  <li class="pagination-next" [class.disabled]="p.isLastPage()">
+                    <a *ngIf="!p.isLastPage()" (click)="p.next()"><i class="material-icons">chevron_right</i></a>
+                  </li>
+                </ul>
+              </pagination-template> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s1"></div>
+    </div>
+  </div>
+</main>

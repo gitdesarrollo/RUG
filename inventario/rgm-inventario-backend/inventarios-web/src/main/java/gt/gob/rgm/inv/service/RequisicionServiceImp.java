@@ -38,6 +38,7 @@ import gt.gob.rgm.inv.model.Requisicion;
 import gt.gob.rgm.inv.util.MessagesInv;
 import gt.gob.rgm.inv.util.PdfUtils;
 import gt.gob.rgm.inv.util.ResponseRs;
+import java.util.stream.Collectors;
 
 @Stateless
 public class RequisicionServiceImp implements RequisicionService {
@@ -143,15 +144,38 @@ public class RequisicionServiceImp implements RequisicionService {
 				// actualizar detalle
 				int index = 0;
 				for(DetalleRequisicion detalle : requisicion.getDetalle()) {
-					DetalleRequisicion vDetalle = detalleRequisicionDao.findById(detalle.getDetalleRequisionId());
+                                        DetalleRequisicion vDetalle =null;
+                                        
+                                        if (detalle.getDetalleRequisionId()!=null)
+                                            vDetalle = detalleRequisicionDao.findById(detalle.getDetalleRequisionId());
+                                         
+                                            
 					if(vDetalle != null) {
 						if(detalle.getCantidadAprobada() != null) {
 							vDetalle.setCantidadAprobada(detalle.getCantidadAprobada());
-						}
+						}                                                                                             
+                                                
+                                                vDetalle.setCantidad(detalle.getCantidad());
+                                               // vDetalle.setCodigoArticulo(detalle.getCodigoArticulo());
+                                                vDetalle.setArticulo(articuloDao.findById(vDetalle.getCodigoArticulo()));
+                                                
 						vRequisicion.getDetalle().set(index, vDetalle);
 					}
+                                        else{
+                                            detalle.setArticulo(articuloDao.findById(detalle.getCodigoArticulo()));
+                                            detalle.setRequisicionId(String.valueOf( requisicion.getRequisicionId()));
+                                            vRequisicion.getDetalle().add(detalle);
+                                        }
 					index++;
 				}
+                                                 
+                                if (requisicion.getArticulosEliminados()!= null ){
+                                    if (requisicion.getArticulosEliminados().size()>0)
+                                    {
+                                        List<DetalleRequisicion> requisicion_detalle = vRequisicion.getDetalle().stream().filter(o -> !requisicion.getArticulosEliminados().contains(o.getDetalleRequisionId())).collect(Collectors.toList());
+                                        vRequisicion.setDetalle(requisicion_detalle);
+                                    }
+                                }
 				
 				requisicionDao.update(vRequisicion);
 				response.setCode(0L);

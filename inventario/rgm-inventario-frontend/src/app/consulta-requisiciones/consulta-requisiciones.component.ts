@@ -10,6 +10,9 @@ import { MaterializeAction } from 'angular2-materialize';
 import { User } from '../shared/user.model';
 import { UsersService } from '../shared/users.service';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
+ 
+
 
 @Component({
   selector: 'app-consulta-requisiciones',
@@ -38,7 +41,8 @@ export class ConsultaRequisicionesComponent implements OnInit {
 
   constructor(private requisicionesService: RequisicionesService,
     private usersService: UsersService,
-    private loadingService: LoadingService) { }
+    private loadingService: LoadingService,
+    private route:Router) { }
 
   ngOnInit() {
     this.authenticatedUser = this.usersService.authenticatedUser;
@@ -93,6 +97,10 @@ export class ConsultaRequisicionesComponent implements OnInit {
       this.filtro.fechaFin = event.to;
       this.refreshData();
     }
+  }
+
+  onEditRequisicionClicked(requisicionId:number){
+      this.route.navigate(["/requisicion-edit",requisicionId]);
   }
 
   onPageChange(page: number) {

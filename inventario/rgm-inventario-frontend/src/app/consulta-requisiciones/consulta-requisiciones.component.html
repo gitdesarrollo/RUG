@@ -49,6 +49,10 @@
                         class="waves-effect waves-light btn-floating"
                         href="{{urlBase}}/reporte-requisiciones?tipoReporte=2&usuario={{authenticatedUser.usuarioId}}&idRequisicion={{requisicion.requisicionId}}"
                         target="_blank"><i class="material-icons">print</i></a>
+                    <a *ngIf="requisicion.estado=='S'"
+                      class="waves-effect waves-light btn-floating"
+                      (click)="onEditRequisicionClicked(requisicion.requisicionId)"><i class="material-icons">edit</i>
+                    </a>    
                   </td>
                 </tr>
               </tbody>

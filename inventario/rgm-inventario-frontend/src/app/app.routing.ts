@@ -29,6 +29,7 @@ import { ReporteUsuariosComponent } from "./reporte-usuarios/reporte-usuarios.co
 import { AprobacionesIngresoComponent } from "./aprobaciones-ingreso/aprobaciones-ingreso.component";
 import { AprobacionesSalidaComponent } from "./aprobaciones-salida/aprobaciones-salida.component";
 import { ChangePasswordComponent } from "./change-password/change-password.component";
+import { RequisicionesEditComponent } from "./requisiciones-edit/requisiciones-edit.component";
 
 export const routes: Routes = [
   {
@@ -152,6 +153,10 @@ export const routes: Routes = [
       {
         path: 'change-password',
         component: ChangePasswordComponent
+      },
+      {
+        path: 'requisicion-edit/:id',
+        component: RequisicionesEditComponent
       }
     ]
   }

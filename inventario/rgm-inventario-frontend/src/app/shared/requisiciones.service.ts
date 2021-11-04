@@ -57,6 +57,12 @@ export class RequisicionesService {
     return this.http.get<ResponseRs>(environment.api_url + '/requisiciones' + param);
   }
 
+  fetchDataById(id: number) {
+    let param = '';    
+    return this.http.get<ResponseRs>(environment.api_url + '/requisiciones/' + id);
+  }
+
+
   saveData(requisicion: Requisicion) {
     return this.http.post<ResponseRs>(environment.api_url + '/requisiciones', requisicion);
   }

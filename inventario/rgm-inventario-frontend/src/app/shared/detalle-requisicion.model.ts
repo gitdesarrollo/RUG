@@ -8,7 +8,7 @@ export class DetalleRequisicion {
   codigoArticulo: string;
   requisicionId: number;
   articulo: Article;
-  despachoPerecedero: DespachoPerecedero[];
-
+  despachoPerecedero: DespachoPerecedero[];  
+  detalleRequisionId: number;
   constructor () {}
 }

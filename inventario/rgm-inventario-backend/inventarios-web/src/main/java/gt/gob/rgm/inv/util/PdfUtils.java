@@ -52,8 +52,8 @@ public class PdfUtils {
         	        
         table.addCell(new Cell().setBorder(Border.NO_BORDER));
         
-        Image img = new Image(ImageDataFactory.create(MessagesInv.BASEURI + "img/logo-mineco-pweb_0.jpg"));	                
-        //Image img = new Image(ImageDataFactory.create("C:/temp/" + "img/logo-mineco-pweb_0.jpg"));
+        //Image img = new Image(ImageDataFactory.create(MessagesInv.BASEURI + "img/logo-mineco-pweb_0.jpg"));	                
+        Image img = new Image(ImageDataFactory.create("/home/corellana/Projects/Java/RUG/inventario/rgm-inventario-frontend/src/assets/img/logo-mineco-pweb_0.jpg"));
         Cell cell = new Cell().add(img.setAutoScale(true));	     
         cell.setBorder(Border.NO_BORDER);        
         table.addCell(cell);

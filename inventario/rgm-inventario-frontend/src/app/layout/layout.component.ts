@@ -67,6 +67,7 @@ export class LayoutComponent implements OnInit {
     	etiqueta: 'Catalogos',
       roles: ['A','F' ,'I'],
       opciones: [{
+		roles: ['A'],
       	etiqueta: 'Usuarios',
       	link: '/users'
     	},
@@ -120,11 +121,11 @@ export class LayoutComponent implements OnInit {
     		link: '/anulaciones',
         roles: ['A', 'F']
     	},
-    	/*{
+    	{
     		etiqueta: 'Consulta de requisiciones',
-    		link: '/consulta-requisiciones',
-        roles: ['A', 'F']
-    	},*/
+    		link: '/consulta-requisiciones'
+        
+    	},
     	/*{
     		etiqueta: 'Consulta de despachos',
     		link: '/consulta-despachos',

@@ -15,7 +15,7 @@ import java.util.List;
 @NamedQuery(name="Requisicion.findAll", query="SELECT r FROM Requisicion r")
 public class Requisicion implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+        
 	@Id
 	@SequenceGenerator(name="REQUISICION_ID_GENERATOR", sequenceName="REQUISICION_SEQ", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="REQUISICION_ID_GENERATOR")
@@ -44,6 +44,9 @@ public class Requisicion implements Serializable {
 	@JoinColumn(name="REQUISICION_ID")
 	private List<DetalleRequisicion> detalle;
 
+        @Transient
+        private List<Long> articulosEliminados;
+        
 	public Requisicion() {
 	}
 
@@ -117,6 +120,14 @@ public class Requisicion implements Serializable {
 
 	public void setDetalle(List<DetalleRequisicion> detalle) {
 		this.detalle = detalle;
+	}
+        
+        public List<Long> getArticulosEliminados() {
+		return articulosEliminados;
+	}
+
+	public void setArticulosEliminados(List<Long> articulos_eliminados) {
+		this.articulosEliminados = articulos_eliminados;
 	}
 
 }

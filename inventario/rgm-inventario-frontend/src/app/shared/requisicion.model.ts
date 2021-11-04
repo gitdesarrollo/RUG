@@ -11,4 +11,5 @@ export class Requisicion {
   usuarioId: number;
   detalle: DetalleRequisicion[];
   solicitante: User;
+  articulosEliminados: Array<number>;
 }

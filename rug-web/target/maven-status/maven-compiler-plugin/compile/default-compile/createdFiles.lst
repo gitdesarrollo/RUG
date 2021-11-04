@@ -117,6 +117,7 @@ mx\gob\se\rug\action\EjecucionAction.class
 mx\gob\se\rug\administracion\exception\PerfilException.class
 mx\gob\se\rug\boleta\to\BoletaInfoTO.class
 mx\gob\se\rug\detallegarantia\to\DatosGaranTO.class
+mx\gob\se\rug\util\pdf\PageOrientationsEventHandler.class
 mx\gob\se\rug\inscripcion\action\InscripcionDwrAction.class
 mx\gob\se\rug\masiva\to\DatosModificacion.class
 mx\gob\se\rug\action\LayoutAction.class
@@ -497,6 +498,7 @@ mx\gob\rug\curp\consulta\ws\RenapoConsultaCurp.class
 mx\gob\se\rug\dto\Procedencia.class
 mx\gob\se\rug\masiva\to\string\ObligacionGarantizaModificacion.class
 mx\gob\se\rug\inscripcion\to\FirmaMasivaTO.class
+mx\gob\se\rug\util\pdf\PageRotationEventHandler.class
 mx\gob\se\rug\BusquedaCertificacion\to\BusquedaCertTO.class
 mx\gob\se\rug\dto\SolicitudAperturaEmpresa.class
 mx\gob\se\rug\masiva\to\Acreedores.class

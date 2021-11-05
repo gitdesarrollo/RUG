@@ -297,10 +297,13 @@ public MessageDwr searchInvoice2(String invoice, String serial, String idPersona
 		
 					sb.append(tableSearch(busquedaInTO,busquedaGeneral,registroTotales,ruta));
 					sb.append(writeSeccionPaginado(numeroPaginas, 1, 20, registroTotales,"pagBusquedaDwr",""));
-					sb.append("<div class=\"row\">"); 
-					sb.append("<p><span>Para descargar la boleta dar click en el siguiente bot&oacute;n :</span></p>"); 
-					sb.append("<input type=\"button\"class=\"btn btn-large waves-effect indigo\" value=\"Descargar PDF \" onclick=\"showBoleta();\"  />");  
-					sb.append("</div>");
+                                        
+                                        
+                                            sb.append("<div class=\"row\">"); 
+                                            sb.append("<p><span>Para descargar la boleta dar click en el siguiente bot&oacute;n :</span></p>"); 
+                                            sb.append("<input type=\"button\"class=\"btn btn-large waves-effect indigo\" value=\"Descargar PDF \" onclick=\"showBoleta();\"  />");  
+                                            sb.append("</div>");
+                                        
 				}
 				// if(Integer.parseInt(idPersona) == 51071){
 				// 	MyLogger.Logger.log(Level.INFO,"busqueda Into:" + busquedaInTO + " inicio: "+ inicio + " fin:" + fin);
@@ -419,7 +422,7 @@ public MessageDwr searchInvoice2(String invoice, String serial, String idPersona
 					}
 		
 					sb.append(tableSearchAnonima(busquedaInTO,busquedaGeneral,registroTotales,ruta));
-					sb.append(writeSeccionPaginado(numeroPaginas, 1, 20, registroTotales,"pagBusquedaDwr",""));
+					sb.append(writeSeccionPaginado(numeroPaginas, 1, 20, registroTotales,"pagBusquedaSinCostoDwr",""));
 					
 				}
 				// if(Integer.parseInt(idPersona) == 51071){
@@ -593,16 +596,82 @@ public MessageDwr searchInvoice2(String invoice, String serial, String idPersona
 			StringBuffer sb = new StringBuffer();
 			sb.append(tableSearch(busquedaInTO, busquedaDAO.busqueda(busquedaInTO, inicio, fin,1),registroTotales ,ruta));
 			sb.append(writeSeccionPaginado(numeroPaginas, pagActiva, 20, registroTotales,"pagBusquedaDwr",""));
-			sb.append("<div class=\"row\">"); 
-			sb.append("<p><span>Para descargar la boleta dar click en el siguiente bot&oacute;n:</span></p>"); 
-			sb.append("<input type=\"button\"class=\"btn btn-large waves-effect indigo\" value=\"Descargar PDF \" onclick=\"showBoleta();\"  />"); 
-			sb.append("</div>");
+                         
+                            sb.append("<div class=\"row\">"); 
+                            sb.append("<p><span>Para descargar la boleta dar click en el siguiente bot&oacute;n:</span></p>"); 
+                            sb.append("<input type=\"button\"class=\"btn btn-large waves-effect indigo\" value=\"Descargar PDF \" onclick=\"showBoleta();\"  />"); 
+                            sb.append("</div>");
+                        
 			dwr.setMessage(sb.toString());
 		} catch (Exception  e) {
 			e.printStackTrace();
 		}	
 		return dwr;
 	}
+        
+    public MessageDwr pagBuscarSinCosto(String idGarantia, String nombre, String folioMercantil, String noSerial, String curpOtorgante, String rfcOtorgante, String registroTotalesString,
+								String pagActivaString, String regPaginaString, Integer inicio, Integer fin, String ruta) {	
+		MessageDwr dwr = new MessageDwr();
+		BusquedaTO  busquedaInTO= new BusquedaTO();
+		busquedaInTO.setIdGarantia(idGarantia.trim());
+		busquedaInTO.setIdTramite(idGarantia.trim());
+		busquedaInTO.setFolioMercantil(folioMercantil.trim());
+		busquedaInTO.setNombre(nombre.trim());
+		busquedaInTO.setDescGarantia("");
+		busquedaInTO.setCurpOtorgante(curpOtorgante.trim());
+		busquedaInTO.setRfcOtorgante(rfcOtorgante.trim());
+		busquedaInTO.setNoSerial(noSerial);
+                
+                
+                
+                UsuarioTO usuario = (UsuarioTO) getSession().getAttribute(Constants.USUARIO);
+                
+                if (usuario == null)
+                    busquedaInTO.setIdPersona("51071");
+                else    
+                    busquedaInTO.setIdPersona( String.valueOf(usuario.getPersona().getIdPersona()) );
+                
+                
+                busquedaInTO.setIdTipoTramite("11");
+                
+		MyLogger.Logger.log(Level.INFO, busquedaInTO.getNombre());
+		MyLogger.Logger.log(Level.INFO,"Entro al resBusqueda DWR");
+		BusquedaDAO busquedaDAO =new BusquedaDAO();
+		MessageDwr dwrTO= new MessageDwr();
+		dwrTO.setCodeError(new Integer(0));
+		
+		int pagActiva = Integer.valueOf(pagActivaString);
+		int regPagina = Integer.valueOf(regPaginaString);
+		int registroTotales = Integer.valueOf(registroTotalesString);
+		int numeroPaginas = registroTotales/regPagina;
+		
+		if ( registroTotales %regPagina > 0){
+			numeroPaginas++;
+		}
+		dwr.setCodeError(0);
+		if (numeroPaginas < pagActiva){
+			pagActiva = 1;
+		}
+		try {
+			inicio = 1;
+			System.out.println("paginaActiva:"+pagActiva);
+			System.out.println("registro totales:"+registroTotales);
+			if (pagActiva != 1){
+				inicio = ((pagActiva-1)*regPagina) + 1;				
+			}
+			fin = inicio + (regPagina-1);
+			
+			StringBuffer sb = new StringBuffer();
+			sb.append(tableSearch(busquedaInTO, busquedaDAO.busqueda(busquedaInTO, inicio, fin,1),registroTotales ,ruta));
+			sb.append(writeSeccionPaginado(numeroPaginas, pagActiva, 20, registroTotales,"pagBusquedaSinCostoDwr",""));
+                    
+			dwr.setMessage(sb.toString());
+		} catch (Exception  e) {
+			e.printStackTrace();
+		}	
+		return dwr;
+	}        
+        
         
         
         
@@ -855,7 +924,7 @@ public MessageDwr searchInvoice2(String invoice, String serial, String idPersona
 	
 	
     private String tableSearchAnonima(BusquedaTO pIniciales, List<BusquedaTO> busquedaTOs,Integer registroTotales, String ruta){
-        StringBuffer html= new StringBuffer();
+         StringBuffer html= new StringBuffer();
         
         StringBuffer plantilla = new StringBuffer();
         plantilla.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\r\n" +  

@@ -56,6 +56,8 @@ export class AprobacionesSalidaComponent implements OnInit {
         this.modalActions.emit({action:"modal",params:['close']});
         this.editIndex = -1;
         this.onPageChange(1);
+        this.loading = false;
+        this.loadingService.changeLoading(this.loading);
       }
     );
     this.approvedSubscription = this.salidasService.salidaAprobada.subscribe(
@@ -87,6 +89,8 @@ export class AprobacionesSalidaComponent implements OnInit {
     // cambiar el estado del salida
     this.modalSalida.estado = 'A';
     this.modalSalida.solicitante = null;
+    this.loading = true;
+    this.loadingService.changeLoading(this.loading);
     this.salidasService.updateSalida(this.editIndex, this.modalSalida);
   }
 

@@ -60,7 +60,11 @@ export class AprobacionesIngresoComponent implements OnInit {
         this.modalActions.emit({action:"modal",params:['close']});
         this.editIndex = -1;
         this.onPageChange(1);
+        this.loading = false;
+        this.loadingService.changeLoading(this.loading);
       }
+
+      
     );
     this.approvedSubscription = this.ingresosService.ingresoAprobado.subscribe(
       (ingresoId: number) => {
@@ -106,6 +110,8 @@ export class AprobacionesIngresoComponent implements OnInit {
     // actualizar detalle con las cantidades aprobadas
     this.modalIngreso.detalle.forEach((o, i) => o.cantidad = cantidadAprobada[i]);
     this.modalIngreso.solicitante = null;
+    this.loading = true;
+    this.loadingService.changeLoading(this.loading);
     this.ingresosService.updateIngreso(this.editIndex, this.modalIngreso);
   }
 

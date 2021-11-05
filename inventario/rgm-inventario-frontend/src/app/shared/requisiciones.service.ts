@@ -6,6 +6,7 @@ import { ResponseRs } from "./response.model";
 import { environment } from "../../environments/environment";
 import { Filtro } from "./filtro.model";
 import { UsersService } from "./users.service";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class RequisicionesService {
@@ -44,6 +45,7 @@ export class RequisicionesService {
         this.requisicionesChanged.next(this.getRequisiciones());
       }
     );
+    
   }
 
   fetchData(filtro: Filtro, page: number, size: number) {

@@ -90,6 +90,26 @@ function certificacionDwr(ruta) {
 
 }
 
+function pagBusquedaSinCostoDwr(ruta, registroTotales, pagActiva, regPagina) {
+	displayLoader(true);
+	var idGarantia = trim(getObject('idGarantia').value);
+	var nombre = trim(getObject('nombreOtorgante').value);
+	//var folioMercantil = trim(getObject('folioMercantil').value);
+	var folioMercantil = '';
+	var descGarantia = '';
+	//var curpOtorgante = trim(getObject('curpOtorgante').value);
+	var rfcOtorgante = trim(getObject('rfcOtorgante').value);
+	var curpOtorgante = trim(getObject('curpOtorgante').value);
+	var noSerial = trim(getObject('serial').value);
+
+	if (!isBlank(idGarantia) || !isBlank(nombre) || !isBlank(folioMercantil) || !isBlank(noSerial) || !isBlank(curpOtorgante) || !isBlank(rfcOtorgante)) {
+		BusquedaDwrAction.pagBuscarSinCosto(idGarantia, nombre, folioMercantil, noSerial, curpOtorgante, rfcOtorgante, ruta, registroTotales, pagActiva, '20', escribeTablaBusqueda);
+	} else {
+		alert("Falta criterio de búsqueda.");
+		//displayLoader(false);
+	}
+}
+
 function pagBusquedaDwr(ruta, registroTotales, pagActiva, regPagina) {
 	displayLoader(true);
 	var idGarantia = trim(getObject('idGarantia').value);
@@ -109,6 +129,27 @@ function pagBusquedaDwr(ruta, registroTotales, pagActiva, regPagina) {
 		//displayLoader(false);
 	}
 }
+
+function pagBusquedaSinCostoDwr(ruta, registroTotales, pagActiva, regPagina) {
+	displayLoader(true);
+	var idGarantia = trim(getObject('idGarantia').value);
+	var nombre = trim(getObject('nombreOtorgante').value);
+	//var folioMercantil = trim(getObject('folioMercantil').value);
+	var folioMercantil = '';
+	var descGarantia = '';
+	//var curpOtorgante = trim(getObject('curpOtorgante').value);
+	var rfcOtorgante = trim(getObject('rfcOtorgante').value);
+	var curpOtorgante = trim(getObject('curpOtorgante').value);
+	var noSerial = trim(getObject('serial').value);
+
+	if (!isBlank(idGarantia) || !isBlank(nombre) || !isBlank(folioMercantil) || !isBlank(noSerial) || !isBlank(curpOtorgante) || !isBlank(rfcOtorgante)) {
+		BusquedaDwrAction.pagBuscarSinCosto(idGarantia, nombre, folioMercantil, noSerial, curpOtorgante, rfcOtorgante, ruta, registroTotales, pagActiva, '20', escribeTablaBusqueda);
+	} else {
+		alert("Falta criterio de búsqueda.");
+		//displayLoader(false);
+	}
+}
+
 
 function escribeTablaBusqueda(response) {
       

@@ -35,6 +35,7 @@ export class AprobacionesComponent implements OnInit {
     private loadingService: LoadingService) { }
 
   ngOnInit() {
+    
     this.filtro = new Filtro;
     this.filtro.estado = 'S';
     this.rechazo = false;
@@ -52,6 +53,10 @@ export class AprobacionesComponent implements OnInit {
         this.requisiciones = requisiciones;
         this.modalActions.emit({action:"modal",params:['close']});
         this.editIndex = -1;
+        this.loading = false;
+        this.loadingService.changeLoading(this.loading);
+    
+
       }
     );
   }
@@ -98,6 +103,10 @@ export class AprobacionesComponent implements OnInit {
   }
 
   onSubmit() {
+    
+    this.loading = true;
+    this.loadingService.changeLoading(this.loading);
+
     this.modalRequisicion.solicitante = null;
     this.requisicionesService.updateRequisicion(this.editIndex, this.modalRequisicion);
   }

@@ -422,6 +422,7 @@ public MessageDwr searchInvoice2(String invoice, String serial, String idPersona
 					}
 		
 					sb.append(tableSearchAnonima(busquedaInTO,busquedaGeneral,registroTotales,ruta));
+                                        //corellana: esto es nuevo==> para que no salga el pdf en el pagineo
 					sb.append(writeSeccionPaginado(numeroPaginas, 1, 20, registroTotales,"pagBusquedaSinCostoDwr",""));
 					
 				}

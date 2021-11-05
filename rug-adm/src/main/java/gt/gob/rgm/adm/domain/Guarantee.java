@@ -33,6 +33,17 @@ public class Guarantee implements Serializable {
     private Long idContrato;
     private int cantidad;
 
+    public String getOriginal() {
+        return original;
+    }
+
+    public void setOriginal(String original) {
+        this.original = original;
+    }
+    
+    
+    private String original;
+
     public int getCantidad() {
         return cantidad;
     }

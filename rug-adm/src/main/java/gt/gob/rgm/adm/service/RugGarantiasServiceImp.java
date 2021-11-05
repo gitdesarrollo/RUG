@@ -110,6 +110,26 @@ public class RugGarantiasServiceImp implements RugGarantiasService {
 		
 		return stats;
 	}
+        
+        public String original(Long idGarantia) {
+		//return garantiasDao.countGarantiasByTramiteAndPerJuridica(fechaInicio, fechaFin);
+		
+		String additionalWhere = "";
+	     
+	    
+		String baseSql = "SELECT rp.NOMBRE_PERSONA \n" +
+                    "FROM HOMOLOGADO h INNER JOIN RUG_PERSONAS_FISICAS rp ON rp.ID_PERSONA  = h.ID_PERSONA_MIGRACION \n" +
+                    "WHERE ID_GARANTIA = " + String.valueOf(idGarantia) +"\n" +
+                    "AND HOMOLOGADO_ID = (SELECT min(HOMOLOGADO_ID) FROM HOMOLOGADO h2 WHERE h2.ID_GARANTIA = h.ID_GARANTIA) ";
+	    
+		String original = garantiasDao.original(baseSql);
+		if (original.length()> 0)
+                    return original;
+                else 
+                    return "";
+	}
+	
+        
 	
 	public List<GenericCount> countGarantiasByTipoPersona(String fechaInicio, String fechaFin, Boolean migracion) {
 		//return garantiasDao.countGarantiasByTramiteAndPerJuridica(fechaInicio, fechaFin);

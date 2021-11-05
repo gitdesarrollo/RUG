@@ -240,6 +240,7 @@ export class GuaranteesReportComponent implements OnInit {
           "Trámite": el.descripcion,
           "Fecha": moment(el.fechaCreacion, 'YYYY-MM-DD HH:mm:ss').format('DD/MM/YYYY HH:mm:ss'),
           "Solicitante": el.solicitante ? el.solicitante.name : '',
+          "Solicitante Original": el.guarantee ? el.guarantee.original : '',
           "Acreedor": el.acreedores ? el.acreedores.map(e => e.name).join(";") : '',
           "Deudor": el.deudores ? el.deudores.map(e => e.name).join(";") : '',
           "Descripción": el.guarantee ? el.guarantee.descGarantia : '',

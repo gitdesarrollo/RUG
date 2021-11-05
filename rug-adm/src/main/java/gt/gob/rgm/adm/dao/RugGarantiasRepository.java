@@ -34,6 +34,7 @@ import gt.gob.rgm.adm.model.RugGarantias;
 import gt.gob.rgm.adm.model.RugRelTramGaran;
 import gt.gob.rgm.adm.model.RugRelTramPartes;
 import gt.gob.rgm.adm.model.Tramites;
+import javax.persistence.NoResultException;
 
 @ApplicationScoped
 public class RugGarantiasRepository {
@@ -111,6 +112,19 @@ public class RugGarantiasRepository {
 		
 		return query.getResultList();
 	}
+        
+        public String original(String sql){
+            
+            try{
+                Query query = em.createNativeQuery(sql);
+                String r  = query.getSingleResult().toString();
+                return r;
+            }
+            catch(NoResultException e) {
+                return "";
+             }           
+                         
+        } 
 	
 	public List<Tramites> findWithFilter(Transaction filter, Integer page, Integer size, String fechaInicio, String fechaFin) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();

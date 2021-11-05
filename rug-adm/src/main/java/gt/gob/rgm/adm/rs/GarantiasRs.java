@@ -206,7 +206,10 @@ public class GarantiasRs {
         		guarantee.setTxtRegistros(garantia.getTxtRegistros());
         		guarantee.setValorBienes(garantia.getValorBienes());
         		guarantee.setVigencia(garantia.getVigencia());
-
+                        
+                        String original = rugGarantiasService.original(garantia.getIdGarantia());
+                        guarantee.setOriginal(original);
+                        
         		transaction.setGuarantee(guarantee);
     		}
                 

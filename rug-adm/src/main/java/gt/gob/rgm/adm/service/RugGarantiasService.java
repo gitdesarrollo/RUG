@@ -15,6 +15,8 @@ public interface RugGarantiasService {
 	List<Tramites> listGarantias(Transaction filter, Integer page, Integer size, String fechaInicio, String fechaFin);
 	
 	Long countGarantias(Transaction filter, String fechaInicio, String fechaFin);
+        
+        String original(Long idGarantia);
 	
 	List<GenericCount> countGarantias(String fechaInicio, String fechaFin, Boolean migracion);
 	

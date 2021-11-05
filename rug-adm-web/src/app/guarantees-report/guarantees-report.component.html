@@ -36,6 +36,7 @@
                     <th>Trámite</th>
                     <th>Fecha</th>
                     <th>Solicitante</th>
+                    <th>Solicitante Original</th>
                     <th class="hide-on-med-and-down">Descripción</th>
                     <th>Identificador</th>
                     <th>Descripción B</th>
@@ -58,6 +59,7 @@
                     <td>{{ transaction.descripcion }}</td>
                     <td>{{ transaction.fechaCreacion | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
                     <td>{{ transaction.solicitante ? transaction.solicitante.name : '' }}</td>
+                    <td>{{ transaction.guarantee.original }}</td>
                     <td class="hide-on-med-and-down">{{ transaction.guarantee ? (transaction.guarantee.descGarantia | truncate) : '' }}</td>
                     <td>{{ transaction.bienLista ? (transaction.bienLista.identificador | truncate): '' }}</td>
                     <td>{{ transaction.bienLista ? (transaction.bienLista.descripcion | truncate): '' }}</td>

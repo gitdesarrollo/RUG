@@ -4,6 +4,7 @@ export class Guarantee {
   public idGarantia: number;
   public descGarantia: string;
   public tipoContrato: string;
+  public original: string;
   public otrosTerminos: string;
   public esPrioritaria: string;
   public fechaFinGar: Date;

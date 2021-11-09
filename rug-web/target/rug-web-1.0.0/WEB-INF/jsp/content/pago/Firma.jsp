@@ -68,7 +68,7 @@
 							<div class="row">
 								<div class="btn btn-large waves-effect indigo" id="btnFirma">									
 									<sj:submit 	targets="result" 
-										value="Confirmar" 
+										value="Confirmar." 
 										timeout="2500" 
 										indicator="indicator" 
 										onBeforeTopics="before" 

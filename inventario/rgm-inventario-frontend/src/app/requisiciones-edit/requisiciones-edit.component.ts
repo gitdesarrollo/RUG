@@ -3,7 +3,7 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SwalComponent } from '@toverux/ngx-sweetalert2';
 import { MaterializeAction, toast } from 'angular2-materialize';
-import moment = require('moment');
+import * as moment from 'moment';
 import { Subscription } from 'rxjs';
 import swal from 'sweetalert2';
 import { Article } from '../shared/article.model';

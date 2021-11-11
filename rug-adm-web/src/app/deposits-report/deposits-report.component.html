@@ -117,7 +117,7 @@
                         <span class="badge" [ngClass]="{'amber': deposit.usada === 0, 'green accent-2': deposit.usada === 1, 'red darken-3 white-text': deposit.usada === -1}" style="float: none;">{{ deposit.usada | usada }}</span>
                       </td>
                       <td>
-                        <a *ngIf="deposit.usada == 1" class="waves-effect waves-amber btn-floating red" (click)="onRevertClicked(deposit)"><i class="material-icons">block</i></a>
+                        <a *ngIf="deposit.usada == 1" class="waves-effect waves-amber btn-floating red" (click)="onRevertClicked(deposit)"><i class="material-icons">account_balance</i></a>
                       </td>
                     </tr>
                   </tbody>

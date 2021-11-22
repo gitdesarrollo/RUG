@@ -23,6 +23,16 @@
               <ngx-daterangepicker [(ngModel)]="rangoFechas" (ngModelChange)="onRangeChanged($event)" [options]="options"></ngx-daterangepicker>
             </div>
             <div class="row">
+
+              <label for="idWarranty">Número de Garantía</label>
+              <input id="idWarranty" type="text" #idWarranty [(ngModel)]="garantia" >
+            </div>
+
+            <div class="row">
+              <input type="button" (click)="refreshData()" value="Consultar"/> 
+            </div>
+
+            <div class="row">
               <table>
                 <thead>
                   <tr>

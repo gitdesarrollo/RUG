@@ -86,6 +86,11 @@ public class IngresoRs {
 			message = message.replace("@nombreCompleto", user.getNombre());
 			message = message.replace("@operacion", "Ingreso");
 			message = message.replace("@numero", ingreso.getCorrelativo());
+                        ResponseRs usuario = usuarioService.getUsuario(ingreso.getUsuarioId().longValue());
+                        
+                        Usuario usuario_solicitante = (Usuario) usuario.getValue();
+                        
+                        message = message.replace("@solicitante",usuario_solicitante.getNombre()) ;
 			
 			try {
 				mailService.sendMail(idTipoMensaje, idAccountSmtp, to, cc, cco, subject, message);

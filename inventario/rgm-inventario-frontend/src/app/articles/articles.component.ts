@@ -36,6 +36,7 @@ export class ArticlesComponent implements OnInit {
   brandsSubscription: Subscription;
   unitsSubscription: Subscription;
   suppliersSubscription: Subscription;
+  erroresSubscription: Subscription;
   editMode = false;
   deleteMode = false;
   editIndex: number;
@@ -144,6 +145,9 @@ export class ArticlesComponent implements OnInit {
       }
     );
     this.servicesCalled++;
+
+
+
     this.suppliersSubscription = this.suppliersService.fetchData().subscribe(
       data => {
         this.suppliers = data.value;
@@ -157,6 +161,14 @@ export class ArticlesComponent implements OnInit {
         }
       }
     );
+
+    this.erroresSubscription = this.articlesService.errores.subscribe(
+      ()=> {
+        this.loading=false;
+        this.loadingService.changeLoading(this.loading);
+        Materialize.toast("Ha ocurrido un error al grabar el articulo. Codigo de item duplicado", 4000);
+      }
+    )
     this.initForm();
   }
 

@@ -139,6 +139,10 @@ export class DespachosComponent implements OnInit {
       despacho.detalle.push(detalle);
     });
     this.despachosService.addDespacho(despacho);
+    
+    this.requisiciones.splice(this.editIndex, 1);
+
+
     this.onCancelClicked();
   }
 

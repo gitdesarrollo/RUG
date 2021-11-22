@@ -548,10 +548,10 @@ public class GarantiasRs {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@SecuredResource
-	public ResponseRs getVinculaciones(@QueryParam(value="page") Integer page, @QueryParam(value="size") Integer size, @QueryParam(value="nombre") String nombre, @QueryParam(value="fechaInicio") String fechaInicio, @QueryParam(value="fechaFin") String fechaFin) {
+	public ResponseRs getVinculaciones(@QueryParam(value="page") Integer page, @QueryParam(value="size") Integer size, @QueryParam(value="nombre") String nombre, @QueryParam(value="fechaInicio") String fechaInicio, @QueryParam(value="fechaFin") String fechaFin, @QueryParam(value="garantia") String garantia) {
 		ResponseRs response = new ResponseRs();
-		List<Vinculacion> vinculaciones = homologadoService.listVinculaciones(nombre, fechaInicio, fechaFin, page, size);
-		Long vinculacionesCount = homologadoService.countVinculaciones(nombre, fechaInicio, fechaFin);
+		List<Vinculacion> vinculaciones = homologadoService.listVinculaciones(nombre, fechaInicio, fechaFin, page, size,garantia);
+		Long vinculacionesCount = homologadoService.countVinculaciones(nombre, fechaInicio, fechaFin,garantia);
 		response.setTotal(vinculacionesCount);
     	response.setData(vinculaciones);
 		return response;

@@ -18,6 +18,20 @@
                       formControlName="correlativo">
                     <label for="correlativo">Código ingreso</label>
                   </div>
+
+                <div class="input-field col s2" (click)="stopPropagation($event)">
+                  <input
+                    type="text"
+                    class="validate"
+                    id="fechaVencimiento"
+                    ngModel
+                    name="fechaVencimiento"
+                    #fechaVencimiento="ngModel"
+                    materialize="pickadate"
+                    [materializeParams]="[{format: 'dd/mm/yyyy', formatSubmit: 'yyyy-mm-dd', container: 'body'}]">
+                  <label for="fechaVencimiento">Fecha de Vencimiento</label>
+                </div>
+
                 </div> -->
                 <div class="col s6">
                   <div class="input-field" (click)="stopPropagation($event)">

@@ -42,6 +42,7 @@ import gt.gob.rgm.inv.model.Despacho;
 import gt.gob.rgm.inv.model.DetalleDespacho;
 import gt.gob.rgm.inv.model.Kardex;
 import gt.gob.rgm.inv.model.Requisicion;
+import gt.gob.rgm.inv.model.Usuario;
 import gt.gob.rgm.inv.util.MessagesInv;
 import gt.gob.rgm.inv.util.PdfUtils;
 import gt.gob.rgm.inv.util.ResponseRs;
@@ -127,7 +128,11 @@ public class DespachoServiceImp implements DespachoService {
 				referencia.append("[SOLICITANTE]:").append(despacho.getRequisicion().getSolicitante().getNombre());
 				referencia.append("[MOTIVO]:").append(despacho.getObservaciones());
 				kardex.setReferencia(referencia.toString());
-				kardex.setSalida(BigDecimal.valueOf(articulo.getStock() != null ? articulo.getStock() : 0));
+				//corellana se modifico a solicitud de morse y lic tirsa
+                                //kardex.setSalida(BigDecimal.valueOf(articulo.getStock() != null ? articulo.getStock() : 0));
+                                
+                                kardex.setSalida( detalle.getCantidad());
+                                
 				
 				articulo.setStock((articulo.getStock() != null ? articulo.getStock() : 0) - detalle.getCantidad().longValue());
 				kardex.setExistencia(BigDecimal.valueOf(articulo.getStock()));
@@ -332,7 +337,24 @@ public class DespachoServiceImp implements DespachoService {
 	        table.addCell(MessagesInv.createTextCell("_________________________________"));
 	        table.addCell(MessagesInv.createTextCell(params.get("usuario").toString()));
 	        table.addCell(MessagesInv.createTextCell("Vo Bo"));	 
+                
+    
 	        document.add(table);
+                
+                
+                            document.add(new Paragraph("\n\n\n"));
+			Table table2 = new Table(2, true);
+	        table2.setWidth(UnitValue.createPercentValue(100));
+	        table2.setHorizontalAlignment(HorizontalAlignment.CENTER);	        
+	        table2.setBorder(Border.NO_BORDER);	       
+	        table2.addCell(MessagesInv.createTextCell("_________________________________"));
+	        table2.addCell(MessagesInv.createTextCell(" "));
+                
+                Usuario usuario_solicitante = despacho.getRequisicion().getSolicitante();
+	        table2.addCell(MessagesInv.createTextCell(usuario_solicitante.getNombre()));
+	        table2.addCell(MessagesInv.createTextCell(" "));	 
+                
+	        document.add(table2);
 				
 			document.close();
 			file = os.toByteArray();

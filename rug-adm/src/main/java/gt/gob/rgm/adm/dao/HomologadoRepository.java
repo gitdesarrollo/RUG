@@ -21,7 +21,7 @@ public class HomologadoRepository {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public List<Homologado> findVinculaciones(String solicitante, String fechaInicio, String fechaFin, Integer page, Integer size) {
+	public List<Homologado> findVinculaciones(String solicitante, String fechaInicio, String fechaFin, Integer page, Integer size,String garantia) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Homologado> criteria = cb.createQuery(Homologado.class);
 		Root<Homologado> vinculaciones = criteria.from(Homologado.class);
@@ -43,6 +43,17 @@ public class HomologadoRepository {
 				restrictions = cb.between(vinculaciones.get("fecha"), fechaInicio, formatter.format(dateFechaFin));
 			}
 		}
+                
+                if (garantia!=null)
+                {
+                    if(restrictions != null) {
+				restrictions = cb.and(restrictions,
+					cb.equal(vinculaciones.get("idGarantia"), garantia));
+			} else {
+				restrictions = cb.equal(vinculaciones.get("idGarantia"), garantia);
+			}
+                }
+                
 		criteria = criteria.select(vinculaciones);
 		if(restrictions != null) {
 			criteria = criteria.where(restrictions);
@@ -56,7 +67,7 @@ public class HomologadoRepository {
 		return query.getResultList();
 	}
 	
-	public Long countVinculaciones(String solicitante, String fechaInicio, String fechaFin) {
+	public Long countVinculaciones(String solicitante, String fechaInicio, String fechaFin,String garantia) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Long> criteria = cb.createQuery(Long.class);
 		Root<Homologado> vinculaciones = criteria.from(Homologado.class);
@@ -78,6 +89,15 @@ public class HomologadoRepository {
 				restrictions = cb.between(vinculaciones.get("fecha"), fechaInicio, formatter.format(dateFechaFin));
 			}
 		}
+                 if (garantia!=null)
+                {
+                    if(restrictions != null) {
+				restrictions = cb.and(restrictions,
+					cb.equal(vinculaciones.get("idGarantia"), garantia));
+			} else {
+				restrictions = cb.equal(vinculaciones.get("idGarantia"), garantia);
+			}
+                }
 		criteria = criteria.select(cb.construct(Long.class,
     		cb.count(vinculaciones.get("homologadoId"))
 		));

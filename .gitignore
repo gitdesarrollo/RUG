@@ -35,3 +35,4 @@ rug-web/target
 
 rug-adm-web/node_modules/
 /rug-adm-web/node_modules/
+/rug-adm-web/nbproject/private/

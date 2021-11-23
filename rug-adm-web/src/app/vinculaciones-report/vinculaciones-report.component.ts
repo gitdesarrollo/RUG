@@ -26,6 +26,7 @@ export class VinculacionesReportComponent implements OnInit {
   total: number;
   fechaInicio: string;
   fechaFin: string;
+  garantia: string;
 
   constructor(private guaranteesService: GuaranteesService,
     private loadingService: LoadingService,
@@ -59,7 +60,7 @@ export class VinculacionesReportComponent implements OnInit {
     this.fechaFin = moment().endOf('month').format('YYYY-MM-DD');
     this.loading = true;
     this.loadingService.changeLoading(this.loading);
-    this.httpSubscription = this.guaranteesService.fetchVinculacionData(this.currentPage, this.pageSize, this.fechaInicio, this.fechaFin).subscribe(
+    this.httpSubscription = this.guaranteesService.fetchVinculacionData(this.currentPage, this.pageSize, this.fechaInicio, this.fechaFin,this.garantia).subscribe(
       res => {
         this.vinculaciones = res.data;
         this.total = res.total;
@@ -78,7 +79,7 @@ export class VinculacionesReportComponent implements OnInit {
     this.vinculaciones = [];
     this.loading = true;
     this.loadingService.changeLoading(this.loading);
-    this.httpSubscription = this.guaranteesService.fetchVinculacionData(page, this.pageSize, this.fechaInicio, this.fechaFin).subscribe(
+    this.httpSubscription = this.guaranteesService.fetchVinculacionData(page, this.pageSize, this.fechaInicio, this.fechaFin,this.garantia).subscribe(
       res => {
         this.vinculaciones = res.data;
         this.total = res.total;
@@ -100,7 +101,7 @@ export class VinculacionesReportComponent implements OnInit {
     this.vinculaciones = [];
     this.loading = true;
     this.loadingService.changeLoading(this.loading);
-    this.httpSubscription = this.guaranteesService.fetchVinculacionData(1, this.pageSize, this.fechaInicio, this.fechaFin).subscribe(
+    this.httpSubscription = this.guaranteesService.fetchVinculacionData(1, this.pageSize, this.fechaInicio, this.fechaFin,this.garantia).subscribe(
       res => {
         this.vinculaciones = res.data;
         this.total = res.total;
@@ -122,15 +123,18 @@ export class VinculacionesReportComponent implements OnInit {
     if (this.fechaInicio !== event.from || this.fechaFin !== event.to) {
       this.fechaInicio = event.from;
       this.fechaFin = event.to;
-      this.refreshData();
+      //this.refreshData();
     }
   }
+
+
+  
 
   exportData() {
     this.exportVinculaciones = [];
     this.loading = true;
     this.loadingService.changeLoading(this.loading);
-    this.httpSubscription = this.guaranteesService.fetchVinculacionData(null, null, this.fechaInicio, this.fechaFin).subscribe(
+    this.httpSubscription = this.guaranteesService.fetchVinculacionData(null, null, this.fechaInicio, this.fechaFin,this.garantia).subscribe(
       res => {
         this.exportVinculaciones = res.data;
         const temp = this.exportVinculaciones.map(el => ({

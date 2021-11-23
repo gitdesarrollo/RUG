@@ -116,7 +116,13 @@ public class BoletaPdfServiceImp implements BoletaPdfService {
 		switch (detalleTO.getIdTipoTramite().intValue()) {
 			case 1:
 				pdfTO.setHtml(parametroDao.findByKey(Constants.HTML_INSCRIPCION).getValorParametro());				
-				pdfTO.setValue("[*operacion*]", "Inscripci\u00f3n " + anexo);				
+				pdfTO.setValue("[*operacion*]", "Inscripci\u00f3n " + anexo);		
+                                   /*corellana: Hector pidio que para los de leasing el titulo sea otro */
+                                pdfTO.setValue("[*titulo_garantia*]", "          <span class=\"card-title center-align\">INSCRIPCI&Oacute;N DE LA GARANT&Iacute;A MOBILIARIA</span>" );
+                
+		
+                                
+                                
 				break;
 			case 31:
 				pdfTO.setHtml(parametroDao.findByKey(Constants.HTML_INSCRIPCION).getValorParametro());				
@@ -156,6 +162,10 @@ public class BoletaPdfServiceImp implements BoletaPdfService {
 				pdfTO.setValue("[*operacion*]", "Fin de Vigencia");
 				pdfTO.setValue("[*title*]", "ANOTACI\u00d3N DE FIN DE VIGENCIA DE LA");
 				break;
+                                
+                        case 16:
+                                pdfTO.setValue("[*titulo_garantia*]", " <span class=\"card-title center-align\">INSCRIPCI&Oacute;N DE LA GARANT&Iacute;A MOBILIARIA (LEASING)</span>" );
+                                break; 
 			default:
 				break;
 		}

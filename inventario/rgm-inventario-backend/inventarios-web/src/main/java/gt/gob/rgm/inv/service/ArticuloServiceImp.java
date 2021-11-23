@@ -94,7 +94,8 @@ public class ArticuloServiceImp implements ArticuloService {
 				
 				// finds de los saldos				
 				if(kardex.size()>0) {
-					inventario.setInicial(MessagesInv.numberNotNull(kardex.get(0).getExistencia()) - MessagesInv.numberNotNull(kardex.get(0).getEntrada()) + MessagesInv.numberNotNull(kardex.get(0).getSalida()));
+                                        //corellana: Segun reunion con Morse y Lic. Tirsa a la existencia inicial se le restan las salidas y se le suman las entradas 
+					inventario.setInicial(MessagesInv.numberNotNull(kardex.get(0).getExistencia()) - MessagesInv.numberNotNull(kardex.get(0).getSalida()) + MessagesInv.numberNotNull(kardex.get(0).getEntrada()));
 					inventario.setIngreso(kardexDao.findValueByParams(filter, "ingreso"));
 					inventario.setSalida(kardexDao.findValueByParams(filter, "salida"));
 					inventario.setExistencia(kardex.get(kardex.size()-1).getExistencia().longValue());

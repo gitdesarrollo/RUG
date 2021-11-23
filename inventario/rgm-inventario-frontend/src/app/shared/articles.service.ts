@@ -10,6 +10,7 @@ import { Filtro } from "./filtro.model";
 export class ArticlesService {
   articles: Article[] = [];
   articlesChanged = new Subject<Article[]>();
+  errores= new Subject<Boolean>();
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +25,10 @@ export class ArticlesService {
         this.articles.push(savedArticle);
         this.articlesChanged.next(this.getArticles());
       },
-      err => console.error(err)
+      err => {
+        console.error(err);
+        this.errores.next(true);
+      } 
     );
   }
 

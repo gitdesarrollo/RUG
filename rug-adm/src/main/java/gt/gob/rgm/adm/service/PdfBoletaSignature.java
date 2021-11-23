@@ -107,6 +107,10 @@ public class PdfBoletaSignature implements PdfBoletaService {
 				pdfTO.setHtml(parametroDao.findByKey(Constants.HTML_INSCRIPCION).getValorParametro());				
 				pdfTO.setValue("[*operacion*]", "Inscripci\u00f3n " + anexo);
                                 info.setTypeDocument("Inscripci\u00f3n ");
+                
+                                pdfTO.setValue("[*titulo_garantia*]", "INSCRIPCION DE LA GARANTIA MOBILIARIA" );
+                                pdfTO.setValue("[*montoEstimado*]", "" );
+                
 				break;
 			case 31:
 				pdfTO.setHtml(parametroDao.findByKey(Constants.HTML_INSCRIPCION).getValorParametro());				
@@ -152,6 +156,20 @@ public class PdfBoletaSignature implements PdfBoletaService {
 				pdfTO.setValue("[*title*]", "ANOTACI\u00d3N DE FIN DE VIGENCIA DE LA");
                                 info.setTypeDocument("Fin de Vigencia");
 				break;
+                        case 16:
+                                pdfTO.setValue("[*titulo_garantia*]", "INSCRIPCION DE LA GARANTIA MOBILIARIA(LEASING)" );
+                                
+                                
+                                
+                                String monto_maximo  = detalleTO.getMontoMaximoGar();
+                                
+                                pdfTO.setValue("[*montoEstimado*]",monto_maximo );
+                                
+                                
+                                
+                                
+                                
+                            break;
 			default:
 				break;
 		}

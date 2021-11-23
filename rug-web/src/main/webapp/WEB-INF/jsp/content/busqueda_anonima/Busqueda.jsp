@@ -37,7 +37,7 @@
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<s:textfield name="serial" id="serial" size="250"  maxlength="250" />
+									<s:textfield name="serial" id="serial" size="250"  maxlength="250" cssClass="validate tooltipped" data-position="right" data-delay="50" data-tooltip="Si busca la información de un vehículo, colocar los datos del VIN exactamente como aparecen en la tarjeta de circulación de este"/>
 									<label for="serial">N&uacute;mero de serie</label>
 								</div>
 							</div>
@@ -67,13 +67,13 @@
 						<s:form namespace="usuario" action="resBusqueda.do" theme="simple" cssClass="col s12">
 							<div class="row">
 								<div class="input-field col s12">
-									<s:textfield name="nombreOtorgante" id="nombreOtorgante" size="32" maxlength="100" />
+									<s:textfield name="nombreOtorgante" id="nombreOtorgante" size="32" maxlength="100" cssClass="validate tooltipped" data-position="right" data-delay="50"  data-tooltip="Ingresar el nombre completo de persona que desea buscar"/>
 									<label for="nombreOtorgante">Nombre o Raz&oacute;n Social del Deudor Garante</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<s:textfield name="idGarantia" id="idGarantia" size="17"   maxlength="20" />
+									<s:textfield name="idGarantia" id="idGarantia" size="17" type="number"   maxlength="20" cssClass="validate tooltipped" data-position="right" data-delay="50"  data-tooltip="Ingresar únicamente el número de garantía" />
 									<label for="idGarantia">N&uacute;mero de inscripci&oacute;n de la Garant&iacute;a</label>
 								</div>
 							</div>

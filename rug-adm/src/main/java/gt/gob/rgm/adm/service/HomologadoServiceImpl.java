@@ -20,9 +20,9 @@ public class HomologadoServiceImpl {
 	 @Inject
 	 private HomologadoRepository homologadoDao;
 	 
-	 public List<Vinculacion> listVinculaciones(String solicitante, String fechaInicio, String fechaFin, Integer page, Integer size) {
+	 public List<Vinculacion> listVinculaciones(String solicitante, String fechaInicio, String fechaFin, Integer page, Integer size, String garantia) {
 		 List<Vinculacion> vinculaciones = new ArrayList<>();
-		 List<Homologado> homologados = homologadoDao.findVinculaciones(solicitante, fechaInicio, fechaFin, page, size);
+		 List<Homologado> homologados = homologadoDao.findVinculaciones(solicitante, fechaInicio, fechaFin, page, size,garantia);
 		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		 for(Homologado homologado : homologados) {
 			 Vinculacion vinculacion = new Vinculacion();
@@ -41,7 +41,9 @@ public class HomologadoServiceImpl {
 		 return vinculaciones;
 	 }
 	 
-	 public Long countVinculaciones(String solicitante, String fechaInicio, String fechaFin) {
-		 return homologadoDao.countVinculaciones(solicitante, fechaInicio, fechaFin);
+	 public Long countVinculaciones(String solicitante, String fechaInicio, String fechaFin, String garantia) {
+		 return homologadoDao.countVinculaciones(solicitante, fechaInicio, fechaFin,garantia);
 	 }
+
+   
 }

@@ -125,7 +125,7 @@ export class GuaranteesService {
     return this.http.get<ResponseRs>(environment.api_url + '/garantias/consultas?' + param);
   }
 
-  fetchVinculacionData(page: number, size: number, fechaInicio: String, fechaFin: String) {
+  fetchVinculacionData(page: number, size: number, fechaInicio: String, fechaFin: String, garantia:String) {
     let param = '';
     if (page) {
       param += '?page=' + page + '&size=' + size;
@@ -133,6 +133,12 @@ export class GuaranteesService {
     if (fechaInicio) {
       param = 'fechaInicio=' + fechaInicio + '&fechaFin=' + fechaFin;
     }
+    if (garantia)
+    {
+      param += '&garantia=' + garantia;
+    }
+
+
     return this.http.get<ResponseRs>(environment.api_url + '/garantias/vinculaciones?' + param);
   }
 

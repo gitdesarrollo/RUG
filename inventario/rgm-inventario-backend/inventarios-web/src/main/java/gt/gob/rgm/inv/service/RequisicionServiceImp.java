@@ -332,10 +332,18 @@ public class RequisicionServiceImp implements RequisicionService {
 	        table.setWidth(UnitValue.createPercentValue(100));
 	        table.setHorizontalAlignment(HorizontalAlignment.CENTER);	        
 	        table.setBorder(Border.NO_BORDER);	       
+                
+                
 	        table.addCell(MessagesInv.createTextCell("_________________________________"));
 	        table.addCell(MessagesInv.createTextCell("_________________________________"));
 	        table.addCell(MessagesInv.createTextCell(params.get("usuario").toString()));
 	        table.addCell(MessagesInv.createTextCell("Vo Bo"));	 
+                
+                table.addCell(MessagesInv.createTextCell("_________________________________"));
+                table.addCell(MessagesInv.createTextCell(" "));
+                
+                table.addCell(MessagesInv.createTextCell("Usuario Solicitante"));	 
+                
 	        document.add(table);
 
 	        document.close();

@@ -61,7 +61,7 @@
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<s:textfield name="idGarantia" id="idGarantia" size="17"   maxlength="20" />
+									<s:textfield name="idGarantia" id="idGarantia" size="17"  type="number" maxlength="20" />
 									<label for="idGarantia">N&uacute;mero de inscripci&oacute;n de la Garant&iacute;a</label>
 								</div>
 							</div>

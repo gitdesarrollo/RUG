@@ -36,3 +36,7 @@ rug-web/target
 rug-adm-web/node_modules/
 /rug-adm-web/node_modules/
 /rug-adm-web/nbproject/private/
+
+
+inventario/rgm-inventario-frontend/node_modules/
+rug-adm-web/node_modules/

@@ -39,7 +39,8 @@ public class RugRelTramPartesRepository {
 			query.setFirstResult((page - 1) * size);
 			query.setMaxResults(size);
 		}
-		
+
+//		System.out.println("Query partes: " + query.toString());
 		return query.getResultList();
 	}
 	

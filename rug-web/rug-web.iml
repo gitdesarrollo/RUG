@@ -21,7 +21,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="RUG_PERSISTENCE" />
+        </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
@@ -148,5 +150,6 @@
     <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk14:1.63" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bctsp-jdk14:1.46" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcmail-jdk14:1.46" level="project" />
+    <orderEntry type="library" name="rug-web" level="project" />
   </component>
 </module>

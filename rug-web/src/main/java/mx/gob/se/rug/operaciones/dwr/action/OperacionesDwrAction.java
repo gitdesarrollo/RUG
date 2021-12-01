@@ -475,7 +475,7 @@ public class OperacionesDwrAction extends AbstractBaseDwrAction {
 					"						</div>	");
 			if(!deudores.isEmpty()) {
 				sb.append("<div class=\"row\"><div class=\"input-field col s12\">\r\n" + 
-						"						    		<table id=\"mytable\" class=\"bordered striped centered responsive-table\" >\r\n" + 
+						"						    		<table id=\"mytable\" class=\"bordered 2 striped centered responsive-table\" >\r\n" + 
 						"										<thead>	\r\n" + 
 						"											<tr>\r\n" + 
 						"												<th colspan=\"2\">"+textos.get(1)+"</th>\r\n" + 

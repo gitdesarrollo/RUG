@@ -121,46 +121,52 @@ public class TransactionsServiceImp {
             List<RugRelTramPartes> partes = partesService.getPartes(partesFilter, null, null);
             List<ExternalUser> deudores = new ArrayList<>();
             List<ExternalUser> acreedores = new ArrayList<>();
-            System.out.println("partes: " + partes);
-            for (RugRelTramPartes parte : partes) {
-                System.out.println(
-                        " Doc " + parte.getPersonaH().getCurpDoc() +
-                        " Nit " + parte.getPersonaH().getRfc() +
-                        " Name " +   (parte.getPerJuridica().equals("PF") ? parte.getPersonaH().getNombrePersona() : parte.getPersonaH().getRazonSocial()) +
-                        " Persona " + parte.getPersonaH().getId().getIdPersona()  +
-                        " Email " +   parte.getPersonaH().getEMail()   +
-                        " Register " +         formatter.format(parte.getFechaReg().getTime()) +
-                        " Person Type " + parte.getPersonaH().getPerJuridica() +
-                        " Nationality " + parte.getPersonaH().getIdNacionalidad() +
-                        " Address " +  (parte.getPersona().getDomicilio() != null ? parte.getPersona().getDomicilio().getUbicaDomicilio1() : "")
-                );
-                ExternalUser userPart = new ExternalUser();
-                userPart.setDocId(parte.getPersonaH().getCurpDoc());
-                userPart.setNit(parte.getPersonaH().getRfc());
-                userPart.setName(parte.getPerJuridica().equals("PF") ? parte.getPersonaH().getNombrePersona() : parte.getPersonaH().getRazonSocial());
-                userPart.setPersonaId(parte.getPersonaH().getId().getIdPersona());
-                userPart.setEmail(parte.getPersonaH().getEMail());
-                userPart.setRegistered(formatter.format(parte.getFechaReg().getTime()));
-                userPart.setPersonType(parte.getPersonaH().getPerJuridica());
-                userPart.setNationality(parte.getPersonaH().getIdNacionalidad());
-                userPart.setAddress(parte.getPersona().getDomicilio() != null ? parte.getPersona().getDomicilio().getUbicaDomicilio1() : "");
-                if (parte.getPerJuridica().equals("PM") && (parte.getId().getIdParte() == 2 || parte.getId().getIdParte() == 3)) {
-                    userPart.setLegalInscription(parte.getPersonaMoral().getNumInscrita());
-                    userPart.setRepresentativeInfo(parte.getPersonaMoral().getUbicada());
-                }
+            System.out.println("partes: " + partesFilter);
+            try {
+                for (RugRelTramPartes parte : partes) {
+//                    System.out.println("partes : " + parte.getPersonaH());
+//                    System.out.println(
+//                            " Doc " + parte.getPersonaH().getCurpDoc() +
+//                                    " Nit " + parte.getPersonaH().getRfc() +
+//                                    " Name " +   (parte.getPerJuridica().equals("PF") ? parte.getPersonaH().getNombrePersona() : parte.getPersonaH().getRazonSocial()) +
+//                                    " Persona " + parte.getPersonaH().getId().getIdPersona()  +
+//                                    " Email " +   parte.getPersonaH().getEMail()   +
+//                                    " Register " +         formatter.format(parte.getFechaReg().getTime()) +
+//                                    " Person Type " + parte.getPersonaH().getPerJuridica() +
+//                                    " Nationality " + parte.getPersonaH().getIdNacionalidad() +
+//                                    " Address " +  (parte.getPersona().getDomicilio() != null ? parte.getPersona().getDomicilio().getUbicaDomicilio1() : "")
+//                    );
+                    ExternalUser userPart = new ExternalUser();
+                    userPart.setDocId(parte.getPersonaH().getCurpDoc());
+                    userPart.setNit(parte.getPersonaH().getRfc());
+                    userPart.setName(parte.getPerJuridica().equals("PF") ? parte.getPersonaH().getNombrePersona() : parte.getPersonaH().getRazonSocial());
+                    userPart.setPersonaId(parte.getPersonaH().getId().getIdPersona());
+                    userPart.setEmail(parte.getPersonaH().getEMail());
+                    userPart.setRegistered(formatter.format(parte.getFechaReg().getTime()));
+                    userPart.setPersonType(parte.getPersonaH().getPerJuridica());
+                    userPart.setNationality(parte.getPersonaH().getIdNacionalidad());
+                    userPart.setAddress(parte.getPersona().getDomicilio() != null ? parte.getPersona().getDomicilio().getUbicaDomicilio1() : "");
+                    if (parte.getPerJuridica().equals("PM") && (parte.getId().getIdParte() == 2 || parte.getId().getIdParte() == 3)) {
+                        userPart.setLegalInscription(parte.getPersonaMoral().getNumInscrita());
+                        userPart.setRepresentativeInfo(parte.getPersonaMoral().getUbicada());
+                    }
 
-                if (parte.getId().getIdParte() == 2) {
-                    deudores.add(userPart);
-                } else if (parte.getId().getIdParte() == 3) {
-                    acreedores.add(userPart);
+                    if (parte.getId().getIdParte() == 2) {
+                        deudores.add(userPart);
+                    } else if (parte.getId().getIdParte() == 3) {
+                        acreedores.add(userPart);
+                    }
                 }
+                // buscar deudores
+                guarantee.setDeudores(deudores);
+                // buscar acreedores
+                guarantee.setAcreedores(acreedores);
+
+                transaction.setGuarantee(guarantee);
+            }catch(NullPointerException e){
+                System.out.println("Error en consulta" + e);
             }
-            // buscar deudores
-            guarantee.setDeudores(deudores);
-            // buscar acreedores
-            guarantee.setAcreedores(acreedores);
 
-            transaction.setGuarantee(guarantee);
         }
         return transaction;
     }

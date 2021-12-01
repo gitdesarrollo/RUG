@@ -385,7 +385,7 @@ public class DetalleAction extends RugBaseAction implements ServletRequestAware 
 		setIdTramite(idTramiteAct.toString());
                 
  
-                
+                System.out.println("estoy en inicia");
 		if (getBvalida().equals("1")){
 			setVieneFirma(true);
 		}else{
@@ -394,6 +394,7 @@ public class DetalleAction extends RugBaseAction implements ServletRequestAware 
 		
 		try{
 			Integer tramite = new Integer(getIdTramite());
+                        System.out.println("tramite jj"+ getIdTramite());
 			posTramite(Integer.parseInt(getIdGarantia()),Integer.parseInt(getIdTramite()));
 			DetalleServiceImpl detserv = new DetalleServiceImpl();
 			setDatosGaranTO(detserv.datosGaran(Integer.parseInt(getIdGarantia()), Integer.parseInt(getIdTramite())));
@@ -417,6 +418,7 @@ public class DetalleAction extends RugBaseAction implements ServletRequestAware 
 			
 			Integer idGarantia = new Integer(getIdGarantia()); 
 			Integer idAcreedor= 	detserv.getIdAcreedorByIdTramite(tramite);
+                        System.out.println("tramite jj"+ idAcreedor);
 			sessionMap.put(Constants.ID_ACREEDOR_REPRESENTADO, idAcreedor);
 			setAcreedorTOs(detserv.getAcreedor(idGarantia,tramite));
 			if (getAcreedorTOs().size()>0){

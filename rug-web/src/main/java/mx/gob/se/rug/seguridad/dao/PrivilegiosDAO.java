@@ -148,7 +148,7 @@ public class PrivilegiosDAO {
 			connection = bd.getConnection();
 			ps = connection.prepareStatement(sql);
 			MyLogger.Logger.log(Level.INFO, "idRecurso"+privilegiosTO.getIdRecurso());
-			MyLogger.Logger.log(Level.INFO, "idpersona"+idPersona);
+			MyLogger.Logger.log(Level.INFO, "idpersona 2"+idPersona);
 			
 			ps.setInt(1, idPersona);
 			ps.setInt(2, privilegiosTO.getIdRecurso());

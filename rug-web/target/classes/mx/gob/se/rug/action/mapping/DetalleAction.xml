@@ -16,11 +16,11 @@
 		<action name="detalle" method="crearDetalle" class="detalleAction">
 			<result name="success" type="redirectAction">
 				<param name="actionName">inicia</param>
-                <param name="namespace">/home</param>
-                <param name="bvalida">${bvalida}</param>
+                                <param name="namespace">/home</param>
+                                <param name="bvalida">${bvalida}</param>
                 
-             </result>
-             <result name="failed" type="tiles">busqueda.home</result> 
+                        </result>
+                        <result name="failed" type="tiles">busqueda.home</result> 
 		</action>
 		<action name="consulta" method="consulta" class="detalleAction">
 			<result name="input" type="tiles">detalle.home</result>

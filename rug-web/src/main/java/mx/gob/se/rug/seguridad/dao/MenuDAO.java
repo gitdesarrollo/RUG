@@ -101,6 +101,7 @@ public class MenuDAO {
 			MyLogger.Logger.log(Level.INFO, "submenu de  acreedor test" + idAcreedor);
 			GarantiasDAO gdao = new GarantiasDAO();
 			idAcreedor = gdao.getCuentaMaestra(idAcreedor.longValue()).intValue();
+                        //idAcreedor = 51071;
 			ConexionBD bd = new ConexionBD();
 			Connection connection = null;
 			List<String> html = new ArrayList<String>();

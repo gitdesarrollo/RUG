@@ -26,7 +26,7 @@ public class VigenciaCronServiceImp {
 		
 	}
 	
-	@Schedule(minute="1", hour="6", dayOfWeek="*")
+	//@Schedule(minute="1", hour="6", dayOfWeek="*")
 	public void enviarAvisoVencimiento() {
 		System.out.println("-->JOB ENVIO AVISOS VENCIMIENTO");
 		List<VTramitesMailVigencia> tramites = new ArrayList<VTramitesMailVigencia>();

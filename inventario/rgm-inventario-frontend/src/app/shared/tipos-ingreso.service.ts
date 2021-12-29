@@ -27,6 +27,11 @@ export class TiposIngresoService {
     );
   }
 
+  addTipos(types: TipoIngreso[]) {
+    this.tipos.push(...types);
+    // this.typesChanged.next(this.getTypes());
+  }
+
   addTipoIngresos(tipos: TipoIngreso[]) {
     this.tipos.push(...tipos);
     this.tiposChanged.next(this.getTipoIngresos());
@@ -42,6 +47,17 @@ export class TiposIngresoService {
     );
   }
 
+  deleteType(index: number, typeId: number) {
+    this.deleteData(typeId).subscribe(
+      (response) => {
+        let updatedType: TipoIngreso = response.value;
+        this.tipos.splice(index, 1);
+        this.tiposChanged.next(this.getTipoIngresos());
+      }
+    );
+  }
+
+
   fetchData() {
     return this.http.get<ResponseRs>(environment.api_url + '/tipos-ingresos');
   }
@@ -52,5 +68,9 @@ export class TiposIngresoService {
 
   updateData(tipo: TipoIngreso) {
     return this.http.put<ResponseRs>(environment.api_url + '/tipos-ingresos/' + tipo.tipoIngresoId, tipo);
+  }
+
+  deleteData(typeId: number) {
+    return this.http.delete<ResponseRs>(environment.api_url + '/tipos-ingresos/' + typeId);
   }
 }

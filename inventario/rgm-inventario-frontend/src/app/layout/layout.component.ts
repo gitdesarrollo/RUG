@@ -90,7 +90,16 @@ export class LayoutComponent implements OnInit {
     	{
       	etiqueta: 'Artículos',
       	link: '/articles'
-    	}]
+    	},
+		{
+		etiqueta: 'Tipo de Ingreso',
+		link: '/tipo-ingreso'
+	     },
+		 {
+			etiqueta: 'Tipo de Salida',
+			link: '/tipo-salida'
+		},
+	]
     },
     {
     	etiqueta: 'Productos',

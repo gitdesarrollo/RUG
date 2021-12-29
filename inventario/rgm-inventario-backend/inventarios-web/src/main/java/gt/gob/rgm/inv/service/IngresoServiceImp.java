@@ -327,7 +327,7 @@ public class IngresoServiceImp implements IngresoService {
             header.add("Código");
             header.add("Descripción");
             header.add("Cantidad");
-            header.add("Fecha Vencimiento");            
+            header.add("Fecha Vencimiento2");            
             
             pdfTO.setHeaders(header);
 			

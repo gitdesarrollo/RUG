@@ -269,7 +269,7 @@ public class ArticuloServiceImp implements ArticuloService {
 					
 					// finds de los saldos
 					params.put("codigoArticulo", kardex);
-					inventario.setInicial(kardexDao.findValueByParams(params, "inicial"));
+					inventario.setInicial(kardexDao.findValueByParams(params, "inicial_reporte"));
 					inventario.setIngreso(kardexDao.findValueByParams(params, "ingreso"));
 					inventario.setSalida(kardexDao.findValueByParams(params, "salida"));
 					inventario.setExistencia(kardexDao.findValueByParams(params, "final"));

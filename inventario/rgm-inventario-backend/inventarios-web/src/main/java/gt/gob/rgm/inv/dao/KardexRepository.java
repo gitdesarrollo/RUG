@@ -86,7 +86,33 @@ public class KardexRepository {
         	if(queryType.getResultList().size()>0)
         		return ((BigDecimal) queryType.getResultList().get(0).get("total")).longValue();
         	
-        } else if(tipo.equalsIgnoreCase("final")) {
+        } 
+        else if(tipo.equalsIgnoreCase("inicial_reporte")) {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date fechaInicio = formatter.parse("2017-01-01");
+            Date fechaFin = formatter.parse("2020-12-31");
+            
+            articulo = cb.and(articulo,
+        		cb.between(kardexes.get("fecha"), fechaInicio, fechaFin)
+    		);
+            
+            
+        	criteria.multiselect(cb.sum(
+        							cb.diff(cb.<Long>selectCase().when(kardexes.get("entrada").isNotNull(), cb.function("TO_NUMBER",Long.class, kardexes.get("entrada"))).otherwise(cb.literal(0L)),
+        								cb.<Long>selectCase().when(kardexes.get("salida").isNotNull(), cb.function("TO_NUMBER", Long.class, kardexes.get("salida"))).otherwise(cb.literal(0L)))).alias("total"))
+        		.where(articulo)
+        		.orderBy(cb.asc(kardexes.get("kardexId")));
+        	
+        	queryType = em.createQuery(criteria);
+        	try{
+                    if(queryType.getResultList().size()>0)
+        		return ((BigDecimal) queryType.getResultList().get(0).get("total")).longValue();
+                }
+                catch(Exception e) {
+                    return 0L;
+                }
+        	
+        }else if(tipo.equalsIgnoreCase("final")) {
         	
         	criteria.multiselect(kardexes.get("existencia").alias("existencia"))
         		.where(articulo)

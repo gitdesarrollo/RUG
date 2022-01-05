@@ -122,7 +122,7 @@ public class TransactionsServiceImp {
             List<ExternalUser> deudores = new ArrayList<>();
             List<ExternalUser> acreedores = new ArrayList<>();
             System.out.println("partes: " + partesFilter);
-            try {
+//            try {
                 for (RugRelTramPartes parte : partes) {
 //                    System.out.println("partes : " + parte.getPersonaH());
 //                    System.out.println(
@@ -163,9 +163,9 @@ public class TransactionsServiceImp {
                 guarantee.setAcreedores(acreedores);
 
                 transaction.setGuarantee(guarantee);
-            }catch(NullPointerException e){
-                System.out.println("Error en consulta" + e);
-            }
+//            }catch(NullPointerException e){
+//                System.out.println("Error en consulta" + e);
+//            }
 
         }
         return transaction;

@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="TIPO_SALIDA")
-@NamedQuery(name="TipoSalida.findAll", query="SELECT t FROM TipoSalida t")
+@NamedQuery(name="TipoSalida.findAll", query="SELECT t FROM TipoSalida t WHERE t.estado = 'A'")
 public class TipoSalida implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -379,6 +379,9 @@ public class PdfUtils {
                 cell = new Cell().add(new Paragraph(MessagesInv.notNull(((DetalleIngreso) value).getArticulo().getDescripcion()).toString())).setFont(colfont).setFontSize(6f).setTextAlignment(TextAlignment.CENTER);
                 table.addCell(cell);
                 
+                cell = new Cell().add(new Paragraph(MessagesInv.notNull(((DetalleIngreso) value).getCantidad()).toString())).setFont(colfont).setFontSize(6f).setTextAlignment(TextAlignment.CENTER);
+                table.addCell(cell);
+                
                 cell = new Cell().add(new Paragraph(MessagesInv.dateNull(((DetalleIngreso) value).getFechaVencimiento()))).setFont(colfont).setFontSize(10f).setTextAlignment(TextAlignment.CENTER);
                 table.addCell(cell);
                 

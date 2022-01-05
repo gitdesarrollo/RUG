@@ -27,6 +27,11 @@ export class TiposSalidaService {
     );
   }
 
+  addTipos(types: TipoSalida[]) {
+    this.tipos.push(...types);
+    // this.typesChanged.next(this.getTypes());
+  }
+
   addTipoSalidas(tipos: TipoSalida[]) {
     this.tipos.push(...tipos);
     this.tiposChanged.next(this.getTipoSalidas());
@@ -42,6 +47,18 @@ export class TiposSalidaService {
     );
   }
 
+  deleteType(index: number, typeId: number) {
+    this.deleteData(typeId).subscribe(
+      (response) => {
+        let updatedType: TipoSalida = response.value;
+        this.tipos.splice(index, 1);
+        this.tiposChanged.next(this.getTipoSalidas());
+      }
+    );
+  }
+
+
+
   fetchData() {
     return this.http.get<ResponseRs>(environment.api_url + '/tipos-salidas');
   }
@@ -52,5 +69,9 @@ export class TiposSalidaService {
 
   updateData(tipo: TipoSalida) {
     return this.http.put<ResponseRs>(environment.api_url + '/tipos-salidas/' + tipo.tipoSalidaId, tipo);
+  }
+
+  deleteData(typeId: number) {
+    return this.http.delete<ResponseRs>(environment.api_url + '/tipos-salidas/' + typeId);
   }
 }

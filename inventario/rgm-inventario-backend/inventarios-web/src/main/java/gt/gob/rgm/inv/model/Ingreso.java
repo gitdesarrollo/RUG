@@ -10,8 +10,7 @@ import java.util.List;
 /**
  * The persistent class for the INGRESO database table.
  * 
- */
-@Entity
+ */@Entity
 @NamedQuery(name="Ingreso.findAll", query="SELECT i FROM Ingreso i")
 public class Ingreso implements Serializable {
 	private static final long serialVersionUID = 1L;

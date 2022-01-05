@@ -59,6 +59,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { EstadoUsuarioPipe } from './shared/estado-usuario.filter';
 import { RolPipe } from './shared/rol.filter';
 import { RequisicionesEditComponent } from './requisiciones-edit/requisiciones-edit.component';
+import { TipoIngresoComponent } from './tipo-ingreso/tipo-ingreso.component';
+import { TipoSalidaComponent } from './tipo-salida/tipo-salida.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +98,8 @@ import { RequisicionesEditComponent } from './requisiciones-edit/requisiciones-e
     AprobacionesIngresoComponent,
     AprobacionesSalidaComponent,
     ChangePasswordComponent,
-    RequisicionesEditComponent
+    RequisicionesEditComponent,    
+    TipoIngresoComponent, TipoSalidaComponent
   ],
   imports: [
     AppRoutingModule,

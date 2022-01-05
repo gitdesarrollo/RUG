@@ -30,7 +30,8 @@ import { AprobacionesIngresoComponent } from "./aprobaciones-ingreso/aprobacione
 import { AprobacionesSalidaComponent } from "./aprobaciones-salida/aprobaciones-salida.component";
 import { ChangePasswordComponent } from "./change-password/change-password.component";
 import { RequisicionesEditComponent } from "./requisiciones-edit/requisiciones-edit.component";
-
+import { TipoIngresoComponent } from "./tipo-ingreso/tipo-ingreso.component";
+import { TipoSalidaComponent } from "./tipo-salida/tipo-salida.component";
 export const routes: Routes = [
   {
     path: '',
@@ -157,7 +158,16 @@ export const routes: Routes = [
       {
         path: 'requisicion-edit/:id',
         component: RequisicionesEditComponent
-      }
+      },
+      {
+        path: 'tipo-ingreso',
+        component: TipoIngresoComponent
+      },
+      {
+        path: 'tipo-salida',
+        component: TipoSalidaComponent
+      },
+
     ]
   }
 ];
